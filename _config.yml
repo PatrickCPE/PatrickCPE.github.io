@@ -21,7 +21,7 @@
 title: ""
 email: "PatrickRHoey@Gmail.com"
 description: >- # this means to ignore newlines until "baseurl:"
-  "Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserver
+  "Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve
   to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe
   someday I'll learn how to put them back together"
 baseurl: "" # the subpath of your site, e.g. /blog	#Not sure if this one is right
