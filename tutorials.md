@@ -8,6 +8,3 @@ detail_image: /assets/images/patrick_cpe/patrick_cpe_light_blue.png
 
 ---
 
-# Tutorials
----
-

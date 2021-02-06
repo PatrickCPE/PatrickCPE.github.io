@@ -1,0 +1,18 @@
+Process for uploading site
+
+Local
+Bundle exec jekyll serve
+
+(Make sure you're actually in the root directory else you'll debug nothing for 30 minutes)
+
+git branch
+
+(ensure on the gh-pages branch)
+
+git add .
+
+git commit -m "Message"
+
+(duh)
+
+git push origin gh-pages
