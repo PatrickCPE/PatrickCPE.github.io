@@ -6,12 +6,13 @@ permalink: /tutorials/UR_Simulator
 permalink_name: /UR_Simulator
 detail_image: /assets/images/ur5.png
 category: tutorials
-description: "How to install UR Offline Simulator on Ubuntu and communicate over TCP/IP (because UR's install scripts are woefully outdated and broken :) )"
+description: "How to install UR Offline Simulator on Ubuntu and communicate over TCP/IP, because UR's install scripts are woefully outdated and broken :)"
 
 categories: tutorial robotics
 ---
 
-## Donwloading and Setting Up
+---
+## Downloading and Setting Up
 * Go to universal-robots.com/download  
 * navigate to software -> offline for non linux (guess what their linux version relies on libcurl3 which hasn't been supported in ages)
 * download the latest version
@@ -33,6 +34,7 @@ host and the virtual machine, reboot machine to have it take affect
 
 This is likely just a virtual machine issue, in real life it's an ethernet connection
 
+---
 ## Communicating with the UR Computer via TCP/IP
 ```python
 import socket

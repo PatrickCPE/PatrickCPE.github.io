@@ -4,6 +4,8 @@ rm _site -rf
 
 (clear the site directory so it produces properly lol)
 
+Make sure you follow the exact naming convention you used before, god I hate frontend anything
+
 Local
 Bundle exec jekyll serve
 

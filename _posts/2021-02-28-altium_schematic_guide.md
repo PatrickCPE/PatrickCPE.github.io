@@ -6,7 +6,7 @@ date:   2021-02-28 01:41:46 -0500
 permalink: /tutorials/altium_schematic_tutorial.html
 permalink_name: /altium_schematic_tutorial
 detail_image: /assets/images/altium_logo.png
-category: projects
+category: tutorials
 description: "This guide is a basic overview of how to do draw up schematics in Altium, primarily created for Umass Lowell's Embedded Club but it's useful for anyone trying to learn Altium"
 
 categories: Personal Engineering Tutorials
