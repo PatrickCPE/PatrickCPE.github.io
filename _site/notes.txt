@@ -1,5 +1,9 @@
 Process for uploading site
 
+rm _site -rf
+
+(clear the site directory so it produces properly lol)
+
 Local
 Bundle exec jekyll serve
 
