@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-01T02:45:00-05:00</updated><id>http://localhost:4000/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">Altium Layout Tutorial</title><link href="http://localhost:4000/tutorials/altium_layout_tutorial.html" rel="alternate" type="text/html" title="Altium Layout Tutorial" /><published>2021-02-28T02:41:46-05:00</published><updated>2021-02-28T02:41:46-05:00</updated><id>http://localhost:4000/tutorials/altium_layout_guide</id><content type="html" xml:base="http://localhost:4000/tutorials/altium_layout_tutorial.html">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-24T18:00:57-04:00</updated><id>http://localhost:4000/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">Project #2 - Soft Robotics Gripper Driver</title><link href="http://localhost:4000/projects/sr_driver.html" rel="alternate" type="text/html" title="Project #2 - Soft Robotics Gripper Driver" /><published>2021-04-23T22:41:46-04:00</published><updated>2021-04-23T22:41:46-04:00</updated><id>http://localhost:4000/projects/sr_driver</id><content type="html" xml:base="http://localhost:4000/projects/sr_driver.html">&lt;hr /&gt;
+
+&lt;p&gt;A quick writeup of a ROS based driver for the soft robotic gripper, and the UR series arms.&lt;br /&gt;
+Can be found here: &lt;a href=&quot;https://github.com/PatrickCPE/sr_driver&quot;&gt;https://github.com/PatrickCPE/sr_driver&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;background&quot;&gt;Background&lt;/h1&gt;
+&lt;p&gt;Soft Robotics developed this pretty sick pneumatic based gripper, but the control depends on the UR Pendant attached to the UR5 arm we use.
+This is extremely cumbersome, and it doesn’t work with the automated grasping system we have developed at our lab.&lt;br /&gt;
+After initial attempts at writing an entire TCP communication library I discovered a pretty well written and well documented library for the UR series robots Real Time Data Exchange Interface (RTDE) in UR_RTDE.&lt;/p&gt;
+
+&lt;h1 id=&quot;sr_gripper-state-machine&quot;&gt;SR_Gripper State Machine&lt;/h1&gt;
+&lt;p&gt;In this state machine the message represents the +24V digital inputs into the codrive pneumatic pump system.&lt;br /&gt;
+The digital signals are created via the UR5’s control box’s. Bit 1 is D1, 2 is D2, 3 is D3.&lt;br /&gt;
+It should be noted that you only remain in these states for a certain period of time depending upon the pressure the system’s ADC reads.&lt;br /&gt;
+The below state diagram shows the basic concept.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src=&quot;/assets/images/sr_gripper_fsm.png&quot; alt=&quot;Soft Robotic Gripper State Machine&quot; /&gt;
+&lt;/center&gt;
+
+&lt;p&gt;Ignoring the neutral state which isn’t exactly useful in my particular use case you can simplify this quite a bit.&lt;br /&gt;
+Note the state machine ignores the pressure requirements for each state.&lt;br /&gt;
+After determine these through the precision technique of guessing and checking (intelligently of course ) I wrote up a ROS package that can handle this.&lt;br /&gt;
+After dealing with some strange type casting issues that totally didn’t nearly blow up this $1000 gripper the package worked.&lt;/p&gt;
+
+&lt;h1 id=&quot;using-the-package&quot;&gt;Using the Package&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ensure that the pinout corresponds to your install of the SR Gripper (Analog Input 0, and Digital 0,1,2 in our case)&lt;/li&gt;
+  &lt;li&gt;Modify the code to support your installation pinout&lt;/li&gt;
+  &lt;li&gt;Update the voltage bounds to whatever grasp bounds you want (this was the guess and check portion done via the UR Pendant)&lt;/li&gt;
+  &lt;li&gt;If updating the voltage bounds update the watchdog timer, so it corresponds properly&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When all of that is done it’s pretty simple&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;roscore&lt;/li&gt;
+  &lt;li&gt;rosrun sr_driver sr_driver.py&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Publish your desired state as a string to /sr_gripper&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;rostopic pub /sr_gripper std_msgs/String “data: ‘open’”&lt;/li&gt;
+  &lt;li&gt;rostopic pub /sr_gripper std_msgs/String “data: ‘closed’”&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="projects" /><summary type="html"></summary></entry><entry><title type="html">Altium Layout Tutorial</title><link href="http://localhost:4000/tutorials/altium_layout_tutorial.html" rel="alternate" type="text/html" title="Altium Layout Tutorial" /><published>2021-02-28T02:41:46-05:00</published><updated>2021-02-28T02:41:46-05:00</updated><id>http://localhost:4000/tutorials/altium_layout_guide</id><content type="html" xml:base="http://localhost:4000/tutorials/altium_layout_tutorial.html">&lt;hr /&gt;
 &lt;h2 id=&quot;creating-the-board&quot;&gt;Creating the board&lt;/h2&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;strong&gt;ProjectName.PrjPcb » Right Click » Add New to Project » PCB&lt;br /&gt;
