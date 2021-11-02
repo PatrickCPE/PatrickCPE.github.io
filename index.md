@@ -11,7 +11,7 @@ detail_image: assets/images/patrick_cpe/patrick_cpe_green.png
 
 # Welcome
 ---
-My names Patrick, I'm a Junior Computer Engineering Undergraduate at University of Massachussets Lowell. This sites home to my Blog, Project Write-Ups, Tutorials, and whatever else in the world I'm in the mood to post.
+My names Patrick, I'm a Senior Computer Engineering Undergraduate at University of Massachusetts Lowell. This sites home to my Blog, Project Write-Ups, Tutorials, and whatever else in the world I'm in the mood to post.
 
 # Interests
 ---
