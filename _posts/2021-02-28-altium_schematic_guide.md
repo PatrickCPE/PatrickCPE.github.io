@@ -1,13 +1,12 @@
 ---
 layout: post
-title:  "Altium Schematic Tutorial"
-post-title:  "Altium Schematic Tutorial"
+title:  "Altium Schematic Cheatsheet"
+post-title:  "Altium Schematic Cheatsheet"
 date:   2021-02-28 01:41:46 -0500
-permalink: /tutorials/altium_schematic_tutorial.html
-permalink_name: /altium_schematic_tutorial
-detail_image: /assets/images/altium_logo.png
+permalink: /tutorials/altium_schematic_cheatsheet.html
+permalink_name: /altium_schematic_cheatsheet
 category: tutorials
-description: "This guide is a basic overview of how to do draw up schematics in Altium, primarily created for Umass Lowell's Embedded Club but it's useful for anyone trying to learn Altium"
+description: "Here's a cheatsheet for my workflow in Altium Schematic. Might come in handy :)"
 
 categories: Personal Engineering Tutorials
 ---

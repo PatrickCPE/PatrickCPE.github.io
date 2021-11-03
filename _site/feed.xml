@@ -1,4 +1,684 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-02T11:29:50-04:00</updated><id>http://localhost:4000/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">Project #2 - Soft Robotics Gripper Driver</title><link href="http://localhost:4000/projects/sr_driver.html" rel="alternate" type="text/html" title="Project #2 - Soft Robotics Gripper Driver" /><published>2021-04-23T22:41:46-04:00</published><updated>2021-04-23T22:41:46-04:00</updated><id>http://localhost:4000/projects/sr_driver</id><content type="html" xml:base="http://localhost:4000/projects/sr_driver.html">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-03T01:58:27-04:00</updated><id>http://localhost:4000/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">State of Affairs</title><link href="http://localhost:4000/blog/state_of_affairs.html" rel="alternate" type="text/html" title="State of Affairs" /><published>2021-11-02T11:41:46-04:00</published><updated>2021-11-02T11:41:46-04:00</updated><id>http://localhost:4000/blog/state_of_affairs</id><content type="html" xml:base="http://localhost:4000/blog/state_of_affairs.html">&lt;hr /&gt;
+&lt;p&gt;This is rambling for my own personal amusement, viewer discretion is advised.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2&gt; What's Happening With Me &lt;/h2&gt;
+&lt;p&gt;Life goes on, and when life gets busy you tend to put off your hobbies and personal projects. Here’s what I’ve been doing as of late.&lt;/p&gt;
+
+&lt;p&gt;Still, remember to look at the bright side of everything :)&lt;/p&gt;
+
+&lt;center&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/SJUhlRoBL8M&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/center&gt;
+
+&lt;hr /&gt;
+
+&lt;h3&gt; School &lt;/h3&gt;
+&lt;p&gt;I’m wrapping up my Senior year next semester. This means I get stuck with capstone, graduate courses, and your all time favorite group projects of people that are far from inspired with their work.&lt;/p&gt;
+
+&lt;p&gt;I’m also trying to figure out what I want to do for my masters (Thanks UML for not having a single teacher that does VLSI design anymore)&lt;/p&gt;
+
+&lt;p&gt;The start of the masters will probably be delayed about half a year until I pay off the debt for the undergrad, but after that the plan as of now is to go into chip design, or possibly do something focused on formal verification of digital systems.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3&gt; Work &lt;/h3&gt;
+&lt;p&gt;There’s my current work, and the process of finding a job for when I graduate.&lt;/p&gt;
+
+&lt;p&gt;In regard to my work at the lab, I’m trying to push out two more papers before I graduate. One for the Stretch team I’m running, and one for the Scooter team.&lt;/p&gt;
+&lt;center&gt;
+(See awesome drawing of us and the worlds funniest assistive robot below)
+ &lt;img src=&quot;/assets/images/posts/blogs/state_of_affairs/scooter_team_drawing.png&quot; alt=&quot;Scooter Team Drawing&quot; width=&quot;600&quot; length=&quot;800&quot; align=&quot;center&quot; /&gt;
+&lt;/center&gt;
+
+&lt;p&gt;In terms of finding a job when I graduate it takes up a fair bit of time. There are a few places that I’m really hopeful to work at. Gotta find somewhere where the engineers are smart, and learn every damn thing I can from em :)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3&gt; Clubs &lt;/h3&gt;
+&lt;p&gt;WARNING: Brace for a rant&lt;/p&gt;
+
+&lt;p&gt;One thing I was really excited for was to start an embedded club at the school. I reached out during the start of Covid to see if they still offer funding for clubs (pretty much wanted to ship everyone dev boards and hop on calls to learn) and they told me no.&lt;/p&gt;
+
+&lt;p&gt;When Covid ended(ended seems far from the right word) in the spring, and we were promised to have in person classes I reached out to the school in early June with all my paperwork and application to start the club and that should of been it.&lt;/p&gt;
+
+&lt;p&gt;The school is blatantly incompetent when it comes to handling clubs. Here’s the highlights for how it went.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;No reply to multiple emails sent (2 months for any reply)&lt;/li&gt;
+  &lt;li&gt;They missed the meetings that they set up&lt;/li&gt;
+  &lt;li&gt;They say everything looked good, and they’d be getting it set up, and then ghost me despite reaching out multiple time&lt;/li&gt;
+  &lt;li&gt;After 3 months of zero response they respond, ask me to join a meeting with an hours notice, and take a final vote on the club with the student government&lt;/li&gt;
+  &lt;li&gt;They approve (Hooray!) … except they never followed up after saying they approved. I asked about it, and was again ghosted&lt;/li&gt;
+  &lt;li&gt;I officially decide to stop dealing with the school and just buy the stuff for my friends and I in the club out of pocket (say bye to all the fancy Zynq boards I wanted to buy on UML’s dime)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Stuff like this makes you appreciate what a good manager does for you behind closed doors. I just wanted to teach some folks and play with some cool tech :(&lt;/p&gt;
+
+&lt;p&gt;On other hands, the robotics club finally got some legitimate funding this year so I can splurge on the stuff I design for them :)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3&gt; Wrapping Up &lt;/h3&gt;
+&lt;p&gt;Overall, life has been busy. School has screwed up my sleep schedule and I’m officially nocturnal. I intend to get back to writing tutorials and working on some passion projects soon.&lt;/p&gt;
+
+&lt;p&gt;I also intend to shift any tutorials or projects I had on the embedded club’s site to this site, because if UML won’t sponsor a club I’m sure as hell not putting their name on my hard work.&lt;/p&gt;</content><author><name></name></author><category term="blogs" /><summary type="html">This is rambling for my own personal amusement, viewer discretion is advised.</summary></entry><entry><title type="html">C Project Template</title><link href="http://localhost:4000/projects/example_c_project.html" rel="alternate" type="text/html" title="C Project Template" /><published>2021-08-07T22:41:46-04:00</published><updated>2021-08-07T22:41:46-04:00</updated><id>http://localhost:4000/projects/example_project</id><content type="html" xml:base="http://localhost:4000/projects/example_c_project.html">&lt;hr /&gt;
+&lt;p&gt;&lt;em&gt;Moved from UML-Embedded Club Site to my personal site&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
+&lt;p&gt;I created an &lt;a href=&quot;https://github.com/PatrickCPE/c_example&quot;&gt;example project&lt;/a&gt; so you guys can have a basic idea of how to structure your code. There are a few pieces of advice for your projects that will make your life much better in the long run.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;ul&gt;
+  &lt;li&gt;Use Version Control (Always!!!)&lt;/li&gt;
+  &lt;li&gt;Use a Build System (Always!)&lt;/li&gt;
+  &lt;li&gt;Test Your Code (For any sizeable project that you intend to create, test from the start!)&lt;/li&gt;
+  &lt;li&gt;Document Your Code (Always document the basics! If you intend to get help on it use an autodoc tool and document it properly!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;For Version control the industry standard is Git. Learn it at a basic level, the rest will come with time.&lt;/p&gt;
+
+&lt;p&gt;For our build system we will be using CMake. It supports pretty much everything out there, but its main focus is C and C++.&lt;/p&gt;
+
+&lt;p&gt;For testing, we will be using CTest. This is a simple testing interface that is incorporated with CMake. It merely runs the tests.&lt;/p&gt;
+
+&lt;p&gt;For the test themselves you can either write a bare-bones wrapper by hand, or use a library like Unity (What I use) to test your code.&lt;/p&gt;
+
+&lt;p&gt;For Documentation there is your good ole README file, and that’s always a requirement. F auto-documentation we’ll use Doxygen.&lt;/p&gt;
+
+&lt;p&gt;Doxygen can also output to Sphinx which is the tool I used to make my python doc sites, but for now we’ll make a bare-bones site with Doxygen itself.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;version-control---git&quot;&gt;Version Control - Git&lt;/h1&gt;
+
+&lt;p&gt;Git pretty much keeps track of changes in your project, and it allows you to revert changes if you screw up. It also allows other people to work on the project with you, and to merge your code without causing as many problems.&lt;/p&gt;
+
+&lt;p&gt;Here’s the basic rundown of how to use &lt;a href=&quot;https://www.atlassian.com/git&quot;&gt;Git&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;My basic workflow goes like this. Create a git directory with&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;directory
+git init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Then I create a .gitignore file and add any files I don’t want tracked to it.&lt;/p&gt;
+
+&lt;p&gt;From there on out my workflow is very simple.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Add everything in this directory recursively to be added with this commit&lt;/span&gt;
+git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Message detailing what I did, what I changed, or what I absolutely just broke :)&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# And if I need to push remotely I do&lt;/span&gt;
+git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; origin main
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;That’s it. If I screw up I can always fix it later. I don’t bother showing you how to merge or anything because for now I just want you to have a backups of your changes, and keep everything tracked properly.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;build-system---cmake&quot;&gt;Build System - CMake&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://cmake.org/&quot;&gt;CMake&lt;/a&gt; is a cross-platform build tool for blah blah blah.&lt;/p&gt;
+
+&lt;p&gt;It allows you to compile your libraries and your code easily. It also has testing incorporated, and it’s a necessity for C or C++ projects. There are other tools, but CMake is the industry standard.&lt;/p&gt;
+
+&lt;p&gt;At the top level of your project you will have a CMakeList.txt file&lt;/p&gt;
+
+&lt;p&gt;This is pretty much the master control file for the project. In your sub folders you’ll have files under the same name with more CMake commands. You pretty much do this recursively till the build tool has your entire project mapped out.&lt;/p&gt;
+
+&lt;p&gt;Here’s the top level CMakeList.txt for this project commented up for you.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#Set min version
+cmake_minimum_required(VERSION 3.20)
+
+#Set project name, version, and support languages
+project(c_example VERSION 0.1 LANGUAGES C)
+#For example to support C and C++
+#project(c_example C C++)
+
+#Use C 11 and disable compiler extensions
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+
+#Or set the standard for a particular library
+#set_target_properties(lib_a PROPERTIES
+#        C_STANDARD          11
+#        C_STANDARD_REQUIRED ON
+#        C_EXTENSIONS        OFF
+#)
+
+#Set compiler flags for all versions
+set(CMAKE_C_FLAGS &quot;-Wall -Wextra&quot;)
+
+#include(Ctest)
+enable_testing()
+add_subdirectory(src/libs)
+add_subdirectory(src)
+add_subdirectory(tests)
+
+#Example setup for GNU Make for the release directory
+#cmake -G &quot;Unix Makefiles&quot; -S . -B ../build/release/
+#cd ../build/release
+#make
+
+#Example setup for Ninja for the debug directory
+#cmake -G Ninja -S . -B ../build/debug/
+#cd ../build/debug
+#ninja
+
+#Or just use CMake to avoid the low level build tools for either
+#cmake --build ../build/debug/ --config Release --target tes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This file doesn’t do much for you in my case, all my building is handled inside the subdirectories that I add.&lt;/p&gt;
+
+&lt;p&gt;It’s important to set an up-to-date CMake required version, and to set the proper C standard.Compiler flags can be changed as needed.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Let’s take a look at the src directories CMakeList.txt file&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#Set compiler flags
+set(CMAKE_C_FLAGS &quot;-Wall -Wextra&quot;)
+
+add_executable(main main.c)
+target_link_libraries(main PRIVATE lib_b)
+
+add_subdirectory(libs/Unity
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This sets flags for this scope, creates an executable main that depends on main.c, and creates a link telling the compiler main depends on lib_b.&lt;/p&gt;
+
+&lt;p&gt;I add the Unity Subdirectory, and it builds and installs the Unity test framework.&lt;/p&gt;
+
+&lt;p&gt;lib_b is added in the subdirectory below that I added in the top level file. Here is that file.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;add_library(lib_a example_lib_a.c)
+add_library(lib_b example_lib_b.c)
+
+target_link_libraries(lib_b PRIVATE lib_a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can see here that I create 2 libraries called lib_a, and lib_b from their respective source files. I tell the build tool that lib_b depends on lib_a, and the build tool handles the rest for me.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;When this is all said and done you can run the configuration commands shown in the top level CMake to set up the build system, and then to build your code.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;testing---ctest&quot;&gt;Testing - CTest&lt;/h1&gt;
+&lt;p&gt;The only CMakeList.txt file I failed to mention is in tests. We’ll go over that here.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+#Create executables for tests
+enable_testing()
+#Basic testing without a framework
+add_executable(test_pass test_pass.c)
+add_test(test_pass test_pass)
+
+add_executable(test_fail test_fail.c)
+add_test(test_fail test_fail)
+
+#Testing using the Unity Framework
+add_executable(test_example_lib_b test_example_lib_b.c)
+target_link_libraries(test_example_lib_b PRIVATE unity)
+target_link_libraries(test_example_lib_b PRIVATE lib_b)
+
+add_test(test_example_lib_b test_example_lib_b
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When it comes to testing you need to enable at the top level, and at the sub-level that you’ll be running the test.&lt;/p&gt;
+
+&lt;p&gt;At a basic level all you need to do is add executables for your test, and list the executable as a test.&lt;/p&gt;
+
+&lt;p&gt;If you do this as shown, CTest will run them all for you.&lt;/p&gt;
+
+&lt;p&gt;CTest is very simple, if the program returns 0, it passes. If it doesn’t, it fails. The first two examples show how simple tests really are, and the third example shows testing using a framework.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Unity is the framework that we’ll be using in this case.&lt;/p&gt;
+
+&lt;p&gt;Unity pretty much just allows you to assert some condition, and it will return zero if true, or false if not. It also has a lot of niceties like error messaging and comparing in certain bases like hex comparison, etc.&lt;/p&gt;
+
+&lt;p&gt;You can learn how to use their framework &lt;a href=&quot;http://www.throwtheswitch.org/unity&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;In the end, as long as your code is built all you need to do is move into the build directory and run&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ctest
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You’ll get output like this&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;patrick@patrick-desktop:~/ws/club/projects/c_example/build/debug$ ctest
+Test project /home/patrick/ws/club/projects/c_example/build/debug
+    Start 1: test_pass
+1/3 Test #1: test_pass ........................   Passed    0.00 sec
+    Start 2: test_fail
+2/3 Test #2: test_fail ........................***Failed    0.00 sec
+    Start 3: test_example_lib_b
+3/3 Test #3: test_example_lib_b ...............***Failed    0.00 sec
+
+33% tests passed, 2 tests failed out of 3
+
+Total Test time (real) =   0.00 sec
+
+The following tests FAILED:
+          2 - test_fail (Failed)
+          3 - test_example_lib_b (Failed)
+Errors while running CTest
+Output from these tests are in: /home/patrick/ws/club/projects/c_example/build/debug/Testing/Temp...
+Use &quot;--rerun-failed --output-on-failure&quot; to re-run the failed cases verbosely.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Don’t worry, those fails are meant to occur. Those are just to show you how fails work.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;documentation---doxygen&quot;&gt;Documentation - Doxygen&lt;/h1&gt;
+&lt;p&gt;There are two levels of documentation. A simple README showing what your code does, and how to use it is always required. This is the first thing people see when it comes to your project.&lt;/p&gt;
+
+&lt;p&gt;When it comes to working on a large project though it’s often useful to have an autodocumentation tool. For this, we’ll use Doxygen. Doxygen is an autoparser that will read through your code, document the functions, classes, structs, pretty much anything in there and build a website to show you all the information.&lt;/p&gt;
+
+&lt;p&gt;To install it run&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;doxygen
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;doxygen-gui
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Simply go into your docs directory and run doxygui, it’s pretty self explanatory when your in the application. Make sure to save the config to a Doxyfile, and when your ready to build do&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;docs
+doxygui
+doxygen Doxyfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Inside the documents folder you will now have a build folder that contains a html site documentation your project. Open the index.html to see the homepage.&lt;/p&gt;
+
+&lt;p&gt;You can either select to document all code automatically, or only things commented in Doxygen style when you’re in the GUI.&lt;/p&gt;
+
+&lt;p&gt;To learn how to use Doxygen style comments check &lt;a href=&quot;https://www.doxygen.nl/manual/docblocks.html&quot;&gt;this out&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h1&gt;
+&lt;p&gt;This write-up by no means goes into depth on any of these things. This is a high-level overview and you’re meant to download the repo and look at it yourself to get a better understanding.&lt;/p&gt;
+
+&lt;p&gt;What I do want you to understand is that you need a build system, you need some level of documentation, and if you’re making a substantial project, you need testing.&lt;/p&gt;
+
+&lt;p&gt;The more you invest at startup, the less painful it will be to have to implement this stuff down the road. Best of luck with your projects :)&lt;/p&gt;</content><author><name></name></author><category term="projects" /><summary type="html">Moved from UML-Embedded Club Site to my personal site</summary></entry><entry><title type="html">Peripheral Basics</title><link href="http://localhost:4000/tutorials/peripheral_basics.html" rel="alternate" type="text/html" title="Peripheral Basics" /><published>2021-07-27T22:41:46-04:00</published><updated>2021-07-27T22:41:46-04:00</updated><id>http://localhost:4000/tutorials/peripheral_basics</id><content type="html" xml:base="http://localhost:4000/tutorials/peripheral_basics.html">&lt;hr /&gt;
+&lt;p&gt;&lt;em&gt;Moved from UML-Embedded Club Site to my personal site&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;what-are-peripherals&quot;&gt;What Are Peripherals&lt;/h1&gt;
+&lt;p&gt;At a low level, peripherals are anything that interact with a computer to either give it information or send out information. This information can be pretty much anything.&lt;/p&gt;
+
+&lt;p&gt;A mouse is a peripheral that inputs the X and Y movement you make, and your computer uses that peripheral to determine where you want your cursor to appear on the screen. Another example would be a temperature sensor that communicates over I2C (pronounced I squared C).&lt;/p&gt;
+
+&lt;p&gt;Peripherals can be communicated with via numerous protocols, but we’re only going to cover a few basic types of peripherals and protocols here.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;gpio-inputs&quot;&gt;GPIO Inputs&lt;/h1&gt;
+&lt;p&gt;This is the most basic type of peripheral you can attach to a processor. The pins either read the voltage on the line, or they write a voltage to the line. The voltage is digital, meaning it can only be on or off at the specific device’s voltage.&lt;/p&gt;
+
+&lt;p&gt;Inputs can have numerous configurations such as high impedance, pull-up, pull-down, or floating. These dictate the standard state of the pin. Pull up means the pin is typically high, while pull down means the pin is typically low. High impedance effectively places an infinite resistor in series, while floating means the pin can do anything.
+&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/pull_up_pull_down.png&quot; alt=&quot;Pull Up Pull Down Example&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;gpio-outputs&quot;&gt;GPIO Outputs&lt;/h1&gt;
+&lt;p&gt;Outputs have numerous configurations as well, such as push-pull, open-drain, and open-collector.&lt;/p&gt;
+
+&lt;p&gt;push-pull pins are capable of both sourcing and sinking current to create the desired output due to their structure shown below. Open-Drain pins are only capable of sinking current and rely on external pullups to set the voltage on the pin. This is shown below as well.
+&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/open_drain_push_pull.png&quot; alt=&quot;Open Drain and Push Pull GPIO Configurations&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Open Collector is effectively the same thing as open drain except it uses a BJT rather than a FET, as shown below.
+&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/open_collector.png&quot; alt=&quot;Open Collector GPIO Configuration&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;adcs&quot;&gt;ADCs&lt;/h1&gt;
+&lt;p&gt;Analog to Digital Converters(ADCs) change a message in the Analog domain into a message that can be processed in the Digital domain. They offer N bits of precision over a voltage range V. If you divide that voltage V by the N bits you receive the resolution of your ADC. Converting Analog signals to the Digital domain is a vital part of modern day signal processing.&lt;/p&gt;
+
+&lt;p&gt;Here is an example of what an ADC looks like under the hood at a basic level&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/adc.png&quot; alt=&quot;Discreet Analog to Digital Converter&quot; width=&quot;700&quot; /&gt;
+You can see that there are 8 comparators. This means we can measure 8 bits separately. 8 is 2^3 which means by using an encoder we can measure an Analog signal with 8 bits of accuracy, and only need to read three lines.&lt;/p&gt;
+
+&lt;p&gt;If Vref in this scenario was +5V, we would have 5 V / 8 Bits therefore each bit would have a resolution of ~625mV.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;dacs&quot;&gt;DACs&lt;/h1&gt;
+&lt;p&gt;Digital to Analog Converters(DACs) are the matching pair to your ADCs. Much like we need to convert Analog Signals to Digital Signals, we must do the opposite as well. The music coming from your phone is stored digitally, but eventually the sound played via a speaker must be an Analog waveform.&lt;/p&gt;
+
+&lt;p&gt;DACs have the same principle of a reference voltage V, N bits, and a resolution. An Example DAC is shown below.
+&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/dac.png&quot; alt=&quot;Discreet Digital to Analog Converter&quot; width=&quot;700&quot; /&gt;
+In this example you can see that each bit has a resistor that is double the value of the previous bit in series with the digital line. This means that by setting each individual bit high you can push a proportionate amount of current through the pin, and with the op amp acting inverting amplifier you can effectively translate the digital signals into a known analog signal with a known resolution.&lt;/p&gt;
+
+&lt;p&gt;The resolution in this case if the voltage was +5V would be +5V / 4 Bits = 1.25 V. Note the output would be inverted though.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;There are resistor to resistor DACs as well that are often utilized. Example below.
+&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/dac_r2r.png&quot; alt=&quot;Discreet Digital to Analog Converter R2R&quot; width=&quot;700&quot; /&gt;
+This is useful when you can fit more resistors, and you don’t need the op amp to drive the load.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;i2c&quot;&gt;I2C&lt;/h1&gt;
+&lt;p&gt;I2C (I-Squared-C) is a data transfer/protocol rather than a peripheral itself. Think as a method of delivering a message to a peripheral and telling it what you need to do. I2C is a two wire synchronous protocol.
+&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/i2c_overview.png&quot; alt=&quot;I2C Overview&quot; width=&quot;700&quot; /&gt;
+I2C allows a master device (like your microcontroller or CPU) to communicate with numerous slave devices(like sensors, drivers, other microcontrollers, etc.)&lt;/p&gt;
+
+&lt;p&gt;The first wire is Serial Clock (SCL). This wire sets the clock speed for the I2C bus, and it’s frequency will depend upon the specific peripheral you’re using. Common frequencies are 100 kHz and 400 kHz.&lt;/p&gt;
+
+&lt;p&gt;The second wire is Serial Data (SDA). This wire is used to send all the data between two devices. We’ll go ever an example waveform and how you’d use this protocol below&lt;/p&gt;
+
+&lt;p&gt;Each wire requires a pullup resistor because internally the pins are open-collector/open-drain configuration. The value of resistor you chose depends upon the length of the line, and the frequency at which you communicate, but typically 4.7k works fine.&lt;/p&gt;
+
+&lt;p&gt;Next up we’ll discuss the message window and how the data is formatted.
+&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/i2c_waveform.png&quot; alt=&quot;I2C Waveform&quot; width=&quot;700&quot; /&gt;
+&lt;strong&gt;&lt;em&gt;Start Bit&lt;/em&gt;&lt;/strong&gt;
+First, SDA is pulled low while SCL remains high. This indicates that the bus is going to be used.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Address&lt;/em&gt;&lt;/strong&gt;
+This indicates the address to which the master will be writing. This is an 7 Bit message that is sent Most Significant Bit(MSB) First. The address of the slave device is given in the device’s data sheet.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Read/Write Bit&lt;/em&gt;&lt;/strong&gt;
+The 8th bit of the message determines whether the master will be reading or writing from the slave device specified at the address. 0 is a write operation, 1 is a read operation.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Acknowledge&lt;/em&gt;&lt;/strong&gt;
+To show that the slave device successfully received the message, an acknowledgement(ACK) bit is sent on SCL. This is the 9th Bit.&lt;/p&gt;
+
+&lt;p&gt;If ACK is low that means the slave successfully received the message, and if it is high then the transfer failed, the communication ends, and the master is free to react to that failure.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Data Frame&lt;/em&gt;&lt;/strong&gt;
+Assuming the ACK bit was low, then the master will continue creating a constant clock signal on SCK until it has received or written everything it needs. Master or Slave will continue reading/writing until the master determines that the transfer is done.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Stop Condition&lt;/em&gt;&lt;/strong&gt;
+The transfer stops when the Master pulls SDA high while SCL is already high. You don’t modify SDA while SCL is high unless you intend to stop the transfer.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;spi&quot;&gt;SPI&lt;/h1&gt;
+&lt;p&gt;The final communication protocol that we’ll discuss is SPI. At a basic level SPI is just a clock, two data lines, and on and off switches for your slaves.&lt;/p&gt;
+
+&lt;p&gt;Here is an example configuration with three slave devices.
+&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/spi.png&quot; alt=&quot;SPI Configuration&quot; width=&quot;700&quot; /&gt;
+SCK is the clock for the interface. MOSI is Master Out Slave In. MISO is Master In Slave Out, and lastly SS# means slave select. Slave Select enables the particular peripheral device your master is communicating, and then the data transfer begins.&lt;/p&gt;
+
+&lt;p&gt;There is no exact configuration for the data in SPI, and there are actually four different sampling times for the data depending upon the specific peripheral. The sampling configuration determines at what point in the waveform the data will be sampled for the device’s usage.&lt;/p&gt;
+
+&lt;p&gt;These mode definitions are determines by the value of CPOL and CPHA flags. The &lt;a href=&quot;https://en.wikipedia.org/wiki/Serial_Peripheral_Interface&quot;&gt;Wiki&lt;/a&gt; for SPI has information on this.&lt;/p&gt;
+
+&lt;p&gt;Overall SPI is a simpler protocol (minus the four different configurations) that allows for very fast communication (~x10 faster than I2C).&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h1&gt;
+&lt;p&gt;There are a million more types of protocols out there, and guess what, there is no point in learning them all right now. If you’re designing automotive controls your going to need to learn how to use a CANBus. If you’re making a keyboard you’re going to need to learn the USB protocol. In automation you’re going to need to learn RS-Insert Three Numbers Here protocol.&lt;/p&gt;
+
+&lt;p&gt;This just shows you a few of the common ones. Find parts that serve your purpose, and if they require a specific protocol learn it :)&lt;/p&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Moved from UML-Embedded Club Site to my personal site</summary></entry><entry><title type="html">Linux Basics</title><link href="http://localhost:4000/tutorials/linux_basics.html" rel="alternate" type="text/html" title="Linux Basics" /><published>2021-07-26T22:41:46-04:00</published><updated>2021-07-26T22:41:46-04:00</updated><id>http://localhost:4000/tutorials/linux_basics</id><content type="html" xml:base="http://localhost:4000/tutorials/linux_basics.html">&lt;hr /&gt;
+&lt;p&gt;&lt;em&gt;Moved from UML-Embedded Club Site to my personal site&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;requirements&quot;&gt;Requirements&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;USB Drive - 4 GB or Greater (&lt;strong&gt;&lt;em&gt;Note - Everything on this will be deleted!&lt;/em&gt;&lt;/strong&gt;)&lt;/li&gt;
+  &lt;li&gt;USB Port on your computer (Duh)&lt;/li&gt;
+  &lt;li&gt;At least 25 GB of Storage free on your hard drive (I strongly recommend using 100 GB so you never need to think of it again if you have the space.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note: This tutorial is meant for Computers that run Windows. If you are using a Mac, first off I recommend you don’t their hardware is overpriced and horrible and their OS is worse than Windows. Secondly, this guide will not help you.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;starting-out&quot;&gt;Starting Out&lt;/h1&gt;
+
+&lt;p&gt;The first step in installing Linux onto your machine is determining which distribution you want to use. Think of Operating Systems as makes of car, and distributions as specific models of car. Windows is an operating system, but there are multiple versions(XP, Vista, 7, We don’t talk about 8, 10).&lt;/p&gt;
+
+&lt;p&gt;Linux is the overarching operating system, but under that operating system you can choose your flavor. Sites like &lt;a href=&quot;https://distrowatch.com/&quot;&gt;distrowatch&lt;/a&gt; will show you every new and trending distro, and it will have comparisons and news about each.&lt;/p&gt;
+
+&lt;p&gt;For our sake, we’ll be using Ubuntu 20.04 LTS. This is the most recent release of Ubuntu, on of the primary Linux distributions out there. 99% software that runs on linux will run successfully on Ubuntu.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;creating-a-boot-drive&quot;&gt;Creating a Boot Drive&lt;/h1&gt;
+
+&lt;p&gt;Let’s get our boot USB created. We’re going to need to donwload the &lt;a href=&quot;https://ubuntu.com/download/desktop&quot;&gt;Ubuntu 20.04 Desktop&lt;/a&gt; ISO file from that page.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/ubuntu_download_screenshot.png&quot; alt=&quot;Ubuntu Download Picture&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next up we’re going to need to download a tool called &lt;a href=&quot;https://rufus.ie/en_US/&quot;&gt;Rufus&lt;/a&gt; (aka the real hero of the Kim Possible series)
+&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/rufus_download_screenshot.png&quot; alt=&quot;Rufus Download Picture&quot; width=&quot;700&quot; /&gt;
+Download from the first link shown in the image&lt;/p&gt;
+
+&lt;p&gt;Next up we’re going to need Rufus to burn an ISO onto the flash drive that we’ll be using to install Linux on our computer. Make sure you have atleast a 4 GB flashdrive.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Again, everything on the flash drive will be deleted, so be careful if you have important files!&lt;/em&gt;&lt;/strong&gt;
+&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/rufus_usage_screenshot.png&quot; alt=&quot;Rufus Usage Picture&quot; width=&quot;700&quot; /&gt;
+Select your USB stick in the device panel. You can follow the setup shown in the above screenshot, except rather than select 18.04 select the Ubuntu 20.04 ISO you just downloaded. Once you’ve selected Ubuntu 20.04 LTS go ahead and hit start.&lt;/p&gt;
+
+&lt;p&gt;Once Rufus is done we’re all set to install to our computer using the flash drive :)&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;installing-ubuntu&quot;&gt;Installing Ubuntu&lt;/h1&gt;
+
+&lt;p&gt;Next up we’re going to have to configure our computers BIOS to boot from the USB drive rather than our current operating system that is installed on our hard drive. You access your BIOS when your computer first boots up before your operating system kicks in.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately the button to enter BIOS depends on which manufacturer created your motherboard. For me personally I repeatedly press the F2 key as my computer powers on. You’re going to have to search for yourself to see what the key to access your BIOS is.&lt;/p&gt;
+
+&lt;p&gt;Once you’re in your BIOS menu, you’ll need to navigate to the boot order tab. Once in the boot order tab adjust it such that the first thing that boots is your Ubuntu 20.04 flash drive that you created.&lt;/p&gt;
+
+&lt;p&gt;After you do this, save the bios configuration and continue. Your system should boot into the live image contained within the USB drive. It will look something like this
+&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/ubuntu_install_select.png&quot; alt=&quot;Ubuntu Install Select&quot; width=&quot;700&quot; /&gt;
+You can try the operating system without installing by clicking try. If you try it, you can chose to install from the desktop after. Once you’re ready to install move through the options.&lt;/p&gt;
+
+&lt;p&gt;Once you reach the page asking about updates and other options shown here
+&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/ubuntu_updates_software.png&quot; alt=&quot;Ubuntu Software and Upgrades&quot; width=&quot;700&quot; /&gt;
+I Strongly recommend you do a normal installation, but if you are strapped for hard drive space you can do a minimal install. I’ve had issues with downloading updates while installing Ubuntu before so I actually recommend not doing this(We can upgrade later).&lt;/p&gt;
+
+&lt;p&gt;The box that asks if you would like to install third party software needs to be checked off. This will ensure that things like graphic cards and Wi-Fi chips work properly. Make sure to check this off.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;seriously-read-this-closely&quot;&gt;Seriously, Read This Closely&lt;/h1&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;In the next stage we’re going to choose our installation type. You’ll see a screen like this
+&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/ubuntu_install_type.png&quot; alt=&quot;Ubuntu Install Type&quot; width=&quot;700&quot; /&gt;
+If you have Windows on your machine, there will be an option to install Ubuntu alongside Windows.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Install Ubuntu alongside Windows&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;seriously-read-closely-im-not-responsible-if-you-brick-windows-install&quot;&gt;Seriously, Read Closely, I’m Not Responsible If You Brick Windows Install&lt;/h1&gt;
+&lt;p&gt;Select install alongside Windows. This will automatically partition your hard drive so that both operating systems can exist alongside one another. If you select one of the other options you will likely break your Windows install (unless you know what you’re doing).&lt;/p&gt;
+
+&lt;p&gt;On the next page you will have a menu where you can drag the divider to determine how much of your hard drive space you will give to Ubuntu.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/ubuntu_partition_size.png&quot; alt=&quot;Ubuntu Partition Type&quot; width=&quot;700&quot; /&gt;
+Technically 10 GB is enough, I reccomend you use atleast 25 GB if you have the space, and in all honesty I would recommend 250 GB if you never want to worry about this again. As long as your hard drive has the space I recommend making a fairly large install partition.&lt;/p&gt;
+
+&lt;p&gt;If you intend to develop for Xilinx FPGAs on your Linux machine you’ll need a huge amount of storage space for their IDE. I’m talking nearly 70 GB for that alone. You can thank Xilinx for making horrible software that is as bloated as that.&lt;/p&gt;
+
+&lt;p&gt;Once you’ve determined a size that works for you, and does not interfere with the storage space you need for your Windows drive go ahead and click install now&lt;/p&gt;
+
+&lt;p&gt;As long as the size you opted for work for you go ahead and hit continue once it asks if you would like to write changes to the disk. You’ve officially installed Linux :)&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;learning-linux&quot;&gt;Learning Linux&lt;/h1&gt;
+&lt;p&gt;I’m going to be honest, I don’t have the time to write an entire Linux tutorial for you. I do have time to point you to
+the best one I know of.&lt;/p&gt;
+
+&lt;h1 id=&quot;linux-journey&quot;&gt;&lt;a href=&quot;https://linuxjourney.com/&quot;&gt;Linux Journey&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/linux_journey.png&quot; alt=&quot;Linux Journey Screenshot&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This site is a great guide to getting started with Linux. I highly recommend you do the entire command line section, text-fu section, and if you want to be able to argue with every other Linux user if Vim or Emacs is better, then I suggest you pick on of them to learn in the advanced text-fu section.&lt;/p&gt;
+
+&lt;p&gt;I also highly recommend you check out the lesson on Packages. Ubuntu uses apt, and I recommend you do some reading on tar, gzip, and compiling from source in that chapter as well.&lt;/p&gt;
+
+&lt;p&gt;Once you’ve got those down you should be all set to use Linux. There’s a lot more to learn along the way, but you’re off to a great start :)&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;quick-tips&quot;&gt;Quick Tips&lt;/h1&gt;
+&lt;p&gt;Here are some simple things I want you to know about&lt;/p&gt;
+
+&lt;p&gt;How to Update System&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;How to see your IP Address&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#This shows the long version&lt;/span&gt;
+ifconfig
+
+&lt;span class=&quot;c&quot;&gt;#This shows the short version&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;hostname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Terminator is a shell that allows you to open multiple within the same program. These shell sessions will share the variables that the initial shell had upon initialization&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;terminator
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;How to shorten commands&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#Bind some long command to a shorter command&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;lol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;echo print out a long statement that says all this just by typing lol into a shell&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Dot files are hidden files in your system. You can see them by doing&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#You can edit them just the same as any other file&lt;/span&gt;
+vim .bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Your bashrc is a shell script that is executed once your terminal is first opened. I often add alias links to the bottom of it like the example shown earlier, so I can work efficiently&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#~ is the symbol for your home directory in linux. This is the directory your shells initially open to&lt;/span&gt;
+vim ~/.bashrc
+&lt;span class=&quot;c&quot;&gt;#Just add anything you want to happen in all shell sessions such as aliases, etc. to end of the file&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;SSH is a command use to connect to remote Unix based machines&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#Use this to work on a machine besides your own&lt;/span&gt;
+ssh username@ip_adress
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Man is a command used to read the manual of another command&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#Read the manual for the program that gives you manuals&lt;/span&gt;
+man man
+&lt;span class=&quot;c&quot;&gt;#Read the manual for ssh&lt;/span&gt;
+man ssh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Moved from UML-Embedded Club Site to my personal site</summary></entry><entry><title type="html">Starting with Raspberry Pi</title><link href="http://localhost:4000/tutorials/starting_with_raspberry_pi.html" rel="alternate" type="text/html" title="Starting with Raspberry Pi" /><published>2021-07-24T22:41:46-04:00</published><updated>2021-07-24T22:41:46-04:00</updated><id>http://localhost:4000/tutorials/starting_with_raspberry_pi</id><content type="html" xml:base="http://localhost:4000/tutorials/starting_with_raspberry_pi.html">&lt;hr /&gt;
+&lt;p&gt;&lt;em&gt;Moved from UML-Embedded Club Site to my personal site&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;requirements&quot;&gt;Requirements&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Basic knowledge of &lt;a href=&quot;https://linuxjourney.com/&quot;&gt;Linux&lt;/a&gt; (It’s possible to connect via windows but this tutorial assumes you’re working in a Linux environment)&lt;/li&gt;
+  &lt;li&gt;Compatible &lt;a href=&quot;https://www.raspberrypi.org/products/&quot;&gt;Raspberry Pi&lt;/a&gt; Model (Most will work. This was tested with the Pi Zero, Pi Zero W, and the Pi 3)&lt;/li&gt;
+  &lt;li&gt;MicroSD Card and method to program it&lt;/li&gt;
+  &lt;li&gt;Cables/Power Supply for your Pi (USB for the Zero, Power Cable for all other models)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;starting-out&quot;&gt;Starting Out&lt;/h1&gt;
+
+&lt;p&gt;This tutorial assumes you are working on a Linux machine. I highly encourage you dual-boot your machine if you ever intend to do any serious work in electronics. You’ll find that you pretty much need to have both Windows and Linux if you want to take advantage of all the modern tools. If you’re new I reccomend just going with &lt;a href=&quot;https://ubuntu.com/download/desktop&quot;&gt;Ubuntu&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Raspberry Pi that you purchased will be running Raspbian. This is a stripped down version of the Debian Linux distrobution(Ubuntu is based upon Debian as well). There are two versions of Raspian, Raspian Desktop, and Raspian Lite.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Raspian Desktop - Full Desktop Environment capable of running a monitor and doing things like browse the web and playing video.&lt;/li&gt;
+  &lt;li&gt;Raspian Lite - Terminal only distrobution that doesn’t have bloat. This runs significantly faster and if you don’t need a monitor, this is what your system should use.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;installing-raspian&quot;&gt;Installing Raspian&lt;/h1&gt;
+&lt;p&gt;There is a very simple tool for installing the Raspian image onto the SD card. Do the following command in your Linux terminal to install the package&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;snap &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;rpi-imager &lt;span class=&quot;nt&quot;&gt;--devmode&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# When that is done installing do the following command to launch the gui&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;rpi-imager
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ensure that you’re SD card is connected to your machine and go through the setup for your image.&lt;/p&gt;
+
+&lt;p&gt;Chose OS -&amp;gt; Raspberry Pi OS(Other) -&amp;gt; Raspberry Pi OS (Lite)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/starting_with_raspberry_pi/rpi_imager.png&quot; alt=&quot;RPI Imager&quot; width=&quot;700&quot; /&gt;
+If you would like to install the full desktop suite opt for Raspberry Pi OS Full, but that is not the point of this tutorial. After your SD card is installed fully remove it and reinsert it into your computer. Two partitions should now appear in your system, Boot and RootFS. For our purposes we will only be touching the Boot partition.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;configuring-the-os&quot;&gt;Configuring the OS&lt;/h1&gt;
+&lt;p&gt;All Pi’s will need the following steps to set them up.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;PATHTOBOOT/Boot
+
+&lt;span class=&quot;c&quot;&gt;#This file enables ssh on the system&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;ssh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After that we need to do some configuration if your Pi has Wi-Fi. The only Pi I know that does not have Wi-Fi is the Pi Zero.
+You’ll need to create the following file within the Boot partition and name it wpa_supplicant.conf&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+    ssid=&quot;YOURSSID&quot;
+    psk=&quot;YOURPASSWORD&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Wherein the ssid is the name of your Wi-Fi network, and psk is your password. The Quotes remain around the string. For me personally I had to add the following line due to how my Wi-Fi network handles its keys.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;network={
+    ssid=&quot;YOURSSID&quot;
+    psk=&quot;YOURPASSWORD&quot;
+    key_mgmt=WPA-PSK
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/starting_with_raspberry_pi/boot_partition.png&quot; alt=&quot;Boot Paritition Setup&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;todo-add-the-info-for-the-pi-zero-with-no-wi-fi&quot;&gt;TODO add the info for the Pi Zero with no Wi-Fi&lt;/h1&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;connecting-to-your-pi&quot;&gt;Connecting to Your Pi&lt;/h1&gt;
+&lt;p&gt;Now that your pi is fully configured we’re going to connect to it via SSH. SSH is a method of logging into a different computer remotely. It’s extremely useful, and you’ll use it when logging into other computers on your network, or even when logging into remote servers that you may be using.&lt;/p&gt;
+
+&lt;p&gt;This assumes you’re on the same Wi-Fi network as your Pi, or in the case of the Pi Zero (without Wi-Fi) that you’re connected to your computer via the USB Data Port.&lt;/p&gt;
+
+&lt;p&gt;The Pi will take a minute or two to boot up and be accessible so after plugging it in give it a bit.&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# If this shows that it is successfully receiving packets move forward with the next command&lt;/span&gt;
+ping raspberrypi.local
+
+&lt;span class=&quot;c&quot;&gt;# This should allow you to login if you could ping successfully&lt;/span&gt;
+ssh pi@raspberrypi.local
+&lt;span class=&quot;c&quot;&gt;# The password by default is raspberry&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If this works successfully then you’ve successfully logged into your pi :)&lt;/p&gt;
+
+&lt;p&gt;If this does not work we’re going to have to look for the IP ourselves. We’re going to need a tool called nmap.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nmap
+
+&lt;span class=&quot;c&quot;&gt;#This gets your IP address&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;hostname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#Take the IP address that was outputted in the start by that and paste it in the place of the IP in&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#the following command&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nmap &lt;span class=&quot;nt&quot;&gt;-sn&lt;/span&gt; 192.168.0.0/24
+&lt;span class=&quot;c&quot;&gt;#sudo is required to see the manufacturer of each device on your network&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nmap will have a long list of devices on your network, and you should see one that has the Raspberry Pi Foundation as its creator. Take that IP address and run the following command.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#Replace the IP address here with the IP you found for your Pi&lt;/span&gt;
+ssh pi@192.168.0.13
+&lt;span class=&quot;c&quot;&gt;#The default password is raspberry&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/starting_with_raspberry_pi/ssh_success.png&quot; alt=&quot;SSH Success&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;after-logging-in&quot;&gt;After Logging In&lt;/h1&gt;
+&lt;p&gt;Now that you’re in lets configure a few things. Run the following command on your shell that is now logged into the pi.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# This will open up an ncurses GUI to configure the Pi&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;raspi-config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Inside the GUI we’re going to make a few changes&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;System Options -&amp;gt; Password -&amp;gt; Configure a new password for the pi user&lt;/li&gt;
+  &lt;li&gt;System Options -&amp;gt; Hostname -&amp;gt; Configure a new hostname for your pi (this was previously raspberrypi)&lt;/li&gt;
+  &lt;li&gt;Localisation Options -&amp;gt; Customize all of these, so they suit your locale and keyboard type&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/starting_with_raspberry_pi/raspi_conf.png&quot; alt=&quot;Raspi-Conf&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now that you set up the new hostname and password your next ssh session will require you to do&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh pi@newhostname
+&lt;span class=&quot;c&quot;&gt;#Password is whatever you set it to&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;conclussion&quot;&gt;Conclussion&lt;/h1&gt;
+&lt;p&gt;With all of that wrapped up and the configuration complete we’re all done :)
+Congrats on setting up your Pi to work headless!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/starting_with_raspberry_pi/pi_zero_w_picture.jpg&quot; alt=&quot;My Pi Zero W&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There’s one final tip I’ll leave you with, you should shutdown your Pi using the terminal rather than just unplugging it. This helps to prevent data corruption.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#This command will shut down the pi&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;shutdown now
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Moved from UML-Embedded Club Site to my personal site</summary></entry><entry><title type="html">Soft Robotics Gripper Driver</title><link href="http://localhost:4000/projects/sr_driver.html" rel="alternate" type="text/html" title="Soft Robotics Gripper Driver" /><published>2021-04-23T22:41:46-04:00</published><updated>2021-04-23T22:41:46-04:00</updated><id>http://localhost:4000/projects/sr_driver</id><content type="html" xml:base="http://localhost:4000/projects/sr_driver.html">&lt;hr /&gt;
 
 &lt;p&gt;A quick writeup of a ROS based driver for the soft robotic gripper, and the UR series arms.&lt;br /&gt;
 Can be found here: &lt;a href=&quot;https://github.com/PatrickCPE/sr_driver&quot;&gt;https://github.com/PatrickCPE/sr_driver&lt;/a&gt;&lt;/p&gt;
@@ -42,7 +722,7 @@ After dealing with some strange type casting issues that totally didn’t nearly
 &lt;ul&gt;
   &lt;li&gt;rostopic pub /sr_gripper std_msgs/String “data: ‘open’”&lt;/li&gt;
   &lt;li&gt;rostopic pub /sr_gripper std_msgs/String “data: ‘closed’”&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="projects" /><summary type="html"></summary></entry><entry><title type="html">Altium Layout Tutorial</title><link href="http://localhost:4000/tutorials/altium_layout_tutorial.html" rel="alternate" type="text/html" title="Altium Layout Tutorial" /><published>2021-02-28T02:41:46-05:00</published><updated>2021-02-28T02:41:46-05:00</updated><id>http://localhost:4000/tutorials/altium_layout_guide</id><content type="html" xml:base="http://localhost:4000/tutorials/altium_layout_tutorial.html">&lt;hr /&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="projects" /><summary type="html"></summary></entry><entry><title type="html">Altium Layout Cheatsheet</title><link href="http://localhost:4000/tutorials/altium_layout_cheatsheet.html" rel="alternate" type="text/html" title="Altium Layout Cheatsheet" /><published>2021-02-28T02:41:46-05:00</published><updated>2021-02-28T02:41:46-05:00</updated><id>http://localhost:4000/tutorials/altium_layout_guide</id><content type="html" xml:base="http://localhost:4000/tutorials/altium_layout_cheatsheet.html">&lt;hr /&gt;
 &lt;h2 id=&quot;creating-the-board&quot;&gt;Creating the board&lt;/h2&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;strong&gt;ProjectName.PrjPcb » Right Click » Add New to Project » PCB&lt;br /&gt;
@@ -286,7 +966,7 @@ Click generate content for each and ensure it’s correct.&lt;/p&gt;
 &lt;p&gt;Now you have the pdfs of your schematic and board to share with everyone, and your manufacturing files! You’re all set to have it made :)&lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;h3 id=&quot;now-you-have-to-write-the-firmware-youve-been-avoiding-&quot;&gt;Now you have to write the firmware you’ve been avoiding :)&lt;/h3&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Creating the board ProjectName.PrjPcb » Right Click » Add New to Project » PCB PCB1.PcbDoc » Right Click » Rename(as desired) Configuring the Board Set the Origin Edit » Origin » Set Set Units View » Toggle Units (Hotkey: Q) Set Snapgrid Hotkey: G Hotkey: Ctrl+Shift+G (Opens snapgrid settings rather than swap between predefined snapgrids) Edit the Board Shape Ctrl+PgDown: Zoom Fit View » Board Planning Mode (Hotkey: 1) Design » Edit Board Shape Adjust Board corners until desired board shape is achieved You can also redraw with Design » Redefine Board Shape Draw the polygon fill to create board Transfer the Design from schematic Design » Update PCB Document Name.PcbDoc from PCB Design » Import Changes from Name.PrjPcb Validate Changes Execute Changes If you’re missing any footprints you’ll get an error when you try to import Setup Layer View Panels » View Configuration (Hotkey: L) Setting Up the Stackup Design » Layer Stack Manager (Make sure to save!) Panels » Properties Properties » Enable Stack Symmetry Set up Planes and Signal layers (Standard is 1 oz. copper, if it’s a high power board 2 oz. may be neccassary but for hobby projects realize 2 oz. is expensive!) Via Types » Ensure through hole via is present(If you need partial/embedded vias you’ll be able to figure it out here on your own) Remember to save the stackup! Before you Place Set Up Your Snap Grid! Basic Electrical Rule Configuration Here’s some basics to get you started, ICs tend to have metric based packages so probably best to use mm here. Route Width: 0.25 mm Where: Routing Grid Design Rule (Can also do whatever 50 ohm impedance is for your dielectric/stackup) Clearance: 0.25 mm Where: Electrical Clearance Design Rule (High speed signals need special care!) Board Definition Grid: 5 mm Where: Cartesian Grid Editor Component Placement Grid: 1 mm Where: Cartesian Grid Editor Routing Grid: 1 mm Where: Cartesian Grid editor Via size: 1 mm Where: Routing Via style design rule (High current traces may need larger/multiple vias) Via hole: 0.6 mm Where: Routing Via Style Design Rule Altium Support Polar Grids if you’re doing a curved board but I’m not going into that Cartesian Grid Editor (Hotkey:Ctrl+G) Set the grid definition here as well so you can see it well PCB Rules Design » Rules Set up everything according to what your manufacturer supports. Some manufactures will provide an altium rule file to import, and if they do love them eternally because so much less busy work Basic setup clearance: 0.25mm for all signal: 0.25mm standard power: thick traces, minimum can still be low for small offshoots to pins, etc routing vias: 1mm diameter, 0.6mm hole size Yes, you can be more specific, and if the boards high density please do look in depth at your manufacturers capabilities. If it’s a hobby project, who cares :) Placement My first boss taught me that 90% of the battle is placement, and I recommend you take his advice. Spend time making the rat’s nest of traces as short as possible. Rotate parts around, make sure there is as short of a distance as possible for you to route wires. Place Connectors and any mechanical requirements First, then place components as fits. Make sure you place the bypass caps as close as physically possible to the VCC and GND pins of your components! If you need to use vias use them, there’s different theories on what’s best here. Some people prefer routing all on the top layer, some believe hiding the signals in your stack up is more beneficial. I’ll point you to Henry Ott (hottconsultants.com) if you want to read up on the different stack ups and routing techniques I also hear good things about Howard Johnson, and John Howie(totally different names, not clones or anything) has some stuff on EMC, but it’s a bit harder to find Planes Place your planes now! You need to have a small keepout area on the edge of the board to make manufacturers happy Polygon Pour » Draw » Click Polygon » Properties » Assign Net » Repour (If you mess with things be sure to repour, it’ll fix some weird issues) If you think yourself a genius feel free to attempt to split your ground planes, if your like the rest of us mortals do the best to ensure your board has as solid of a ground plane as possible. A solid plane rather than a split one is almost always better. Basic Routing Route Mode (Hotkey: Ctrl+W) Connect everything with the shortest trace possible! Highest priority signals get routed first, remember some lines need controlled impedance/differential pair routing Route slow speed traces last Make sure to put vias to prevent any dead copper! There are fancy methods of making high speed transmission lines with vias along fancy traces but that’s application specific In general spread some via stitch out around the board after to help with return paths. The person who taught me taught me to do it pseudo randomly to prevent “resonance of something”. I can’t quite remember everything ¯_(ツ)_/¯ , but he’s a pretty bright guy so I’d assume he was right. Autorouting is a privilege you earn after you learn when to use it. If you’re starting out you don’t know how to and shouldn’t. It can save time in some cases but I avoid it 95% of the time Boards Done -&amp;gt; Design Rule Check Tools » Design Rule Check Fix or approve any errors Check your board out! Press 3 to view the board in 3D, make sure everything looks alright Press 2 to go back to routing mode Fabrication Outputs(Getting your board made!) You can either output individual files from File » Fabrication Output File » Assembly Output You can also export to other tools such as HyperLynx (super fancy sim software for EMI that you’ll only get to play with if your company has a license) from the file tab. You can print PDFs from here as well, Altium can output 3D pdf files that allow rotation and zoom in Adobe Acrobat almost as if you were looking at the assembly in Solidworks. Setting Up Output Job Files This will output everything you want, think of it like the CMake of Altium Right Click Project » Add New to Project » Output Job File Save file as desired name Basic set of outputs to set up in the .OutJob file Fabrication » Gerber » PCB Document Fabrication » NC Drill Files » PCB Document Assembly » Generate pick and place files » PCB Document Documentation Output » Schematic Prints » (single page for basic setup) Documentation Output » PCB Prints » PCB Document Configuring the outputs To Configure each output right click and hit configure Gerber Config - (Format, 4:4, Units:mm, layers » plot layers » used on, advanced » position on filme » reference to relative origin) Set up the output container Click the folder structure in output containers. Now check the enable box for every file you want in that folder. Set the top file path to manually managed. I recommend you store everything in a folder call outputs because it looks better. You may want to go into advanced and enable auto load of gerber and NC drill outputs so you can check to see if they’re accurate after being created Click the PDF Container and add your PDF’s to it, adjust this output structure as well. Name it as you’d like and configure auto open if you want ODB++ is a new format that contains pick and place info alongside board info. Fancy board houses like it. If you’re getting high quality boards or a large number of boards made please just communicate with your board house/assembly house. They’ll tell you what they prefer, and if you give them what they prefer it’ll save you a bit of money hopefully We’re going to add our BOM to the output as well, but we need to set it up first Active BOM Right Click Project Name » Add new to project » Active Bom Properties » Set Production Quantity to see best prices Now go through each type of component and select the manufacture you want to buy from, Once you select the manufacturer give it a user rank by making a star rating. Once you do this the status message on the far right side of the BOM should become a green check box for the items that were in stock. Add vendors links for any products that still need them by clicking the part and doing add solution. If you replace a part with a new solution note that whatever option has the most stars will be used if available. (ie: if you have 2 different types of amps you can use but the preferred one is usually out of stock set the preffered to 5 stars and option 2 to 4) If you entered the production amount the tool will help you pick from the different distributors and ensure stocks. Save the bom and the project! Now go back to your output job file and add the bom, I recommend you customize it and add either the single supplier or double supplier template. Add it to your output folder container! Wrap Up Save everything! You can reuse things like rules setups and your output job file for most cases! Now go into your output job file and click your output containers. Click generate content for each and ensure it’s correct. Now you have the pdfs of your schematic and board to share with everyone, and your manufacturing files! You’re all set to have it made :) Now you have to write the firmware you’ve been avoiding :)</summary></entry><entry><title type="html">Altium Schematic Tutorial</title><link href="http://localhost:4000/tutorials/altium_schematic_tutorial.html" rel="alternate" type="text/html" title="Altium Schematic Tutorial" /><published>2021-02-28T01:41:46-05:00</published><updated>2021-02-28T01:41:46-05:00</updated><id>http://localhost:4000/tutorials/altium_schematic_guide</id><content type="html" xml:base="http://localhost:4000/tutorials/altium_schematic_tutorial.html">&lt;hr /&gt;
+&lt;h3 id=&quot;now-you-have-to-write-the-firmware-youve-been-avoiding-&quot;&gt;Now you have to write the firmware you’ve been avoiding :)&lt;/h3&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Creating the board ProjectName.PrjPcb » Right Click » Add New to Project » PCB PCB1.PcbDoc » Right Click » Rename(as desired) Configuring the Board Set the Origin Edit » Origin » Set Set Units View » Toggle Units (Hotkey: Q) Set Snapgrid Hotkey: G Hotkey: Ctrl+Shift+G (Opens snapgrid settings rather than swap between predefined snapgrids) Edit the Board Shape Ctrl+PgDown: Zoom Fit View » Board Planning Mode (Hotkey: 1) Design » Edit Board Shape Adjust Board corners until desired board shape is achieved You can also redraw with Design » Redefine Board Shape Draw the polygon fill to create board Transfer the Design from schematic Design » Update PCB Document Name.PcbDoc from PCB Design » Import Changes from Name.PrjPcb Validate Changes Execute Changes If you’re missing any footprints you’ll get an error when you try to import Setup Layer View Panels » View Configuration (Hotkey: L) Setting Up the Stackup Design » Layer Stack Manager (Make sure to save!) Panels » Properties Properties » Enable Stack Symmetry Set up Planes and Signal layers (Standard is 1 oz. copper, if it’s a high power board 2 oz. may be neccassary but for hobby projects realize 2 oz. is expensive!) Via Types » Ensure through hole via is present(If you need partial/embedded vias you’ll be able to figure it out here on your own) Remember to save the stackup! Before you Place Set Up Your Snap Grid! Basic Electrical Rule Configuration Here’s some basics to get you started, ICs tend to have metric based packages so probably best to use mm here. Route Width: 0.25 mm Where: Routing Grid Design Rule (Can also do whatever 50 ohm impedance is for your dielectric/stackup) Clearance: 0.25 mm Where: Electrical Clearance Design Rule (High speed signals need special care!) Board Definition Grid: 5 mm Where: Cartesian Grid Editor Component Placement Grid: 1 mm Where: Cartesian Grid Editor Routing Grid: 1 mm Where: Cartesian Grid editor Via size: 1 mm Where: Routing Via style design rule (High current traces may need larger/multiple vias) Via hole: 0.6 mm Where: Routing Via Style Design Rule Altium Support Polar Grids if you’re doing a curved board but I’m not going into that Cartesian Grid Editor (Hotkey:Ctrl+G) Set the grid definition here as well so you can see it well PCB Rules Design » Rules Set up everything according to what your manufacturer supports. Some manufactures will provide an altium rule file to import, and if they do love them eternally because so much less busy work Basic setup clearance: 0.25mm for all signal: 0.25mm standard power: thick traces, minimum can still be low for small offshoots to pins, etc routing vias: 1mm diameter, 0.6mm hole size Yes, you can be more specific, and if the boards high density please do look in depth at your manufacturers capabilities. If it’s a hobby project, who cares :) Placement My first boss taught me that 90% of the battle is placement, and I recommend you take his advice. Spend time making the rat’s nest of traces as short as possible. Rotate parts around, make sure there is as short of a distance as possible for you to route wires. Place Connectors and any mechanical requirements First, then place components as fits. Make sure you place the bypass caps as close as physically possible to the VCC and GND pins of your components! If you need to use vias use them, there’s different theories on what’s best here. Some people prefer routing all on the top layer, some believe hiding the signals in your stack up is more beneficial. I’ll point you to Henry Ott (hottconsultants.com) if you want to read up on the different stack ups and routing techniques I also hear good things about Howard Johnson, and John Howie(totally different names, not clones or anything) has some stuff on EMC, but it’s a bit harder to find Planes Place your planes now! You need to have a small keepout area on the edge of the board to make manufacturers happy Polygon Pour » Draw » Click Polygon » Properties » Assign Net » Repour (If you mess with things be sure to repour, it’ll fix some weird issues) If you think yourself a genius feel free to attempt to split your ground planes, if your like the rest of us mortals do the best to ensure your board has as solid of a ground plane as possible. A solid plane rather than a split one is almost always better. Basic Routing Route Mode (Hotkey: Ctrl+W) Connect everything with the shortest trace possible! Highest priority signals get routed first, remember some lines need controlled impedance/differential pair routing Route slow speed traces last Make sure to put vias to prevent any dead copper! There are fancy methods of making high speed transmission lines with vias along fancy traces but that’s application specific In general spread some via stitch out around the board after to help with return paths. The person who taught me taught me to do it pseudo randomly to prevent “resonance of something”. I can’t quite remember everything ¯_(ツ)_/¯ , but he’s a pretty bright guy so I’d assume he was right. Autorouting is a privilege you earn after you learn when to use it. If you’re starting out you don’t know how to and shouldn’t. It can save time in some cases but I avoid it 95% of the time Boards Done -&amp;gt; Design Rule Check Tools » Design Rule Check Fix or approve any errors Check your board out! Press 3 to view the board in 3D, make sure everything looks alright Press 2 to go back to routing mode Fabrication Outputs(Getting your board made!) You can either output individual files from File » Fabrication Output File » Assembly Output You can also export to other tools such as HyperLynx (super fancy sim software for EMI that you’ll only get to play with if your company has a license) from the file tab. You can print PDFs from here as well, Altium can output 3D pdf files that allow rotation and zoom in Adobe Acrobat almost as if you were looking at the assembly in Solidworks. Setting Up Output Job Files This will output everything you want, think of it like the CMake of Altium Right Click Project » Add New to Project » Output Job File Save file as desired name Basic set of outputs to set up in the .OutJob file Fabrication » Gerber » PCB Document Fabrication » NC Drill Files » PCB Document Assembly » Generate pick and place files » PCB Document Documentation Output » Schematic Prints » (single page for basic setup) Documentation Output » PCB Prints » PCB Document Configuring the outputs To Configure each output right click and hit configure Gerber Config - (Format, 4:4, Units:mm, layers » plot layers » used on, advanced » position on filme » reference to relative origin) Set up the output container Click the folder structure in output containers. Now check the enable box for every file you want in that folder. Set the top file path to manually managed. I recommend you store everything in a folder call outputs because it looks better. You may want to go into advanced and enable auto load of gerber and NC drill outputs so you can check to see if they’re accurate after being created Click the PDF Container and add your PDF’s to it, adjust this output structure as well. Name it as you’d like and configure auto open if you want ODB++ is a new format that contains pick and place info alongside board info. Fancy board houses like it. If you’re getting high quality boards or a large number of boards made please just communicate with your board house/assembly house. They’ll tell you what they prefer, and if you give them what they prefer it’ll save you a bit of money hopefully We’re going to add our BOM to the output as well, but we need to set it up first Active BOM Right Click Project Name » Add new to project » Active Bom Properties » Set Production Quantity to see best prices Now go through each type of component and select the manufacture you want to buy from, Once you select the manufacturer give it a user rank by making a star rating. Once you do this the status message on the far right side of the BOM should become a green check box for the items that were in stock. Add vendors links for any products that still need them by clicking the part and doing add solution. If you replace a part with a new solution note that whatever option has the most stars will be used if available. (ie: if you have 2 different types of amps you can use but the preferred one is usually out of stock set the preffered to 5 stars and option 2 to 4) If you entered the production amount the tool will help you pick from the different distributors and ensure stocks. Save the bom and the project! Now go back to your output job file and add the bom, I recommend you customize it and add either the single supplier or double supplier template. Add it to your output folder container! Wrap Up Save everything! You can reuse things like rules setups and your output job file for most cases! Now go into your output job file and click your output containers. Click generate content for each and ensure it’s correct. Now you have the pdfs of your schematic and board to share with everyone, and your manufacturing files! You’re all set to have it made :) Now you have to write the firmware you’ve been avoiding :)</summary></entry><entry><title type="html">Altium Schematic Cheatsheet</title><link href="http://localhost:4000/tutorials/altium_schematic_cheatsheet.html" rel="alternate" type="text/html" title="Altium Schematic Cheatsheet" /><published>2021-02-28T01:41:46-05:00</published><updated>2021-02-28T01:41:46-05:00</updated><id>http://localhost:4000/tutorials/altium_schematic_guide</id><content type="html" xml:base="http://localhost:4000/tutorials/altium_schematic_cheatsheet.html">&lt;hr /&gt;
 &lt;p&gt;I lost my old hard drive that had my Altium workflow guide and hotkeys guide on it. I figured I’ll write up this guide for
 anyone who’s interested in learning/switching to Altium. I suppose this will save me a lot of questions when I get around 
 to starting the embedded club in person. If you have any questions or suggestions to add to this guide reach out!&lt;/p&gt;
@@ -478,7 +1158,7 @@ host and the virtual machine, reboot machine to have it take affect&lt;/p&gt;
 &lt;p&gt;The UR Computer has multiple ports, the one we wrote to allows you to send commands or listen to the state of the system.&lt;/p&gt;
 
 &lt;p&gt;There are additional ports that only allow you to listen to the system state. My next goal is going to be to listen to this port, and create a wrapper for you to read
-any state updates from in Python. This requires you to deserialize a custom message, and will be hosted on my github soon.&lt;/p&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Downloading and Setting Up Go to universal-robots.com/download navigate to software -&amp;gt; offline for non linux (guess what their linux version relies on libcurl3 which hasn’t been supported in ages) download the latest version download virtualbox unrar the download from ur with unrar x</summary></entry><entry><title type="html">Project #1 - List of Projects</title><link href="http://localhost:4000/projects/project_1.html" rel="alternate" type="text/html" title="Project #1 - List of Projects" /><published>2021-02-05T21:41:46-05:00</published><updated>2021-02-05T21:41:46-05:00</updated><id>http://localhost:4000/projects/project_1</id><content type="html" xml:base="http://localhost:4000/projects/project_1.html">&lt;hr /&gt;
+any state updates from in Python. This requires you to deserialize a custom message, and will be hosted on my github soon.&lt;/p&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Downloading and Setting Up Go to universal-robots.com/download navigate to software -&amp;gt; offline for non linux (guess what their linux version relies on libcurl3 which hasn’t been supported in ages) download the latest version download virtualbox unrar the download from ur with unrar x</summary></entry><entry><title type="html">List of Projects</title><link href="http://localhost:4000/projects/list_of_projects.html" rel="alternate" type="text/html" title="List of Projects" /><published>2021-02-05T21:41:46-05:00</published><updated>2021-02-05T21:41:46-05:00</updated><id>http://localhost:4000/projects/project_1</id><content type="html" xml:base="http://localhost:4000/projects/list_of_projects.html">&lt;hr /&gt;
 
 &lt;p&gt;What’s the purpose of this write-up? Well first off, it’s not a write up. This is just a list of things I might wanna make. These ideas can be thrown out on a whim, new ones will be added on a whim, and I’ll cross out whatever I either finish or decide isn’t worth my time. If you see any cool projects that I may be interested in/inspired by reach out to me! I’d love to see them.&lt;/p&gt;
 
@@ -504,13 +1184,4 @@ any state updates from in Python. This requires you to deserialize a custom mess
   &lt;li&gt;Gameboy hack cartridge to allow ROM Hacks to be played on GBA. Cartridge should be reprogramable easily&lt;/li&gt;
   &lt;li&gt;Discreet Logic Based VGA Driver (If I’m gunna make a 8 bit CPU let’s get some video going)&lt;/li&gt;
   &lt;li&gt;Home Brewery (Am I a huge beer guy? No. Do I think it would be cool to program a mini brewery? Absolutely!)&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="projects" /><summary type="html"></summary></entry><entry><title type="html">Blog #1 - Creating This Site</title><link href="http://localhost:4000/blog/blog_1.html" rel="alternate" type="text/html" title="Blog #1 - Creating This Site" /><published>2021-02-05T10:41:46-05:00</published><updated>2021-02-05T10:41:46-05:00</updated><id>http://localhost:4000/blog/blog_1</id><content type="html" xml:base="http://localhost:4000/blog/blog_1.html">&lt;hr /&gt;
-&lt;p&gt;I decided it’s about time to create my own personal site to showcase some projects, rant about random things, and post some tutorials for the problems I manage to solve. I can’t say I have an actual direction I’m intending to go with this, and I don’t think that’s a problem. This is something I’m updating in my free time in between classes and work, and I suppose it will be a nice way to hold myself accountable for all of the projects that I’ve been intending to do. Hopefully I can make peoples lives easier by writing guides for things that took me far too long to figure out (guides that I’ll be referring to a week later when I forget how to do something). Maybe my projects will spark cool project ideas for others that check out this site(send me a link to any cool project you make! It’s always fun to check em out).&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Given the state of the world, and the fact America is 90% locked down my workflow has been less than ideal. The electronics lab/classroom/bedroom/home-gym that I’ve been caged in has been driving me mad as of late. One thing I was really looking forward to about a semester ago in Fall of 2020 was starting up an Embedded Club at my University. I reached out to a lot of my friends, and poked around to see who would be interested and had about ~20 students who wanted to study it. I started writing guides and things like that and coming up with project ideas while waiting for the university to respond to my request to start the club up, only for them to eventually get back to me and say that they weren’t providing any funding for clubs(&lt;em&gt;Great to know that I’m paying full tuition to take a class through a computer screen, but all of my money that goes towards clubs suddenly dissapeared&lt;/em&gt;). Given this, and the fact I can’t just share the development boards and parts I have due to everything being remote I had to postpone the clubs creation. I wasn’t going to buy development boards for 30 kids on my own and parts to interface with just to have to ship them to 20+ kids myself. I’m in college, and for those of you who don’t speak American, that translates to “I’m Broke”.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hopefully, if vaccine distributions go as planned(&lt;em&gt;crossing my fingers&lt;/em&gt;) we’ll be back on campus for fall of 2021. I figured it will be a good idea to rewrite and create some new tutorials for the projects I had in mind for the embedded club on here, so that when school resumes in person I have it all ready. Hopefully the world goes back to normal soon. It’s rather funny that I spend my whole life opting to stay at home rather than go out, and now I wish I could go out every night. I guess it just comes down to the fact I want to chose to sit in front of a computer haha, not be forced to. Hopefully I’ll be able to make that same choice again soon.&lt;/p&gt;</content><author><name></name></author><category term="blog" /><summary type="html">I decided it’s about time to create my own personal site to showcase some projects, rant about random things, and post some tutorials for the problems I manage to solve. I can’t say I have an actual direction I’m intending to go with this, and I don’t think that’s a problem. This is something I’m updating in my free time in between classes and work, and I suppose it will be a nice way to hold myself accountable for all of the projects that I’ve been intending to do. Hopefully I can make peoples lives easier by writing guides for things that took me far too long to figure out (guides that I’ll be referring to a week later when I forget how to do something). Maybe my projects will spark cool project ideas for others that check out this site(send me a link to any cool project you make! It’s always fun to check em out).</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="projects" /><summary type="html"></summary></entry></feed>

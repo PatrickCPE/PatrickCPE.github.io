@@ -4,7 +4,6 @@ title:  "UR Offline Simulator Install"
 date:   2021-02-16 16:52:46 -0500
 permalink: /tutorials/UR_Simulator
 permalink_name: /UR_Simulator
-detail_image: /assets/images/ur5.png
 category: tutorials
 description: "How to install UR Offline Simulator on Ubuntu and communicate over TCP/IP, because UR's install scripts are woefully outdated and broken :)"
 

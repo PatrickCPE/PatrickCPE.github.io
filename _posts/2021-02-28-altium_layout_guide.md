@@ -1,13 +1,12 @@
 ---
 layout: post
-title:  "Altium Layout Tutorial"
-post-title:  "Altium Layout Tutorial"
+title:  "Altium Layout Cheatsheet"
+post-title:  "Altium Layout Cheatsheet"
 date:   2021-02-28 02:41:46 -0500
-permalink: /tutorials/altium_layout_tutorial.html
-permalink_name: /altium_layout_tutorial
-detail_image: /assets/images/altium_logo.png
+permalink: /tutorials/altium_layout_cheatsheet.html
+permalink_name: /altium_layout_cheatsheet
 category: tutorials
-description: "This guide is a basic overview of how to layout a board in Altium, primarily created for Umass Lowell's Embedded Club but it's useful for anyone trying to learn Altium"
+description: "And here's the cheatsheet for schematic design. BOM management and manufacturing files in here too :)"
 
 categories: Personal Engineering Tutorials
 ---
