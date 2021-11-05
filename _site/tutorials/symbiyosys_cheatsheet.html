@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    SymbiYosys Cheatsheet - 
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>SymbiYosys Cheatsheet</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="SymbiYosys Cheatsheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cheatsheet for formal proofs using SymbiYosys" />
+<meta property="og:description" content="Cheatsheet for formal proofs using SymbiYosys" />
+<link rel="canonical" href="http://localhost:4000/tutorials/symbiyosys_cheatsheet" />
+<meta property="og:url" content="http://localhost:4000/tutorials/symbiyosys_cheatsheet" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-03T17:52:46-04:00" />
+<script type="application/ld+json">
+{"headline":"SymbiYosys Cheatsheet","dateModified":"2021-11-03T17:52:46-04:00","datePublished":"2021-11-03T17:52:46-04:00","url":"http://localhost:4000/tutorials/symbiyosys_cheatsheet","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/tutorials/symbiyosys_cheatsheet"},"description":"Cheatsheet for formal proofs using SymbiYosys","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">SymbiYosys Cheatsheet</li>
+<li><a href="/">/Home</a></li>
+<li><a href="/tutorial">/Tutorials</a></li>
+<li><a href="/projects">/Projects</a></li>
+<li><a href="/blog">/Blog</a></li>
+<li><a href="/about">/About</a></li>
+</ul>
+  </div>
+</header>
+
+
+    <center>
+<h1>SymbiYosys Cheatsheet</h1>
+</center>
+
+<hr>
+
+<p>This cheatsheet shows you the basics of using SymbiYosys on your Verilog code to formally verify it’s functionality.</p>
+
+<p>You’ll need to download the SymbiYosys toolchain and the solvers by following <a href="https://symbiyosys.readthedocs.io/en/latest/install.html">this tutorial</a>.</p>
+
+<p>You’re also going to want GTKWave</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>gtkwave
+</code></pre></div></div>
+
+<hr>
+<h1 id="what-is-symbiyosys">What is SymbiYosys</h1>
+<p>It’s a formal proof tool that runs on your HDL design to ensure that it does what you expect.</p>
+
+<hr>
+<h1 id="why-the-hell-do-you-care">Why The Hell Do You Care?</h1>
+<p>Formal proofs guarantee your HDL code does what the spec states it will(if you do them properly). More importantly, it’s easier than testbenches typically (but not a complete substitute!)</p>
+
+<hr>
+<h1 id="why-symbiyosys">Why SymbiYosys</h1>
+<p>The Verilog version’s free. That’s all folks, can’t say I personally know of other tools like this, but they must exist.</p>
+
+<hr>
+<h1 id="overview">Overview</h1>
+<p>This cheatsheet goes over</p>
+
+<ul>
+  <li>Solvers</li>
+  <li>BMC</li>
+  <li>Prove</li>
+  <li>Example .sby File</li>
+  <li>Basics Assertions</li>
+  <li>Code Examples</li>
+  <li>Looking at Failure Traces</li>
+</ul>
+
+<hr>
+<h1 id="solvers">Solvers</h1>
+<p>Remember that one class you had to take where you learned about formal proofs, k-induction proofs, and all the magic that you can do with modulo?</p>
+
+<p>Well imagine if all that was done for you and you could just take the results :)</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Satisfiability_modulo_theories">SMT</a> solvers will take an array of assertions for you and ensure their true. SymbiYosys will format your RTL code so it can be piped through these solvers.</p>
+
+<p>The default solver(Yices 2) is usually fine for all intents and purposes. If I decide to do this for grad school then I’ll probably have a much stronger opinion.</p>
+
+<hr>
+<h1 id="bmc">BMC</h1>
+<p>Bounded Model Check is a method of running a set of specification through N trials to ensure no counter example is found. It doesn’t prove anything, but it sure as hell can find bugs quickly.</p>
+
+<p>If you want to read on why it exists and the advantage of it over the old school method of doing purely boolean comparisons read <a href="http://www.cs.cmu.edu/~emc/papers/Books%20and%20Edited%20Volumes/Bounded%20Model%20Checking.pdf">this</a></p>
+
+<hr>
+<h1 id="prove">Prove</h1>
+<p>Those k-induction proofs I mentioned? The ones that seem like voodoo that you learned to pass that one test way back when?</p>
+
+<p>They’re actually useful, and more importantly, they’re solved for you now. These prove that the assertions you make hold true for all time by proving that f(1) is true, then assuming and proving it’s true for f(k+1)</p>
+
+<p>Here’s a nice <a href="https://www.youtube.com/watch?v=IFqna5F0kW8">video</a> to show you the basics of induction.</p>
+
+<hr>
+<h1 id="example-demosby-file">Example demo.sby File</h1>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>tasks]
+bmc
+prv
+
+<span class="o">[</span>options]
+bmc: mode bmc
+bmc: depth 100
+prv: mode prove
+
+<span class="o">[</span>engines]
+smtbmc
+
+<span class="o">[</span>script]
+<span class="nb">read</span> <span class="nt">-formal</span> demo.v
+prep <span class="nt">-top</span> demo
+
+<span class="o">[</span>files]
+demo.v
+
+</code></pre></div></div>
+
+<p>Tasks: These are different run configurations you can select from. You can run one at a time or all of them.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sby <span class="nt">-f</span> demo.sby bmc   <span class="c"># Run only BMC</span>
+sby <span class="nt">-f</span> demo.sby       <span class="c"># Run all tasks in order</span>
+</code></pre></div></div>
+
+<p>You can see the different run options in the options section. You can see the area to specify your solving engine.</p>
+
+<p>The next important part is to specify your source (demo.v in this case). Prep your top level module, and make sure to point to the file.</p>
+
+<hr>
+<h1 id="basics">Basics</h1>
+<p>There are 3 types of statements you can use. These statements must lie within the formal ifdefs, and they must fall in one of the below blocks</p>
+<div class="language-verilog highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">`ifdef</span> <span class="n">FORMAL</span>
+<span class="k">always</span> <span class="o">@</span><span class="p">(</span><span class="kt">posedge</span> <span class="n">clk</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">statement</span><span class="p">);</span>
+    
+<span class="k">always</span> <span class="o">@</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">statement</span><span class="p">);</span>
+<span class="cp">`endif</span>
+</code></pre></div></div>
+<p>The statements are shown here</p>
+<ul>
+  <li>assume(expression)
+    <ul>
+      <li>Things that the solver will always hold true. Limits the area the solver works in. One example is a known starting state would be assumed</li>
+    </ul>
+  </li>
+  <li>assert(expression)
+    <ul>
+      <li>The solver will do everything possible to prove that this statement is false. If it does it will return a fail for BMC or an UNKNOWN for induction</li>
+    </ul>
+  </li>
+  <li>cover(expression)
+    <ul>
+      <li>These only apply when you run in cover mode. They will try to do everything they can to prove the expression true within N runs. If they reach them all it will pass. If they don’t, or if they reach them by breaking an assert statement it will fail.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+<h1 id="code-examples">Code Examples</h1>
+<div class="language-verilog highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//demo.v</span>
+<span class="k">module</span> <span class="n">demo</span> <span class="p">(</span>
+    <span class="kt">input</span> <span class="n">i_clk</span><span class="p">,</span>
+    <span class="kt">input</span> <span class="n">i_en</span><span class="p">,</span>
+    <span class="kt">output</span> <span class="kt">reg</span> <span class="p">[</span><span class="mi">4</span><span class="o">:</span><span class="mi">0</span><span class="p">]</span> <span class="n">o_counter</span>
+<span class="p">);</span>
+
+<span class="kt">reg</span> <span class="n">enable</span><span class="p">;</span>
+<span class="k">initial</span> <span class="n">o_counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">initial</span> <span class="n">enable</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">always</span> <span class="o">@</span><span class="p">(</span><span class="kt">posedge</span> <span class="n">i_clk</span><span class="p">)</span> <span class="k">begin</span>
+    <span class="n">enable</span> <span class="o">&lt;=</span> <span class="n">i_en</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">enable</span><span class="p">)</span><span class="k">begin</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">o_counter</span> <span class="o">==</span> <span class="mi">15</span><span class="p">)</span>
+            <span class="n">o_counter</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">o_counter</span> <span class="o">&lt;=</span> <span class="n">o_counter</span> <span class="o">+</span> <span class="mb">1'b1</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+
+<span class="cp">`ifdef</span> <span class="n">FORMAL</span>
+<span class="k">always</span> <span class="o">@</span><span class="p">(</span><span class="kt">posedge</span> <span class="n">i_clk</span><span class="p">)</span> <span class="k">begin</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">o_counter</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">($</span><span class="nb">past</span><span class="p">(</span><span class="n">o_counter</span><span class="p">)</span> <span class="o">==</span> <span class="mi">15</span><span class="p">)</span>  <span class="c1">//Spot the bug? Look at the generated trace to see it</span>
+    <span class="c1">//if($past(o_counter) == 15 &amp; $past(enable))  //Fixed version</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">o_counter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+<span class="k">end</span>
+<span class="cp">`endif</span>
+<span class="k">endmodule</span>
+</code></pre></div></div>
+<p>Here’s a extremely simple counter module where we make some statements about the formal properties. Spot the bug in the
+proof? Run the proof by doing this with the demo.v and demo.sby files in the same directory</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sby <span class="nt">-f</span> demo.sby bmc
+</code></pre></div></div>
+<p>You should see it fail. Look at the trace it generates in GTK Wave to spot it. Got it?</p>
+
+<p>(We forget to assert that $past(enable) must be high for o_counter to change in the second assertion)</p>
+
+<p>This is obviously a pretty dumb example, but trust me this stuff helps a lot compared to a standard test bench.</p>
+
+<hr>
+<h1 id="viewing-the-output-trace">Viewing the Output Trace</h1>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gtkwave demo_bmc/engine_0/trace.vcd
+</code></pre></div></div>
+<p><img src="/assets/images/posts/tutorials/symbiyosys_cheatsheet/failed_trace.png" alt="BMC Trace" width="700">
+Look at the final tick of the clock. You can see enable was pulled low and therefore your output didn’t change? That’s a bug in our proof, not the code. Fix it with the commented out line.</p>
+
+<p>Now run</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sby <span class="nt">-f</span> demo.sby bmc   <span class="c">#Does it pass?</span>
+sby <span class="nt">-f</span> demo.sby prv   <span class="c">#Does it pass?</span>
+</code></pre></div></div>
+
+<hr>
+<h1 id="wrapping-up">Wrapping Up</h1>
+<p>Give formal verification a shot. If you hate it, you hate it. I like it for finding bugs, and it’s pretty cool.</p>
+
+<p>If you want to learn all about it check out <a href="https://zipcpu.com/">ZipCPU</a>. This guy has some awesome technical stuff on his site (but it is fairly complicated at times)</p>
+
+
+
+
+    <footer>
+
+  /symbiyosys_cheatsheet
+  <br><br>
+   <img class="emoji" title=":octocat:" alt=":octocat:" src="https://github.githubassets.com/images/icons/emoji/octocat.png" height="20" width="20"> <a href="https://github.com/PatrickCPE">@PatrickCPE</a> 
+   <img class="emoji" title=":movie_camera:" alt=":movie_camera:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f3a5.png" height="20" width="20"> <a href="https://www.youtube.com/channel/UC6PF4hNLxFtxfc0eDMCGuiQ">@PatrickCPE</a> 
+
+</footer>
+
+
+  </body>
+</html>

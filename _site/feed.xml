@@ -1,4 +1,186 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-03T01:58:27-04:00</updated><id>http://localhost:4000/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">State of Affairs</title><link href="http://localhost:4000/blog/state_of_affairs.html" rel="alternate" type="text/html" title="State of Affairs" /><published>2021-11-02T11:41:46-04:00</published><updated>2021-11-02T11:41:46-04:00</updated><id>http://localhost:4000/blog/state_of_affairs</id><content type="html" xml:base="http://localhost:4000/blog/state_of_affairs.html">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-05T02:09:22-04:00</updated><id>http://localhost:4000/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">SymbiYosys Cheatsheet</title><link href="http://localhost:4000/tutorials/symbiyosys_cheatsheet" rel="alternate" type="text/html" title="SymbiYosys Cheatsheet" /><published>2021-11-03T17:52:46-04:00</published><updated>2021-11-03T17:52:46-04:00</updated><id>http://localhost:4000/tutorials/symbiyosys_cheatsheet</id><content type="html" xml:base="http://localhost:4000/tutorials/symbiyosys_cheatsheet">&lt;hr /&gt;
+
+&lt;p&gt;This cheatsheet shows you the basics of using SymbiYosys on your Verilog code to formally verify it’s functionality.&lt;/p&gt;
+
+&lt;p&gt;You’ll need to download the SymbiYosys toolchain and the solvers by following &lt;a href=&quot;https://symbiyosys.readthedocs.io/en/latest/install.html&quot;&gt;this tutorial&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You’re also going to want GTKWave&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;gtkwave
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;what-is-symbiyosys&quot;&gt;What is SymbiYosys&lt;/h1&gt;
+&lt;p&gt;It’s a formal proof tool that runs on your HDL design to ensure that it does what you expect.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;why-the-hell-do-you-care&quot;&gt;Why The Hell Do You Care?&lt;/h1&gt;
+&lt;p&gt;Formal proofs guarantee your HDL code does what the spec states it will(if you do them properly). More importantly, it’s easier than testbenches typically (but not a complete substitute!)&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;why-symbiyosys&quot;&gt;Why SymbiYosys&lt;/h1&gt;
+&lt;p&gt;The Verilog version’s free. That’s all folks, can’t say I personally know of other tools like this, but they must exist.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
+&lt;p&gt;This cheatsheet goes over&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Solvers&lt;/li&gt;
+  &lt;li&gt;BMC&lt;/li&gt;
+  &lt;li&gt;Prove&lt;/li&gt;
+  &lt;li&gt;Example .sby File&lt;/li&gt;
+  &lt;li&gt;Basics Assertions&lt;/li&gt;
+  &lt;li&gt;Code Examples&lt;/li&gt;
+  &lt;li&gt;Looking at Failure Traces&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;solvers&quot;&gt;Solvers&lt;/h1&gt;
+&lt;p&gt;Remember that one class you had to take where you learned about formal proofs, k-induction proofs, and all the magic that you can do with modulo?&lt;/p&gt;
+
+&lt;p&gt;Well imagine if all that was done for you and you could just take the results :)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Satisfiability_modulo_theories&quot;&gt;SMT&lt;/a&gt; solvers will take an array of assertions for you and ensure their true. SymbiYosys will format your RTL code so it can be piped through these solvers.&lt;/p&gt;
+
+&lt;p&gt;The default solver(Yices 2) is usually fine for all intents and purposes. If I decide to do this for grad school then I’ll probably have a much stronger opinion.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;bmc&quot;&gt;BMC&lt;/h1&gt;
+&lt;p&gt;Bounded Model Check is a method of running a set of specification through N trials to ensure no counter example is found. It doesn’t prove anything, but it sure as hell can find bugs quickly.&lt;/p&gt;
+
+&lt;p&gt;If you want to read on why it exists and the advantage of it over the old school method of doing purely boolean comparisons read &lt;a href=&quot;http://www.cs.cmu.edu/~emc/papers/Books%20and%20Edited%20Volumes/Bounded%20Model%20Checking.pdf&quot;&gt;this&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;prove&quot;&gt;Prove&lt;/h1&gt;
+&lt;p&gt;Those k-induction proofs I mentioned? The ones that seem like voodoo that you learned to pass that one test way back when?&lt;/p&gt;
+
+&lt;p&gt;They’re actually useful, and more importantly, they’re solved for you now. These prove that the assertions you make hold true for all time by proving that f(1) is true, then assuming and proving it’s true for f(k+1)&lt;/p&gt;
+
+&lt;p&gt;Here’s a nice &lt;a href=&quot;https://www.youtube.com/watch?v=IFqna5F0kW8&quot;&gt;video&lt;/a&gt; to show you the basics of induction.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;example-demosby-file&quot;&gt;Example demo.sby File&lt;/h1&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;tasks]
+bmc
+prv
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;options]
+bmc: mode bmc
+bmc: depth 100
+prv: mode prove
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;engines]
+smtbmc
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;script]
+&lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-formal&lt;/span&gt; demo.v
+prep &lt;span class=&quot;nt&quot;&gt;-top&lt;/span&gt; demo
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;files]
+demo.v
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tasks: These are different run configurations you can select from. You can run one at a time or all of them.&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sby &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; demo.sby bmc   &lt;span class=&quot;c&quot;&gt;# Run only BMC&lt;/span&gt;
+sby &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; demo.sby       &lt;span class=&quot;c&quot;&gt;# Run all tasks in order&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can see the different run options in the options section. You can see the area to specify your solving engine.&lt;/p&gt;
+
+&lt;p&gt;The next important part is to specify your source (demo.v in this case). Prep your top level module, and make sure to point to the file.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;basics&quot;&gt;Basics&lt;/h1&gt;
+&lt;p&gt;There are 3 types of statements you can use. These statements must lie within the formal ifdefs, and they must fall in one of the below blocks&lt;/p&gt;
+&lt;div class=&quot;language-verilog highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;`ifdef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FORMAL&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;always&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;posedge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;statement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    
+&lt;span class=&quot;k&quot;&gt;always&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;statement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;`endif&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The statements are shown here&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;assume(expression)
+    &lt;ul&gt;
+      &lt;li&gt;Things that the solver will always hold true. Limits the area the solver works in. One example is a known starting state would be assumed&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;assert(expression)
+    &lt;ul&gt;
+      &lt;li&gt;The solver will do everything possible to prove that this statement is false. If it does it will return a fail for BMC or an UNKNOWN for induction&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;cover(expression)
+    &lt;ul&gt;
+      &lt;li&gt;These only apply when you run in cover mode. They will try to do everything they can to prove the expression true within N runs. If they reach them all it will pass. If they don’t, or if they reach them by breaking an assert statement it will fail.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;code-examples&quot;&gt;Code Examples&lt;/h1&gt;
+&lt;div class=&quot;language-verilog highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//demo.v&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;demo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i_clk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i_en&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;reg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;reg&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;initial&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;initial&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;always&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;posedge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i_clk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i_en&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mb&quot;&gt;1'b1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+
+&lt;span class=&quot;cp&quot;&gt;`ifdef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FORMAL&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;always&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;posedge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i_clk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;($&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;past&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//Spot the bug? Look at the generated trace to see it&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//if($past(o_counter) == 15 &amp;amp; $past(enable))  //Fixed version&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;`endif&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;endmodule&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Here’s a extremely simple counter module where we make some statements about the formal properties. Spot the bug in the
+proof? Run the proof by doing this with the demo.v and demo.sby files in the same directory&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sby &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; demo.sby bmc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;You should see it fail. Look at the trace it generates in GTK Wave to spot it. Got it?&lt;/p&gt;
+
+&lt;p&gt;(We forget to assert that $past(enable) must be high for o_counter to change in the second assertion)&lt;/p&gt;
+
+&lt;p&gt;This is obviously a pretty dumb example, but trust me this stuff helps a lot compared to a standard test bench.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;viewing-the-output-trace&quot;&gt;Viewing the Output Trace&lt;/h1&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gtkwave demo_bmc/engine_0/trace.vcd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/symbiyosys_cheatsheet/failed_trace.png&quot; alt=&quot;BMC Trace&quot; width=&quot;700&quot; /&gt;
+Look at the final tick of the clock. You can see enable was pulled low and therefore your output didn’t change? That’s a bug in our proof, not the code. Fix it with the commented out line.&lt;/p&gt;
+
+&lt;p&gt;Now run&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sby &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; demo.sby bmc   &lt;span class=&quot;c&quot;&gt;#Does it pass?&lt;/span&gt;
+sby &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; demo.sby prv   &lt;span class=&quot;c&quot;&gt;#Does it pass?&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h1&gt;
+&lt;p&gt;Give formal verification a shot. If you hate it, you hate it. I like it for finding bugs, and it’s pretty cool.&lt;/p&gt;
+
+&lt;p&gt;If you want to learn all about it check out &lt;a href=&quot;https://zipcpu.com/&quot;&gt;ZipCPU&lt;/a&gt;. This guy has some awesome technical stuff on his site (but it is fairly complicated at times)&lt;/p&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html"></summary></entry><entry><title type="html">State of Affairs</title><link href="http://localhost:4000/blog/state_of_affairs.html" rel="alternate" type="text/html" title="State of Affairs" /><published>2021-11-02T11:41:46-04:00</published><updated>2021-11-02T11:41:46-04:00</updated><id>http://localhost:4000/blog/state_of_affairs</id><content type="html" xml:base="http://localhost:4000/blog/state_of_affairs.html">&lt;hr /&gt;
 &lt;p&gt;This is rambling for my own personal amusement, viewer discretion is advised.&lt;/p&gt;
 
 &lt;hr /&gt;
@@ -1158,30 +1340,4 @@ host and the virtual machine, reboot machine to have it take affect&lt;/p&gt;
 &lt;p&gt;The UR Computer has multiple ports, the one we wrote to allows you to send commands or listen to the state of the system.&lt;/p&gt;
 
 &lt;p&gt;There are additional ports that only allow you to listen to the system state. My next goal is going to be to listen to this port, and create a wrapper for you to read
-any state updates from in Python. This requires you to deserialize a custom message, and will be hosted on my github soon.&lt;/p&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Downloading and Setting Up Go to universal-robots.com/download navigate to software -&amp;gt; offline for non linux (guess what their linux version relies on libcurl3 which hasn’t been supported in ages) download the latest version download virtualbox unrar the download from ur with unrar x</summary></entry><entry><title type="html">List of Projects</title><link href="http://localhost:4000/projects/list_of_projects.html" rel="alternate" type="text/html" title="List of Projects" /><published>2021-02-05T21:41:46-05:00</published><updated>2021-02-05T21:41:46-05:00</updated><id>http://localhost:4000/projects/project_1</id><content type="html" xml:base="http://localhost:4000/projects/list_of_projects.html">&lt;hr /&gt;
-
-&lt;p&gt;What’s the purpose of this write-up? Well first off, it’s not a write up. This is just a list of things I might wanna make. These ideas can be thrown out on a whim, new ones will be added on a whim, and I’ll cross out whatever I either finish or decide isn’t worth my time. If you see any cool projects that I may be interested in/inspired by reach out to me! I’d love to see them.&lt;/p&gt;
-
-&lt;h1 id=&quot;projects&quot;&gt;Projects&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;del&gt;Create this Site (Never intend to do Web again)&lt;/del&gt;&lt;/li&gt;
-  &lt;li&gt;Function Generator (either DDS and uController or implement a DDS on an FPGA)&lt;/li&gt;
-  &lt;li&gt;Mini PCB Quad Copter&lt;/li&gt;
-  &lt;li&gt;8 Bit Computer (74x Logic Chips)&lt;/li&gt;
-  &lt;li&gt;3D printer (cause my last design now lives in a landfill)&lt;/li&gt;
-  &lt;li&gt;Quadcopter Flight Controller&lt;/li&gt;
-  &lt;li&gt;EEPROM universal programmer&lt;/li&gt;
-  &lt;li&gt;Bench Power Supply (Cause I always need more)&lt;/li&gt;
-  &lt;li&gt;Robot Arm (ROS Drivers and all, and none of that whimpy servo stuff)&lt;/li&gt;
-  &lt;li&gt;Inverse Kinematic/Image Processing Accelerator&lt;/li&gt;
-  &lt;li&gt;Guitar Pedals (Am I really playing bad if I increase the distortion high enough?)&lt;/li&gt;
-  &lt;li&gt;All the Embedded Club Tutorials (is this a project? yes, purely because I said so)&lt;/li&gt;
-  &lt;li&gt;Broke Boi Spot Robot&lt;/li&gt;
-  &lt;li&gt;Try Out Embedded Rust (Thanks LLVM)&lt;/li&gt;
-  &lt;li&gt;Stepper Motor Driver Board (This will get used on robots and the 3D printer)&lt;/li&gt;
-  &lt;li&gt;RISKV/ARM Softcore Processor (The word reduced in reduced instruction set seems to be used rather loosely)&lt;/li&gt;
-  &lt;li&gt;Write some linux kernal drivers (Why? What kind? Who knows, but I bet it’ll be fun)&lt;/li&gt;
-  &lt;li&gt;Gameboy hack cartridge to allow ROM Hacks to be played on GBA. Cartridge should be reprogramable easily&lt;/li&gt;
-  &lt;li&gt;Discreet Logic Based VGA Driver (If I’m gunna make a 8 bit CPU let’s get some video going)&lt;/li&gt;
-  &lt;li&gt;Home Brewery (Am I a huge beer guy? No. Do I think it would be cool to program a mini brewery? Absolutely!)&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="projects" /><summary type="html"></summary></entry></feed>
+any state updates from in Python. This requires you to deserialize a custom message, and will be hosted on my github soon.&lt;/p&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Downloading and Setting Up Go to universal-robots.com/download navigate to software -&amp;gt; offline for non linux (guess what their linux version relies on libcurl3 which hasn’t been supported in ages) download the latest version download virtualbox unrar the download from ur with unrar x</summary></entry></feed>
