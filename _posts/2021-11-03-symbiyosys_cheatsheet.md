@@ -53,7 +53,7 @@ Remember that one class you had to take where you learned about formal proofs, k
 
 Well imagine if all that was done for you and you could just take the results :)
 
-[SMT](https://en.wikipedia.org/wiki/Satisfiability_modulo_theories) solvers will take an array of assertions for you and ensure their true. SymbiYosys will format your RTL code so it can be piped through these solvers.
+[SMT](https://en.wikipedia.org/wiki/Satisfiability_modulo_theories) solvers will take an array of assertions for you and ensure their true. SymbiYosys will format your RTL code so it can be piped through these solvers. Technically I think some solvers use SAT solvers but ya, if you care look into it more on your own.
 
 The default solver(Yices 2) is usually fine for all intents and purposes. If I decide to do this for grad school then I'll probably have a much stronger opinion.
 
