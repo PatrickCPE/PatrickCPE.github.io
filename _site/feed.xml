@@ -1,4 +1,295 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-05T03:07:04-04:00</updated><id>http://localhost:4000/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">SymbiYosys Cheatsheet</title><link href="http://localhost:4000/tutorials/symbiyosys_cheatsheet" rel="alternate" type="text/html" title="SymbiYosys Cheatsheet" /><published>2021-11-03T17:52:46-04:00</published><updated>2021-11-03T17:52:46-04:00</updated><id>http://localhost:4000/tutorials/symbiyosys_cheatsheet</id><content type="html" xml:base="http://localhost:4000/tutorials/symbiyosys_cheatsheet">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-15T12:06:46-05:00</updated><id>http://localhost:4000/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">Microcontrollers - Hardware Design</title><link href="http://localhost:4000/tutorials/microcontrollers_tutorial_1" rel="alternate" type="text/html" title="Microcontrollers - Hardware Design" /><published>2021-11-13T16:52:46-05:00</published><updated>2021-11-13T16:52:46-05:00</updated><id>http://localhost:4000/tutorials/microcontrollers_tutorial_1</id><content type="html" xml:base="http://localhost:4000/tutorials/microcontrollers_tutorial_1">&lt;hr /&gt;
+
+&lt;p&gt;This is part 1 of a 3 part tutorial series on microcontrollers. This tutorial is going to cover hardware design,
+programming your micro, and lastly how to run an RTOS on your micro.&lt;/p&gt;
+
+&lt;p&gt;Part 1 - Hardware Design - Things You’ll Learn&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;What is a microcontroller&lt;/li&gt;
+  &lt;li&gt;How to pick a microcontroller&lt;/li&gt;
+  &lt;li&gt;How to design a board around it&lt;/li&gt;
+  &lt;li&gt;How to order your board and have it assembled&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’ll be using KiCad for board design due to the fact it’s free so anyone can follow along.&lt;/p&gt;
+
+&lt;p&gt;It’s a good starter tool if you only need to spin the occasional board. Development for this series will be done in Linux (Ubuntu 20.04 LTS).&lt;/p&gt;
+
+&lt;p&gt;Requirements&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt upgrade
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;kicad
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;You’ll also need to install STM32CubeMX if you want to follow me exactly. Download the Debian package from &lt;a href=&quot;https://www.st.com/en/development-tools/stm32cubemx.html&quot;&gt;here&lt;/a&gt; and run&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;path to your download&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;/&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;download name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;what-is-a-microcontroller&quot;&gt;What is a Microcontroller&lt;/h1&gt;
+&lt;p&gt;This section on its own could be multiple write-ups, so I’ll keep it simple. A microcontroller is a chip that contains a processor, memory, and onboard peripherals all within a single chip.&lt;/p&gt;
+
+&lt;p&gt;The main differences between a microcontroller and a microprocessor is that microcontroller drains less power on average, and it does not have a memory management unit.&lt;/p&gt;
+
+&lt;p&gt;This means that you only work with real memory on a microcontroller rather than &lt;a href=&quot;https://youtu.be/Aw0YAUdQp1c&quot;&gt;virtual memory&lt;/a&gt; like you would by running a C program on your desktop.&lt;/p&gt;
+
+&lt;p&gt;Occasionally you’ll hear the term SoC as well, which stands for system on a chip. This is more or less a marketing term which means a microcontroller with very specific peripherals on it that can accomplish certain purposes. This is a marketing term more or less, and has no straightforward definition.&lt;/p&gt;
+
+&lt;p&gt;Some SoCs have configurable digital logic on them (like with an FPGA) but overall just look at the datasheet to see what the chip actually is.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;how-to-pick-a-microcontroller&quot;&gt;How to pick a Microcontroller&lt;/h1&gt;
+&lt;p&gt;There are 10 trillion parts to chose from (and about 7 of them are in stock at the moment). This section is going to introduce you to parametric search, basic specs about microcontrollers, and why you might pick a certain processor over another.&lt;/p&gt;
+
+&lt;h2 id=&quot;driving-factors&quot;&gt;&lt;em&gt;Driving Factors&lt;/em&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Performance (How fast can it process)&lt;/li&gt;
+  &lt;li&gt;Peripherals&lt;/li&gt;
+  &lt;li&gt;Power Draw (Battery constrained environments need low power draw)&lt;/li&gt;
+  &lt;li&gt;Availability (Welcome to the chip-pocalypse)&lt;/li&gt;
+  &lt;li&gt;Temperature Range (Does this need to run inside a car?)&lt;/li&gt;
+  &lt;li&gt;Cost (Duh)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;performance&quot;&gt;&lt;em&gt;Performance&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Performance is effectively a measure of how much math a processor can do in a given amount of time. This is very difficult to get an accurate read on because certain processors do certain things better, and you’ll never have time to go all the way down the rabbit hole.&lt;/p&gt;
+
+&lt;p&gt;The end all be all I’ll leave you with is that most modern ARM microcontrollers can handle what you need and do it cheaply. If don’t need much performance there’s the ATTiny series or the STM8 series I know of off the top of my head.&lt;/p&gt;
+
+&lt;p&gt;Clock speed effects performance, but it’s not a 1 to 1 comparison because certain microcontrollers take multiple clock cycles to execute an instruction(like old PICs) while others execute most instructions in a single cycle(like AVR chips).&lt;/p&gt;
+
+&lt;h2 id=&quot;peripherals&quot;&gt;&lt;em&gt;Peripherals&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Peripherals are the other bits and pieces of hardware on the chip that do what you need. Read about them in &lt;a href=&quot;https://patrickcpe.github.io/tutorials/peripheral_basics.html&quot;&gt;this tutorial&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sometimes you’re going to need 3 SPI peripherals and 2 UART lines, or if you’re working on an industrial system you will probably need a CAN peripheral. This is usually the first requirement you sort by when designing a particular system.&lt;/p&gt;
+
+&lt;h2 id=&quot;power-draw&quot;&gt;&lt;em&gt;Power Draw&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Every chip markets itself as a low power battery saving miracle of God. Truth be told, the front page of the datasheet is written by marketing folks.&lt;/p&gt;
+
+&lt;p&gt;If you have a chip that only needs to process on occasion in a power constrained environment check what the different sleep modes drain in the datasheet. If the mode you need (such as sleep but maintain memory) is within your power budget then that chip works.&lt;/p&gt;
+
+&lt;h2 id=&quot;availability&quot;&gt;&lt;em&gt;Availability&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Welcome to 2021, the year just in time manufacturing came to a halt. Chip foundries can’t keep up with demand, shipping is a mess, and chips that used to cost $2 now cost $40.&lt;/p&gt;
+
+&lt;p&gt;If you’re making a product that is meant to be more than a single run make sure you chose a chip that is still in the active stage of its lifecycle, is in stock, and restocks at a respectable rate.&lt;/p&gt;
+
+&lt;p&gt;Use your jellybean parts because they’ll always be around. If you have a reason you need something special you better make sure you’ll be able to procure it when you need it.&lt;/p&gt;
+
+&lt;h2 id=&quot;temperature-range&quot;&gt;&lt;em&gt;Temperature Range&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Pretty simple here, pick the package that works in your temp range. If you’re working in the artic you’ll likely need the military grade package rather than the consumer grade, etc.&lt;/p&gt;
+
+&lt;h2 id=&quot;cost&quot;&gt;&lt;em&gt;Cost&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;You always need to compromise between costs and the other factors. I go by the idea of it’s not worth saving pennies when it will cost you dimes in the long run. Pick the part that solves the problem and saves you the most time. It doesn’t matter if it’s a tad more expensive.&lt;/p&gt;
+
+&lt;p&gt;If you’re making a million boards you know how to cut costs and design for manufacturing, but chances are that isn’t the person reading this.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;lets-pick-our-processor&quot;&gt;Let’s pick our processor&lt;/h1&gt;
+
+&lt;p&gt;I’m going with something from the STM32 line of chips because they’re&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Cheap&lt;/li&gt;
+  &lt;li&gt;Powerful&lt;/li&gt;
+  &lt;li&gt;Have good documentation&lt;/li&gt;
+  &lt;li&gt;Have a good software environment&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’m going to pick from the selection that &lt;a href=&quot;https://jlcpcb.com/parts/componentSearch?isFirstLevel=true&amp;amp;firstName=EMBEDDED%20PROCESSORS%20%26%20CONTROLLERS&quot;&gt;JLCPCB&lt;/a&gt; has because they do board design and assembly for cheap.
+Select ST Microelectronics and check the In-Stock box, I recommend you sort by stock as well. Here are my results:
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/search_result_jlc.png&quot; alt=&quot;JLC PCB Search Results&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html&quot;&gt;ST&lt;/a&gt; tells you the main purpose of the different versions on this page.&lt;/p&gt;
+
+&lt;p&gt;For now lets go for the &lt;a href=&quot;https://www.st.com/content/ccc/resource/technical/document/datasheet/b5/24/80/11/51/59/47/f7/DM00141136.pdf/files/DM00141136.pdf/jcr:content/translations/en.DM00141136.pdf&quot;&gt;STM32L071RBT6&lt;/a&gt;. There is plenty of stock, and it will let us practice low power best practices.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;designing-a-board&quot;&gt;Designing a Board&lt;/h1&gt;
+&lt;p&gt;We chose our processor. We’re going to make a simple breakout board for it.&lt;/p&gt;
+
+&lt;p&gt;Run KiCad
+File -&amp;gt; New Project -&amp;gt; Name and Save&lt;/p&gt;
+
+&lt;p&gt;Double-Click the Schematic and let’s open it up.
+shift + A -&amp;gt; Click -&amp;gt; Select our Part (STM32l071RBTx) -&amp;gt; Left click to add it to the schematic.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;This chip has 5 voltage pins that we’re going to need to decouple(You can filter the analog for better Mixed Signal performance, but we’ll keep it simple here). This is vital for chip performance.&lt;/p&gt;
+
+&lt;p&gt;Let’s use some standard 0.1 uF 0603 Ceramic Caps from JLCPCB. It looks like CC0603KRX7R9BB104 will work.&lt;/p&gt;
+
+&lt;p&gt;Place 5 C_Smalls onto the schematic.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Next up we’re going to need a USB header and power regulation for it.&lt;/p&gt;
+
+&lt;p&gt;We’ll use 10118194-0001LF for a USB header, and XC6206P332MR for the linear regulator. This chip can convert our +5V to +3.3V for our chip.&lt;/p&gt;
+
+&lt;p&gt;Add USB_B to the schematic and xC6206PxxxNR as well. Add 2 C_Smalls as well for the voltage regulator. We’ll be using CL10A105KB8NNNC the decoupling caps.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We’re going to need to add a jumper for the Boot Pin. This pin determines whether your board will run the bootloader or run the burnt program.&lt;/p&gt;
+
+&lt;p&gt;Let’s add a r_small and a SolderJumper_2_Open to the schematic.&lt;/p&gt;
+
+&lt;p&gt;We’ll use 0603WAF1002T5E for the pull down-resistor.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The final thing we’re going to need to add is a crystal.
+If we look at our oscillator inputs and the clock tree in STM32Cube we can see that an 8 MHz crystal will work alongside our PLL to max out the clock speed to 32 MHz.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/cube_chip.png&quot; alt=&quot;STM32Cube Chip View&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/cube_clock_tree.png&quot; alt=&quot;STM32Cube Clock tree&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s use the X50328MSB2GI, and we’re going to need to add loading capacitors. Go into the &lt;a href=&quot;https://datasheet.lcsc.com/lcsc/2103291135_Yangxing-Tech-X50328MSB2GI_C115962.pdf&quot;&gt;datasheet&lt;/a&gt; and find the load_capacitance.&lt;/p&gt;
+
+&lt;p&gt;The value you’ll use for the load capacitors is CL = 2 (Cload - Cstray) where Cstray is usually between 3 and 5 pF.&lt;/p&gt;
+
+&lt;p&gt;So for us, it will be CL = 2 (20 pF - 4 pF) = ~32 pF = 30 pF nominal&lt;/p&gt;
+
+&lt;p&gt;With that in mind let’s add 2 more c_smalls to the schematic, and a crystal_small. We’ll use this for the capacitors CL10C300JB8NNNC.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;The only thing I still like to do is add 2 LEDs onto the board, one to show that the system is powered, and another to that you can blink via the microcontroller.&lt;/p&gt;
+
+&lt;p&gt;Let’s add 2 LED_Smalls and 2 more R_Smalls for the current limiting resistors. Let’s use this 19-213/Y2C-CQ2R2L/3T(CY) for an LED, and we’ll run at a fairly low current, so we’ll use 0603WAF1001T5E for resistors.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We also need to add some 0.1” headers for our pin breakouts. Let’s use 12251120CNG0S115005.&lt;/p&gt;
+
+&lt;p&gt;Add 2 Conn_01x20’s to your schematic&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Your schematic should look something like this
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/schematic_pre.png&quot; alt=&quot;Schematic Components Placed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s lay out the schematic properly now that we have the parts, You’ll notice I skipped quite a few steps here.
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/schematic_post.png&quot; alt=&quot;Schematic Components Placed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The order of events went as followed&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Label components with proper values&lt;/li&gt;
+  &lt;li&gt;Sort by functional block and wire up schematic&lt;/li&gt;
+  &lt;li&gt;Wire headers according to the physical pinout of the chip&lt;/li&gt;
+  &lt;li&gt;Organize sub-circuits and add labels and notes throughout&lt;/li&gt;
+  &lt;li&gt;Box of the sub-circuits&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Next up we need to annotate the schematic in KiCad 
+(Annotate Schematic Symbols -&amp;gt; Annotate)&lt;/p&gt;
+
+&lt;p&gt;After this we’re going to run electrical rule check. If you looked closely before you would see a ton of mistakes in the schematic. ERC catches these a lot of the time and will warn you. Fix any mistakes you find, and excuse any that are acceptable.&lt;/p&gt;
+
+&lt;p&gt;After the fixes you’ll have this.
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/schematic_post_2.png&quot; alt=&quot;Schematic Components Placed&quot; width=&quot;700&quot; /&gt;
+(You could have excused the unused pins, that’s up to personal taste.)&lt;/p&gt;
+
+&lt;p&gt;The final step is to go through and assign footprints. After assigning, be sure to hit Apply, Save Schematic and Continue. You should have something like this.
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/footprints_assigned.png&quot; alt=&quot;Footprints Assigned&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click PCB New in the toolbar and let’s move on to layout.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;creating-your-pcb&quot;&gt;Creating Your PCB&lt;/h1&gt;
+&lt;hr /&gt;
+&lt;p&gt;When you open the PCB you’ll have nothing there. Hit update PCB from schematic to drop your components in.&lt;/p&gt;
+
+&lt;p&gt;Let’s click on board setup and get everything set for design. We’re opting for a 2-layer board with so the default Two layers, parts on front and back setting will do.
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/layer_rules.png&quot; alt=&quot;Layer Rules&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;For the design rules I’ll be using &lt;a href=&quot;https://jlcpcb.com/capabilities/Capabilities&quot;&gt;JLCPCB&lt;/a&gt; so let’s use their rules. These rules are vendor dependent so check their site.&lt;/p&gt;
+
+&lt;p&gt;You should have something like this when it’s all said and done.
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/clearance_rules.png&quot; alt=&quot;Clearance Rules&quot; width=&quot;700&quot; /&gt;
+Just remember, KiCad doesn’t support via to via distance so don’t go below the manufacturer tolerance there (in my case .254 mm)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Next up let’s sketch out our board dimensions. Go to the cutout layer and draw your board outline using Add Graphic Line. Pick something a bit bigger than is really necessary if this is your first board.&lt;/p&gt;
+
+&lt;p&gt;You should have something like this sketched out.
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/board_outline.png&quot; alt=&quot;Board Outline&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And after placing your parts you should have something like this. You should place your components in this order, your goal is to make every trace as short as possible.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Connectors&lt;/li&gt;
+  &lt;li&gt;Microcontroller&lt;/li&gt;
+  &lt;li&gt;Clock (Make sure the traces are as short as you can get)&lt;/li&gt;
+  &lt;li&gt;Decoupling Caps (Look at that! We missed a decoupling cap for VDDIO, let’s go back, add one more and then push it forward to the PCB)&lt;/li&gt;
+  &lt;li&gt;Power Regulation&lt;/li&gt;
+  &lt;li&gt;Misc. (LEDs, Jumpers, etc.)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Here’s what I had after all of that
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/pcb_components_placed.png&quot; alt=&quot;Components Placed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Add a Ground Plane to the second layer to provide a low impedance return path for all of your signals.
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/pcb_ground.png&quot; alt=&quot;Ground Placed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After this is done it’s time to route everything. Remember to route in order of criticality (Clock, Decoupling, Power, Misc.)&lt;/p&gt;
+
+&lt;p&gt;Here’s what I got. It’s far from perfect, but this is a hobby development board. This isn’t going in the next Rover.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/board_routed.png&quot; alt=&quot;Board Routed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Look at that image, notice anything missing? The power traces are still super thin! Let’s make those bigger where we can.&lt;/p&gt;
+
+&lt;p&gt;Here’s how it looks now
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/board_routed_thicker.png&quot; alt=&quot;Board Routed Thicker Traces&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You’ll notice that there are a bunch of little arrows on the PCB. These are from running Design Rule Check. I’ve looked through these errors myself and none of them are real errors. They just have to do with your design rules. (I left my design rules somewhat imprecise)&lt;/p&gt;
+
+&lt;p&gt;Once you’re done with DRC lets set up our silkscreen layer. This is where you place the reference designators for each component on the board.&lt;/p&gt;
+
+&lt;p&gt;Here’s what I got
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/board_ref_des.png&quot; alt=&quot;Board Ref Designators&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Congrats, you laid out the board. Now comes the annoying part. Follow &lt;a href=&quot;https://support.jlcpcb.com/article/84-how-to-generate-the-bom-and-centroid-file-from-kicad&quot;&gt;this&lt;/a&gt;  tutorial on how to add JLCPCB footprints and part numbers if you’re using them.&lt;/p&gt;
+
+&lt;p&gt;The Part #’s I gave you throughout this were the manufacturer number. If you’re using JLC make sure you use their respective LCSC part number. You can either follow that tutorial or just edit the spreadsheet manually (What I tend to opt for)&lt;/p&gt;
+
+&lt;p&gt;Here’s my BOM CSV file after I finished editing it (use Excel for that)
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/bom_csv.png&quot; alt=&quot;BOM CSV File&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s what my Pick and Place CSV looked like after adjusting it
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/pp_csv.png&quot; alt=&quot;Pick and Place CSV File&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After that we need to generate gerber files and drill files.&lt;/p&gt;
+
+&lt;p&gt;File -&amp;gt; Plot -&amp;gt; Generate Drill Files (Pick Directory for output) -&amp;gt; Drill Files Done
+File -&amp;gt; Plot -&amp;gt; Plot (Pick Directory for output) -&amp;gt; Gerber Files Done&lt;/p&gt;
+
+&lt;p&gt;Defaults are fine for both. Once that is done, Zip the Gerber’s and drill files, and it’s time to order.&lt;/p&gt;
+
+&lt;h1 id=&quot;ordering-your-board&quot;&gt;Ordering Your Board&lt;/h1&gt;
+&lt;p&gt;On JLC click instant quote and upload your board files.&lt;/p&gt;
+
+&lt;p&gt;Here’s what I chose for settings. You’ll notice I chose a location for the label they add. This was something I did after the fact so the serial number they print won’t be seen (I hid it under the MCU)
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/jlc_choices.png&quot; alt=&quot;JLCPCB Choices&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You’ll need to check off the assembly box as well if you’d like them to assemble it. Let them place the tooling holes themselves. Once you accept the terms you’ll be transferred to a page where you upload the Pick and Place and BOM files. Go ahead and do that.&lt;/p&gt;
+
+&lt;p&gt;There were some discrepancies in my BOM file I had to change (thanks to conflicting docs on their end) but eventually you get this screen
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/parts_uncomfirmed.png&quot; alt=&quot;Parts Uncomfirmed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Confirm everything is correct and move on. I had to fiddle with the component orientations somewhat on my end to get it to work. This is the end result.
+&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/jlc_placement.png&quot; alt=&quot;JLC Placement&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And just like that we have 5 boards order and assembled (minus the 0.1” headers) for less than $50 (and that’s with the 3-day shipping).&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h1&gt;
+&lt;p&gt;I hope this helps you when it comes to designing boards and getting started with this sort of thing. I know this was a bit long-winded, but best of luck with your board design :)&lt;/p&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html"></summary></entry><entry><title type="html">SymbiYosys Cheatsheet</title><link href="http://localhost:4000/tutorials/symbiyosys_cheatsheet" rel="alternate" type="text/html" title="SymbiYosys Cheatsheet" /><published>2021-11-03T17:52:46-04:00</published><updated>2021-11-03T17:52:46-04:00</updated><id>http://localhost:4000/tutorials/symbiyosys_cheatsheet</id><content type="html" xml:base="http://localhost:4000/tutorials/symbiyosys_cheatsheet">&lt;hr /&gt;
 
 &lt;p&gt;This cheatsheet shows you the basics of using SymbiYosys on your Verilog code to formally verify it’s functionality.&lt;/p&gt;
 
@@ -1288,56 +1579,4 @@ Project » Validate Projectname.PrjPcb&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Right click the message and place no erc for the connection if it’s a false error. If there’s an actual error fix it, then rerun the Validation&lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;h2 id=&quot;youre-now-done-with-the-schematic-check-out-the-pcb-tutorial-if-youre-responsible-for-the-layout-as-well-hope-this-helped-&quot;&gt;You’re now done with the schematic! Check out the PCB tutorial if you’re responsible for the layout as well, hope this helped :)&lt;/h2&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">I lost my old hard drive that had my Altium workflow guide and hotkeys guide on it. I figured I’ll write up this guide for anyone who’s interested in learning/switching to Altium. I suppose this will save me a lot of questions when I get around to starting the embedded club in person. If you have any questions or suggestions to add to this guide reach out! Note: Thou is the same as Mill for anyone who doesn’t know, 1/1000 of an inch! Altium Schematic Design Guide Creating the project File » New » Project Default PCB will work for your basic project. I recommend you use Git, or SVN if you prefer that. I believe Altium actually incorporates SVN but I’m a Git guy myself, and it does have some Git support (although I still use a terminal). Adding a Schematic Right Click Project » Add New to Project » Schematic Right Click Schematic » Rename Rename as you find appropriate Configuring Properties Property Configuration (Panels » Property) Set Visible Snap Grid (I go with 100 mil) Set Layout Snap Grid (Again, 100 mil) Set Page Color (Slightly Gray is Better on my Eyes, Choice is yours!) Set Sheet Size (Whatever you prefer, it’s rare to actually print schematics nowadays, but I recommend it when you check traces!) Selecting Components There are two options in Altium, the Altium Vault and personal Libraries If your in a large company they’ll probably have their own library to ensuring manufacturing tolerances, but I like the Altium Vault Library cause it saves time and shows part availability. The standard component library does have your standard passives/connectors that you can use as well. I might make a tutorial on component generation later, but school’s killing me right now. Selecting Parts Via Manufacturer Part Search Using Manufacturer Part Search (Panels » Manufacturer Part Search) It has built in filter systems if you click the funnel shaped symbol on the top left, querying works rather well, and then you can filter down to desired packaged size/stock/etc. after the fact. example search: “smd led 0603 red” This will yield plenty of suitable parts, and it integrates with Octopart (part availability from distributors) to tell you pricing and availability. Some components will have the footprint designed by Altium (typically there’s a small, medium, and large footprint). When designing for manufacture part availability and price is huge! when you picked out a part you want to use right click » place » left click to place on schematic right click » add supplier link and parameter to part(if you want to) » left click part on schematic Selecting Parts Via Local Libraries Using Local/Content Server Libraries Panels » Components I’ll be honest I don’t have a content server so I can’t really speak for it, but here’s how to use the local libraries Installing Libraries Components » The 3 Bar Icon » File Based Library Preferences » Installed » Installed You can also just store the component in the local project directory if you’d like to use it within just the project. Querying and Parameterized search is the same for local components as Manufacturer Part Search. Placing the component is the same as well Wiring the Schematic Ctrl+W » Draw Wires Left click to place Left Click Hold and drag to move wire and component Left Click+Ctrl Hold and drag to move just components Right Click to exit wire mode** If you prefer the arch to show where connections don’t exist it’s in the general page of preferences for the schematic Net Labels Right Click the Quickbar in the wire slot and select net label Use Tab » Preferences to declare the labels Place on a net to label it General Rules for Drawing Schematics High voltage at the top, Ground at the bottom Signals move form left to right Don’t connect more than 2 signals at a single dot if possible, this ensures you can see what is and what isn’t a connection. Ensure Reference Designators are done properly Put relevant calculations right on the schematic with a text comment Fill out your name, project name, and revision number on the schematic Schematic Hotkeys Spacebar: Rotate Part 90 degrees X: Flip along X-axis Y: Flip along Y-axis Tab: Display Properties for a placed part, any properties filled out are kept for subsequent places of the same component(good to label reference designators) Ctrl+Wheel: Zoom in or Out Right Click+Drag: Move schematic Ctrl+PgDwn: Fit Sheet to page G: Cycle snap grids Ctrl+W: Draw Wires With all of this in mind, go ahead and draw up your schematic. Then we’ll move onto ERC checks. Configure Error Reporting Project » Project Options » Error Reporting Chose the severity level of each warning if you’d like to alter the defaults, as a beginner I’d leave it alone Project » Project Options » Set up as desired If you want certain types of pins connecting to other pins configure it here. I recommend you atleast have warnings for unconnected pins Running Design Rule Check Panels » Messages Project » Validate Projectname.PrjPcb You will see errors outputted in the message box, double click the message to zoom on the error. if you consider the error to be acceptable (for example leaving one end of a potentiometer unconnected). Right click the message and place no erc for the connection if it’s a false error. If there’s an actual error fix it, then rerun the Validation You’re now done with the schematic! Check out the PCB tutorial if you’re responsible for the layout as well, hope this helped :)</summary></entry><entry><title type="html">UR Offline Simulator Install</title><link href="http://localhost:4000/tutorials/UR_Simulator" rel="alternate" type="text/html" title="UR Offline Simulator Install" /><published>2021-02-16T16:52:46-05:00</published><updated>2021-02-16T16:52:46-05:00</updated><id>http://localhost:4000/tutorials/UR_Sim_Install</id><content type="html" xml:base="http://localhost:4000/tutorials/UR_Simulator">&lt;hr /&gt;
-&lt;h2 id=&quot;downloading-and-setting-up&quot;&gt;Downloading and Setting Up&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Go to universal-robots.com/download&lt;/li&gt;
-  &lt;li&gt;navigate to software -&amp;gt; offline for non linux (guess what their linux version relies on libcurl3 which hasn’t been supported in ages)&lt;/li&gt;
-  &lt;li&gt;download the latest version&lt;/li&gt;
-  &lt;li&gt;download virtualbox&lt;/li&gt;
-  &lt;li&gt;unrar the download from ur with unrar x &lt;filename&gt;&lt;/filename&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;open virtual box&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;New&lt;/li&gt;
-  &lt;li&gt;name -&amp;gt; Whatever, Type Linux, Version: Ubuntu&lt;/li&gt;
-  &lt;li&gt;Memory 768 MB&lt;/li&gt;
-  &lt;li&gt;Use existing hard drive file&lt;/li&gt;
-  &lt;li&gt;Navigate to where you unRARed the .rar package and select the top module&lt;/li&gt;
-  &lt;li&gt;Create&lt;/li&gt;
-  &lt;li&gt;Start&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;On the virtual machine settings make network bridged to allow two way networking between
-host and the virtual machine, reboot machine to have it take affect&lt;/p&gt;
-
-&lt;p&gt;This is likely just a virtual machine issue, in real life it’s an ethernet connection&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;communicating-with-the-ur-computer-via-tcpip&quot;&gt;Communicating with the UR Computer via TCP/IP&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;socket&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;HOST&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;10.0.0.65&quot;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;#UR5 IP Address found in about panel on the robot's tablet
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PORT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30002&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#UR5 TCP IP port found in the same location
-&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sock&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AF_INET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SOCK_STREAM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HOST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PORT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-
-&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;set_digital_out(0,False)&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;#Newline termination required on all payload messages
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;sock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Received: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;repr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This code shows a simple example of how you’d communicate with the robot and set a digital output pin.&lt;/p&gt;
-
-&lt;p&gt;The UR Computer has multiple ports, the one we wrote to allows you to send commands or listen to the state of the system.&lt;/p&gt;
-
-&lt;p&gt;There are additional ports that only allow you to listen to the system state. My next goal is going to be to listen to this port, and create a wrapper for you to read
-any state updates from in Python. This requires you to deserialize a custom message, and will be hosted on my github soon.&lt;/p&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Downloading and Setting Up Go to universal-robots.com/download navigate to software -&amp;gt; offline for non linux (guess what their linux version relies on libcurl3 which hasn’t been supported in ages) download the latest version download virtualbox unrar the download from ur with unrar x</summary></entry></feed>
+&lt;h2 id=&quot;youre-now-done-with-the-schematic-check-out-the-pcb-tutorial-if-youre-responsible-for-the-layout-as-well-hope-this-helped-&quot;&gt;You’re now done with the schematic! Check out the PCB tutorial if you’re responsible for the layout as well, hope this helped :)&lt;/h2&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">I lost my old hard drive that had my Altium workflow guide and hotkeys guide on it. I figured I’ll write up this guide for anyone who’s interested in learning/switching to Altium. I suppose this will save me a lot of questions when I get around to starting the embedded club in person. If you have any questions or suggestions to add to this guide reach out! Note: Thou is the same as Mill for anyone who doesn’t know, 1/1000 of an inch! Altium Schematic Design Guide Creating the project File » New » Project Default PCB will work for your basic project. I recommend you use Git, or SVN if you prefer that. I believe Altium actually incorporates SVN but I’m a Git guy myself, and it does have some Git support (although I still use a terminal). Adding a Schematic Right Click Project » Add New to Project » Schematic Right Click Schematic » Rename Rename as you find appropriate Configuring Properties Property Configuration (Panels » Property) Set Visible Snap Grid (I go with 100 mil) Set Layout Snap Grid (Again, 100 mil) Set Page Color (Slightly Gray is Better on my Eyes, Choice is yours!) Set Sheet Size (Whatever you prefer, it’s rare to actually print schematics nowadays, but I recommend it when you check traces!) Selecting Components There are two options in Altium, the Altium Vault and personal Libraries If your in a large company they’ll probably have their own library to ensuring manufacturing tolerances, but I like the Altium Vault Library cause it saves time and shows part availability. The standard component library does have your standard passives/connectors that you can use as well. I might make a tutorial on component generation later, but school’s killing me right now. Selecting Parts Via Manufacturer Part Search Using Manufacturer Part Search (Panels » Manufacturer Part Search) It has built in filter systems if you click the funnel shaped symbol on the top left, querying works rather well, and then you can filter down to desired packaged size/stock/etc. after the fact. example search: “smd led 0603 red” This will yield plenty of suitable parts, and it integrates with Octopart (part availability from distributors) to tell you pricing and availability. Some components will have the footprint designed by Altium (typically there’s a small, medium, and large footprint). When designing for manufacture part availability and price is huge! when you picked out a part you want to use right click » place » left click to place on schematic right click » add supplier link and parameter to part(if you want to) » left click part on schematic Selecting Parts Via Local Libraries Using Local/Content Server Libraries Panels » Components I’ll be honest I don’t have a content server so I can’t really speak for it, but here’s how to use the local libraries Installing Libraries Components » The 3 Bar Icon » File Based Library Preferences » Installed » Installed You can also just store the component in the local project directory if you’d like to use it within just the project. Querying and Parameterized search is the same for local components as Manufacturer Part Search. Placing the component is the same as well Wiring the Schematic Ctrl+W » Draw Wires Left click to place Left Click Hold and drag to move wire and component Left Click+Ctrl Hold and drag to move just components Right Click to exit wire mode** If you prefer the arch to show where connections don’t exist it’s in the general page of preferences for the schematic Net Labels Right Click the Quickbar in the wire slot and select net label Use Tab » Preferences to declare the labels Place on a net to label it General Rules for Drawing Schematics High voltage at the top, Ground at the bottom Signals move form left to right Don’t connect more than 2 signals at a single dot if possible, this ensures you can see what is and what isn’t a connection. Ensure Reference Designators are done properly Put relevant calculations right on the schematic with a text comment Fill out your name, project name, and revision number on the schematic Schematic Hotkeys Spacebar: Rotate Part 90 degrees X: Flip along X-axis Y: Flip along Y-axis Tab: Display Properties for a placed part, any properties filled out are kept for subsequent places of the same component(good to label reference designators) Ctrl+Wheel: Zoom in or Out Right Click+Drag: Move schematic Ctrl+PgDwn: Fit Sheet to page G: Cycle snap grids Ctrl+W: Draw Wires With all of this in mind, go ahead and draw up your schematic. Then we’ll move onto ERC checks. Configure Error Reporting Project » Project Options » Error Reporting Chose the severity level of each warning if you’d like to alter the defaults, as a beginner I’d leave it alone Project » Project Options » Set up as desired If you want certain types of pins connecting to other pins configure it here. I recommend you atleast have warnings for unconnected pins Running Design Rule Check Panels » Messages Project » Validate Projectname.PrjPcb You will see errors outputted in the message box, double click the message to zoom on the error. if you consider the error to be acceptable (for example leaving one end of a potentiometer unconnected). Right click the message and place no erc for the connection if it’s a false error. If there’s an actual error fix it, then rerun the Validation You’re now done with the schematic! Check out the PCB tutorial if you’re responsible for the layout as well, hope this helped :)</summary></entry></feed>
