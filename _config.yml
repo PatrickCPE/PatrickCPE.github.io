@@ -33,7 +33,8 @@ github_username:  "PatrickCPE"
 
 # Build settings
 #theme: minima	#Original
-theme: jekyll-shell-theme	# May be solved with remote theme
+#theme: jekyll-shell-theme	# May be solved with remote theme
+remote_theme: https://github.com/tareqdandachi/jekyll-shell-theme	# May be solved with remote theme
 plugins:
   - jekyll-feed
   - jemoji
