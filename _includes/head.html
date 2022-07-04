@@ -1,15 +1,30 @@
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-  <title>
-    {% if page.layout != 'home' %}{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %} - {{ site.title }}{% else %}
-    {{ site.title }}{% endif %}
-  </title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <script type="text/javascript" src="{{ page.js_file | relative_url }}"></script>
+    <title>
+        {% if page.layout != 'home' %}{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %} - {{
+        site.title }}{% else %}
+        {{ site.title }}{% endif %}
+    </title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <script type="text/javascript" src="{{ page.js_file | relative_url }}"></script>
 
-  {% seo %}
+    {% seo %}
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RDQ00N70EG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-RDQ00N70EG');
+    </script>
 
 </head>
