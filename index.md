@@ -11,15 +11,14 @@ detail_image: assets/images/patrick_cpe/patrick_cpe_green.png
 
 # Welcome
 ---
-My names Patrick, I'm a Senior Computer Engineering Undergraduate at University of Massachusetts Lowell. This sites home to my Blog, Project Write-Ups, Tutorials, and whatever else in the world I'm in the mood to post.
+My names Patrick, I'm a Computer Engineer currently working in Design Verification. This sites home to my Blog, Project Write-Ups, Tutorials, and whatever else in the world I'm in the mood to post.
 
 # Interests
 ---
 * Electronics
 * Robotics
-* Embedded
+* Embedded Systems
 * Computing
-* 3D Printing
 * Hiking
 * Lord of the Rings
 * Never actually improving at guitar
