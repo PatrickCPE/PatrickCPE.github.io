@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="PatrickCPE.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="PatrickCPE.github.io/" rel="alternate" type="text/html" /><updated>2022-08-10T02:24:38-04:00</updated><id>PatrickCPE.github.io/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">Altium Layout Cheatsheet</title><link href="PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html" rel="alternate" type="text/html" title="Altium Layout Cheatsheet" /><published>2021-02-28T02:41:46-05:00</published><updated>2021-02-28T02:41:46-05:00</updated><id>PatrickCPE.github.io/tutorials/altium_layout_guide</id><content type="html" xml:base="PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html">&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="PatrickCPE.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="PatrickCPE.github.io/" rel="alternate" type="text/html" /><updated>2022-08-10T16:37:09-04:00</updated><id>PatrickCPE.github.io/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">Site_revamp</title><link href="PatrickCPE.github.io/2022/08/05/site_revamp.html" rel="alternate" type="text/html" title="Site_revamp" /><published>2022-08-05T00:00:00-04:00</published><updated>2022-08-05T00:00:00-04:00</updated><id>PatrickCPE.github.io/2022/08/05/site_revamp</id><content type="html" xml:base="PatrickCPE.github.io/2022/08/05/site_revamp.html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+	&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+
+&lt;head&gt;
+&lt;title&gt;2022-08-05-site_revamp.html&lt;/title&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot;/&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;layout: post
+title:  &quot;2022 Site Revamp&quot;
+post-title:  &quot;2022 Site Revamp&quot;
+date:   2021-08-08 10:41:46 -0500
+permalink: /blog/2022_site_revamp.html
+permalink_name: /2022_site_revamp
+category: blogs
+description: &quot;Plans for 2022 and onward. Future Project Plans&quot;&lt;/p&gt;
+&lt;h2&gt;categories: Personal Engineering&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;h2&gt;What's Going On With Me&lt;/h2&gt;
+&lt;p&gt;I finally finished undergrad :) Now I'm working in design verification at Analog Devices. Starting outs been a fairly big change so I'm still getting into the swing of it. I'll be moving soon as well so it's been a bit stressful as of late, but I'm planning to start doing some personal projects and posting here soon.&lt;/p&gt;
+&lt;h2&gt;Removal of Old Posts&lt;/h2&gt;
+&lt;p&gt;I opted to remove a lot of the prior posts and tutorials from the site. I felt they weren't really up to par with what I wanted to be hosting here. All that I'm retaining is my Altium workflow guides for both schematic and layout because I find those generally useful. There are a few other posts such as my microcontroller guide that I want to edit and improve in quality before I re-add them to the site.&lt;/p&gt;
+&lt;h2&gt;Projects Plans and Content Moving Forward&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Digital Design - Pipelining my RISC-V Processor&lt;/li&gt;
+&lt;li&gt;Digital Design - Interface Protocol Tutorials (Wishbone, AXI, APB, etc.)&lt;/li&gt;
+&lt;li&gt;ASIC Design - OpenLane Chip Design Flow (RTL -&amp;gt; GDSII)&lt;/li&gt;
+&lt;li&gt;Design Verification - Formal Methods via SymbiYosys&lt;/li&gt;
+&lt;li&gt;Design Verification - OSS/Tabby CAD Design and Formal Verification Suite&lt;/li&gt;
+&lt;li&gt;Design Verification - RISC-V Formal&lt;/li&gt;
+&lt;li&gt;Design Verification - Icarus Verilog Simulation Guide&lt;/li&gt;
+&lt;li&gt;Design Verification - Verilator Simulation Guide&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This list contains the projects I'll be working on, and the tools I intend to write up tutorials for. The tools are a far fetch from modern proprietary tools, but they're improving quick. I don't intend to do any tutorial on System Verilog nor Verilog itself because I feel it's well covered but I will cover the supported subset of SV available to the tools mentioned above.&lt;/p&gt;
+&lt;p&gt;No promises on any of these, and certainly no promise on the timeline ¯\&lt;em&gt;(ツ)&lt;/em&gt;/¯&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">2022 Site Revamp</title><link href="PatrickCPE.github.io/blog/2022_site_revamp.html" rel="alternate" type="text/html" title="2022 Site Revamp" /><published>2021-08-08T11:41:46-04:00</published><updated>2021-08-08T11:41:46-04:00</updated><id>PatrickCPE.github.io/blog/site_revamp</id><content type="html" xml:base="PatrickCPE.github.io/blog/2022_site_revamp.html">&lt;hr /&gt;
+&lt;h2 id=&quot;whats-going-on-with-me&quot;&gt;What’s Going On With Me&lt;/h2&gt;
+&lt;p&gt;I finally finished undergrad :) Now I’m working in design verification at Analog Devices. Starting outs been a fairly big change so I’m still getting into the swing of it. I’ll be moving soon as well so it’s been a bit stressful as of late, but I’m planning to start doing some personal projects and posting here soon.&lt;/p&gt;
+
+&lt;h2 id=&quot;removal-of-old-posts&quot;&gt;Removal of Old Posts&lt;/h2&gt;
+&lt;p&gt;I opted to remove a lot of the prior posts and tutorials from the site. I felt they weren’t really up to par with what I wanted to be hosting here. All that I’m retaining is my Altium workflow guides for both schematic and layout because I find those generally useful. There are a few other posts such as my microcontroller guide that I want to edit and improve in quality before I re-add them to the site.&lt;/p&gt;
+
+&lt;h2 id=&quot;projects-plans-and-content-moving-forward&quot;&gt;Projects Plans and Content Moving Forward&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Digital Design - Pipelining my RISC-V Processor&lt;/li&gt;
+  &lt;li&gt;Digital Design - Interface Protocol Tutorials (Wishbone, AXI, APB, etc.)&lt;/li&gt;
+  &lt;li&gt;ASIC Design - OpenLane Chip Design Flow (RTL -&amp;gt; GDSII)&lt;/li&gt;
+  &lt;li&gt;Design Verification - Formal Methods via SymbiYosys&lt;/li&gt;
+  &lt;li&gt;Design Verification - OSS/Tabby CAD Design and Formal Verification Suite&lt;/li&gt;
+  &lt;li&gt;Design Verification - RISC-V Formal&lt;/li&gt;
+  &lt;li&gt;Design Verification - Icarus Verilog Simulation Guide&lt;/li&gt;
+  &lt;li&gt;Design Verification - Verilator Simulation Guide&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This list contains the projects I’ll be working on, and the tools I intend to write up tutorials for. The tools are a far fetch from modern proprietary tools, but they’re improving quick. I don’t intend to do any tutorial on System Verilog nor Verilog itself because I feel it’s well covered but I will cover the supported subset of SV available to the tools mentioned above.&lt;/p&gt;
+
+&lt;p&gt;No promises on any of these, and certainly no promise on the timeline ¯\&lt;em&gt;(ツ)&lt;/em&gt;/¯&lt;/p&gt;</content><author><name></name></author><category term="blogs" /><summary type="html">What’s Going On With Me I finally finished undergrad :) Now I’m working in design verification at Analog Devices. Starting outs been a fairly big change so I’m still getting into the swing of it. I’ll be moving soon as well so it’s been a bit stressful as of late, but I’m planning to start doing some personal projects and posting here soon.</summary></entry><entry><title type="html">Altium Layout Cheatsheet</title><link href="PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html" rel="alternate" type="text/html" title="Altium Layout Cheatsheet" /><published>2021-02-28T02:41:46-05:00</published><updated>2021-02-28T02:41:46-05:00</updated><id>PatrickCPE.github.io/tutorials/altium_layout_guide</id><content type="html" xml:base="PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html">&lt;hr /&gt;
 &lt;p&gt;Project Workflow and Shortcuts for Altium Designer 2020 - Schematic Tool&lt;/p&gt;
 
 &lt;h2 id=&quot;creating-the-board&quot;&gt;Creating the board&lt;/h2&gt;

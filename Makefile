@@ -36,6 +36,6 @@ clean:
 deploy:
 	@bundle exec jekyll clean;
 	@bundle exec jekyll build;
-	@git add .;
+	@git add *;
 	@git commit -m "$(MESSAGE)";
 	@git push origin gh-pages;
