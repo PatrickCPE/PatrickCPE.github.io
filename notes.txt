@@ -46,3 +46,9 @@ git remote add origin https://github.com/UML-Embedded/uml-embedded.github.io.git
 or opt for the ssh key 
 git remote add origin git@github.com:UML-Embedded/uml-embedded.github.io.git
 
+Org Mode notes
+Write the org file
+, e e h h -> create html doc
+Copy it to post folder and add in the top snippet. Rename as .md for support of links
+Remove <html> and <body> tags
+
