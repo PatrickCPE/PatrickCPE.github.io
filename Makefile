@@ -8,19 +8,33 @@ default: help
 .PHONY : help
 help:
 	@echo "Targets";
-	@echo "Target:";
-	@echo "    Description";
-	@echo "        Param";
-	@echo "            Description";
 	@echo "help:";
 	@echo "    Show makefile usage";
+	@echo "clean:";
+	@echo "    Clean the generated site html";
+	@echo "local:";
+	@echo "    Build site and host locally";
+	@echo "deploy:";
+	@echo "    Build and deploy site via github pages.";
+	@echo "        MESSAGE";
+	@echo "            Git commit message for this push";
+	@echo "";
+	@echo "Examples:";
+	@echo "make help";
+	@echo "make local";
+	@echo "make deploy MESSAGE=\"Commit that does stuff :)\"";
 
 .PHONY : local
 local:
 	@bundle exec jekyll serve;
 
+.PHONY : clean
+clean:
+	@bundle exec jekyll clean;
+
 .PHONY: deploy
 deploy:
+	@bundle exec jekyll clean;
 	@bundle exec jekyll build;
 	@git add .;
 	@git commit -m "$(MESSAGE)";

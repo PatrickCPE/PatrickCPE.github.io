@@ -6,14 +6,12 @@ date:   2021-07-24 21:41:46 -0500
 permalink: /tutorials/starting_with_raspberry_pi.html
 permalink_name: /starting_with_raspberry_pi
 category: tutorials
-description: "This guide will teach you how to start working with your Raspberry Pi headless"
+description: "Guide to using a Raspberry Pi Zero in headless mode"
 
 categories: Tutorials
 ---
 
 ---
-*Moved from UML-Embedded Club Site to my personal site*
-
 # Requirements
 * Basic knowledge of [Linux](https://linuxjourney.com/) (It's possible to connect via windows but this tutorial assumes you're working in a Linux environment)
 * Compatible [Raspberry Pi](https://www.raspberrypi.org/products/) Model (Most will work. This was tested with the Pi Zero, Pi Zero W, and the Pi 3)

@@ -1,1477 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="PatrickCPE.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="PatrickCPE.github.io/" rel="alternate" type="text/html" /><updated>2022-08-10T01:35:08-04:00</updated><id>PatrickCPE.github.io/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">Jekyll HTML test</title><link href="PatrickCPE.github.io/tutorials/jekyll_test.html" rel="alternate" type="text/html" title="Jekyll HTML test" /><published>2022-08-01T02:41:46-04:00</published><updated>2022-08-01T02:41:46-04:00</updated><id>PatrickCPE.github.io/tutorials/test_org</id><content type="html" xml:base="PatrickCPE.github.io/tutorials/jekyll_test.html">&lt;head&gt;
-&lt;!-- 2022-08-02 Tue 19:46 --&gt;
-&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot; /&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
-&lt;title&gt;Test Org -&amp;gt; HTML Jenkins Post&lt;/title&gt;
-&lt;meta name=&quot;author&quot; content=&quot;Patrick Hoey&quot; /&gt;
-&lt;meta name=&quot;description&quot; content=&quot;Testing if I can export org to html and use that as a blog post cleanly&quot; /&gt;
-&lt;meta name=&quot;generator&quot; content=&quot;Org Mode&quot; /&gt;
-&lt;style&gt;
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per &quot;defun org-babel-execute&quot;
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf &quot; &quot;)) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="PatrickCPE.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="PatrickCPE.github.io/" rel="alternate" type="text/html" /><updated>2022-08-10T02:24:38-04:00</updated><id>PatrickCPE.github.io/feed.xml</id><subtitle>&quot;Electronics, Microcontrollers, FPGAs, Embedded, Linux, Software, horrible projects that deserve to be thrown into oblivion. Just your everyday idiot who enjoys taking things apart, and maybe someday I'll learn how to put them back together&quot;</subtitle><entry><title type="html">Altium Layout Cheatsheet</title><link href="PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html" rel="alternate" type="text/html" title="Altium Layout Cheatsheet" /><published>2021-02-28T02:41:46-05:00</published><updated>2021-02-28T02:41:46-05:00</updated><id>PatrickCPE.github.io/tutorials/altium_layout_guide</id><content type="html" xml:base="PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html">&lt;hr /&gt;
+&lt;p&gt;Project Workflow and Shortcuts for Altium Designer 2020 - Schematic Tool&lt;/p&gt;
 
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;div id=&quot;content&quot; class=&quot;content&quot;&gt;
-&lt;h1 class=&quot;title&quot;&gt;Test Org -&amp;gt; HTML Jenkins Post&lt;/h1&gt;
-&lt;div id=&quot;table-of-contents&quot; role=&quot;doc-toc&quot;&gt;
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;div id=&quot;text-table-of-contents&quot; role=&quot;doc-toc&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#org9d77a67&quot;&gt;1. Testing&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#orgc19fcbb&quot;&gt;2. Things&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#org8163a72&quot;&gt;3. Out&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#orge1563d8&quot;&gt;3.1. Stuff&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#orga0d4f1c&quot;&gt;3.1.1. Thangs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#org63967f3&quot;&gt;3.2. Other Thangs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&quot;outline-container-org9d77a67&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;org9d77a67&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;1.&lt;/span&gt; Testing&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-&lt;p&gt;
-and beings smarts
-&lt;/p&gt;
-
-&lt;table border=&quot;2&quot; cellspacing=&quot;0&quot; cellpadding=&quot;6&quot; rules=&quot;groups&quot; frame=&quot;hsides&quot;&gt;
-
-
-&lt;colgroup&gt;
-&lt;col class=&quot;org-left&quot; /&gt;
-
-&lt;col class=&quot;org-left&quot; /&gt;
-
-&lt;col class=&quot;org-left&quot; /&gt;
-&lt;/colgroup&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td class=&quot;org-left&quot;&gt;test&lt;/td&gt;
-&lt;td class=&quot;org-left&quot;&gt;table&lt;/td&gt;
-&lt;td class=&quot;org-left&quot;&gt;making&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td class=&quot;org-left&quot;&gt;and&lt;/td&gt;
-&lt;td class=&quot;org-left&quot;&gt;other&lt;/td&gt;
-&lt;td class=&quot;org-left&quot;&gt;things&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-orgc19fcbb&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;orgc19fcbb&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;2.&lt;/span&gt; Things&lt;/h2&gt;
-&lt;/div&gt;
-&lt;div id=&quot;outline-container-org8163a72&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;org8163a72&quot;&gt;&lt;span class=&quot;section-number-2&quot;&gt;3.&lt;/span&gt; Out&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
-&lt;/div&gt;
-&lt;div id=&quot;outline-container-orge1563d8&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;orge1563d8&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.1.&lt;/span&gt; Stuff&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
-&lt;/div&gt;
-&lt;div id=&quot;outline-container-orga0d4f1c&quot; class=&quot;outline-4&quot;&gt;
-&lt;h4 id=&quot;orga0d4f1c&quot;&gt;&lt;span class=&quot;section-number-4&quot;&gt;3.1.1.&lt;/span&gt; Thangs&lt;/h4&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&quot;outline-container-org63967f3&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;org63967f3&quot;&gt;&lt;span class=&quot;section-number-3&quot;&gt;3.2.&lt;/span&gt; Other Thangs&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-2&quot;&gt;
-&lt;p&gt;
-Posting about topics
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&quot;postamble&quot; class=&quot;status&quot;&gt;
-&lt;p class=&quot;author&quot;&gt;Author: Patrick Hoey&lt;/p&gt;
-&lt;p class=&quot;date&quot;&gt;Created: 2022-08-02 Tue 19:46&lt;/p&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Test Org -&amp;gt; HTML Jenkins Post</summary></entry><entry><title type="html">Microcontrollers - Hardware Design</title><link href="PatrickCPE.github.io/tutorials/microcontrollers_tutorial_1" rel="alternate" type="text/html" title="Microcontrollers - Hardware Design" /><published>2021-11-13T16:52:46-05:00</published><updated>2021-11-13T16:52:46-05:00</updated><id>PatrickCPE.github.io/tutorials/microcontrollers_tutorial_1</id><content type="html" xml:base="PatrickCPE.github.io/tutorials/microcontrollers_tutorial_1">&lt;hr /&gt;
-
-&lt;p&gt;This is part 1 of a 3 part tutorial series on microcontrollers. This tutorial is going to cover hardware design,
-programming your micro, and lastly how to run an RTOS on your micro.&lt;/p&gt;
-
-&lt;p&gt;Part 1 - Hardware Design - Things You’ll Learn&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;What is a microcontroller&lt;/li&gt;
-  &lt;li&gt;How to pick a microcontroller&lt;/li&gt;
-  &lt;li&gt;How to design a board around it&lt;/li&gt;
-  &lt;li&gt;How to order your board and have it assembled&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I’ll be using KiCad for board design due to the fact it’s free so anyone can follow along.&lt;/p&gt;
-
-&lt;p&gt;It’s a good starter tool if you only need to spin the occasional board. Development for this series will be done in Linux (Ubuntu 20.04 LTS).&lt;/p&gt;
-
-&lt;p&gt;Requirements&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt upgrade
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;kicad
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You’ll also need to install STM32CubeMX if you want to follow me exactly. Download the Debian package from &lt;a href=&quot;https://www.st.com/en/development-tools/stm32cubemx.html&quot;&gt;here&lt;/a&gt; and run&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;path to your download&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;/&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;download name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;what-is-a-microcontroller&quot;&gt;What is a Microcontroller&lt;/h1&gt;
-&lt;p&gt;This section on its own could be multiple write-ups, so I’ll keep it simple. A microcontroller is a chip that contains a processor, memory, and onboard peripherals all within a single chip.&lt;/p&gt;
-
-&lt;p&gt;The main differences between a microcontroller and a microprocessor is that microcontroller drains less power on average, and it does not have a memory management unit.&lt;/p&gt;
-
-&lt;p&gt;This means that you only work with real memory on a microcontroller rather than &lt;a href=&quot;https://youtu.be/Aw0YAUdQp1c&quot;&gt;virtual memory&lt;/a&gt; like you would by running a C program on your desktop.&lt;/p&gt;
-
-&lt;p&gt;Occasionally you’ll hear the term SoC as well, which stands for system on a chip. This is more or less a marketing term which means a microcontroller with very specific peripherals on it that can accomplish certain purposes. This is a marketing term more or less, and has no straightforward definition.&lt;/p&gt;
-
-&lt;p&gt;Some SoCs have configurable digital logic on them (like with an FPGA) but overall just look at the datasheet to see what the chip actually is.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;how-to-pick-a-microcontroller&quot;&gt;How to pick a Microcontroller&lt;/h1&gt;
-&lt;p&gt;There are 10 trillion parts to chose from (and about 7 of them are in stock at the moment). This section is going to introduce you to parametric search, basic specs about microcontrollers, and why you might pick a certain processor over another.&lt;/p&gt;
-
-&lt;h2 id=&quot;driving-factors&quot;&gt;&lt;em&gt;Driving Factors&lt;/em&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Performance (How fast can it process)&lt;/li&gt;
-  &lt;li&gt;Peripherals&lt;/li&gt;
-  &lt;li&gt;Power Draw (Battery constrained environments need low power draw)&lt;/li&gt;
-  &lt;li&gt;Availability (Welcome to the chip-pocalypse)&lt;/li&gt;
-  &lt;li&gt;Temperature Range (Does this need to run inside a car?)&lt;/li&gt;
-  &lt;li&gt;Cost (Duh)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;performance&quot;&gt;&lt;em&gt;Performance&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;Performance is effectively a measure of how much math a processor can do in a given amount of time. This is very difficult to get an accurate read on because certain processors do certain things better, and you’ll never have time to go all the way down the rabbit hole.&lt;/p&gt;
-
-&lt;p&gt;The end all be all I’ll leave you with is that most modern ARM microcontrollers can handle what you need and do it cheaply. If don’t need much performance there’s the ATTiny series or the STM8 series I know of off the top of my head.&lt;/p&gt;
-
-&lt;p&gt;Clock speed effects performance, but it’s not a 1 to 1 comparison because certain microcontrollers take multiple clock cycles to execute an instruction(like old PICs) while others execute most instructions in a single cycle(like AVR chips).&lt;/p&gt;
-
-&lt;h2 id=&quot;peripherals&quot;&gt;&lt;em&gt;Peripherals&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;Peripherals are the other bits and pieces of hardware on the chip that do what you need. Read about them in &lt;a href=&quot;https://patrickcpe.github.io/tutorials/peripheral_basics.html&quot;&gt;this tutorial&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Sometimes you’re going to need 3 SPI peripherals and 2 UART lines, or if you’re working on an industrial system you will probably need a CAN peripheral. This is usually the first requirement you sort by when designing a particular system.&lt;/p&gt;
-
-&lt;h2 id=&quot;power-draw&quot;&gt;&lt;em&gt;Power Draw&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;Every chip markets itself as a low power battery saving miracle of God. Truth be told, the front page of the datasheet is written by marketing folks.&lt;/p&gt;
-
-&lt;p&gt;If you have a chip that only needs to process on occasion in a power constrained environment check what the different sleep modes drain in the datasheet. If the mode you need (such as sleep but maintain memory) is within your power budget then that chip works.&lt;/p&gt;
-
-&lt;h2 id=&quot;availability&quot;&gt;&lt;em&gt;Availability&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;Welcome to 2021, the year just in time manufacturing came to a halt. Chip foundries can’t keep up with demand, shipping is a mess, and chips that used to cost $2 now cost $40.&lt;/p&gt;
-
-&lt;p&gt;If you’re making a product that is meant to be more than a single run make sure you chose a chip that is still in the active stage of its lifecycle, is in stock, and restocks at a respectable rate.&lt;/p&gt;
-
-&lt;p&gt;Use your jellybean parts because they’ll always be around. If you have a reason you need something special you better make sure you’ll be able to procure it when you need it.&lt;/p&gt;
-
-&lt;h2 id=&quot;temperature-range&quot;&gt;&lt;em&gt;Temperature Range&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;Pretty simple here, pick the package that works in your temp range. If you’re working in the artic you’ll likely need the military grade package rather than the consumer grade, etc.&lt;/p&gt;
-
-&lt;h2 id=&quot;cost&quot;&gt;&lt;em&gt;Cost&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;You always need to compromise between costs and the other factors. I go by the idea of it’s not worth saving pennies when it will cost you dimes in the long run. Pick the part that solves the problem and saves you the most time. It doesn’t matter if it’s a tad more expensive.&lt;/p&gt;
-
-&lt;p&gt;If you’re making a million boards you know how to cut costs and design for manufacturing, but chances are that isn’t the person reading this.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;lets-pick-our-processor&quot;&gt;Let’s pick our processor&lt;/h1&gt;
-
-&lt;p&gt;I’m going with something from the STM32 line of chips because they’re&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Cheap&lt;/li&gt;
-  &lt;li&gt;Powerful&lt;/li&gt;
-  &lt;li&gt;Have good documentation&lt;/li&gt;
-  &lt;li&gt;Have a good software environment&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I’m going to pick from the selection that &lt;a href=&quot;https://jlcpcb.com/parts/componentSearch?isFirstLevel=true&amp;amp;firstName=EMBEDDED%20PROCESSORS%20%26%20CONTROLLERS&quot;&gt;JLCPCB&lt;/a&gt; has because they do board design and assembly for cheap.
-Select ST Microelectronics and check the In-Stock box, I recommend you sort by stock as well. Here are my results:
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/search_result_jlc.png&quot; alt=&quot;JLC PCB Search Results&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html&quot;&gt;ST&lt;/a&gt; tells you the main purpose of the different versions on this page.&lt;/p&gt;
-
-&lt;p&gt;For now lets go for the &lt;a href=&quot;https://www.st.com/content/ccc/resource/technical/document/datasheet/b5/24/80/11/51/59/47/f7/DM00141136.pdf/files/DM00141136.pdf/jcr:content/translations/en.DM00141136.pdf&quot;&gt;STM32L071RBT6&lt;/a&gt;. There is plenty of stock, and it will let us practice low power best practices.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;designing-a-board&quot;&gt;Designing a Board&lt;/h1&gt;
-&lt;p&gt;We chose our processor. We’re going to make a simple breakout board for it.&lt;/p&gt;
-
-&lt;p&gt;Run KiCad
-File -&amp;gt; New Project -&amp;gt; Name and Save&lt;/p&gt;
-
-&lt;p&gt;Double-Click the Schematic and let’s open it up.
-shift + A -&amp;gt; Click -&amp;gt; Select our Part (STM32l071RBTx) -&amp;gt; Left click to add it to the schematic.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;This chip has 5 voltage pins that we’re going to need to decouple(You can filter the analog for better Mixed Signal performance, but we’ll keep it simple here). This is vital for chip performance.&lt;/p&gt;
-
-&lt;p&gt;Let’s use some standard 0.1 uF 0603 Ceramic Caps from JLCPCB. It looks like CC0603KRX7R9BB104 will work.&lt;/p&gt;
-
-&lt;p&gt;Place 5 C_Smalls onto the schematic.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Next up we’re going to need a USB header and power regulation for it.&lt;/p&gt;
-
-&lt;p&gt;We’ll use 10118194-0001LF for a USB header, and XC6206P332MR for the linear regulator. This chip can convert our +5V to +3.3V for our chip.&lt;/p&gt;
-
-&lt;p&gt;Add USB_B to the schematic and xC6206PxxxNR as well. Add 2 C_Smalls as well for the voltage regulator. We’ll be using CL10A105KB8NNNC the decoupling caps.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;We’re going to need to add a jumper for the Boot Pin. This pin determines whether your board will run the bootloader or run the burnt program.&lt;/p&gt;
-
-&lt;p&gt;Let’s add a r_small and a SolderJumper_2_Open to the schematic.&lt;/p&gt;
-
-&lt;p&gt;We’ll use 0603WAF1002T5E for the pull down-resistor.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;The final thing we’re going to need to add is a crystal.
-If we look at our oscillator inputs and the clock tree in STM32Cube we can see that an 8 MHz crystal will work alongside our PLL to max out the clock speed to 32 MHz.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/cube_chip.png&quot; alt=&quot;STM32Cube Chip View&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/cube_clock_tree.png&quot; alt=&quot;STM32Cube Clock tree&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Let’s use the X50328MSB2GI, and we’re going to need to add loading capacitors. Go into the &lt;a href=&quot;https://datasheet.lcsc.com/lcsc/2103291135_Yangxing-Tech-X50328MSB2GI_C115962.pdf&quot;&gt;datasheet&lt;/a&gt; and find the load_capacitance.&lt;/p&gt;
-
-&lt;p&gt;The value you’ll use for the load capacitors is CL = 2 (Cload - Cstray) where Cstray is usually between 3 and 5 pF.&lt;/p&gt;
-
-&lt;p&gt;So for us, it will be CL = 2 (20 pF - 4 pF) = ~32 pF = 30 pF nominal&lt;/p&gt;
-
-&lt;p&gt;With that in mind let’s add 2 more c_smalls to the schematic, and a crystal_small. We’ll use this for the capacitors CL10C300JB8NNNC.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;The only thing I still like to do is add 2 LEDs onto the board, one to show that the system is powered, and another to that you can blink via the microcontroller.&lt;/p&gt;
-
-&lt;p&gt;Let’s add 2 LED_Smalls and 2 more R_Smalls for the current limiting resistors. Let’s use this 19-213/Y2C-CQ2R2L/3T(CY) for an LED, and we’ll run at a fairly low current, so we’ll use 0603WAF1001T5E for resistors.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;We also need to add some 0.1” headers for our pin breakouts. Let’s use 12251120CNG0S115005.&lt;/p&gt;
-
-&lt;p&gt;Add 2 Conn_01x20’s to your schematic&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Your schematic should look something like this
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/schematic_pre.png&quot; alt=&quot;Schematic Components Placed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Let’s lay out the schematic properly now that we have the parts, You’ll notice I skipped quite a few steps here.
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/schematic_post.png&quot; alt=&quot;Schematic Components Placed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The order of events went as followed&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Label components with proper values&lt;/li&gt;
-  &lt;li&gt;Sort by functional block and wire up schematic&lt;/li&gt;
-  &lt;li&gt;Wire headers according to the physical pinout of the chip&lt;/li&gt;
-  &lt;li&gt;Organize sub-circuits and add labels and notes throughout&lt;/li&gt;
-  &lt;li&gt;Box of the sub-circuits&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Next up we need to annotate the schematic in KiCad 
-(Annotate Schematic Symbols -&amp;gt; Annotate)&lt;/p&gt;
-
-&lt;p&gt;After this we’re going to run electrical rule check. If you looked closely before you would see a ton of mistakes in the schematic. ERC catches these a lot of the time and will warn you. Fix any mistakes you find, and excuse any that are acceptable.&lt;/p&gt;
-
-&lt;p&gt;After the fixes you’ll have this.
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/schematic_post_2.png&quot; alt=&quot;Schematic Components Placed&quot; width=&quot;700&quot; /&gt;
-(You could have excused the unused pins, that’s up to personal taste.)&lt;/p&gt;
-
-&lt;p&gt;The final step is to go through and assign footprints. After assigning, be sure to hit Apply, Save Schematic and Continue. You should have something like this.
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/footprints_assigned.png&quot; alt=&quot;Footprints Assigned&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Click PCB New in the toolbar and let’s move on to layout.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;creating-your-pcb&quot;&gt;Creating Your PCB&lt;/h1&gt;
-&lt;hr /&gt;
-&lt;p&gt;When you open the PCB you’ll have nothing there. Hit update PCB from schematic to drop your components in.&lt;/p&gt;
-
-&lt;p&gt;Let’s click on board setup and get everything set for design. We’re opting for a 2-layer board with so the default Two layers, parts on front and back setting will do.
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/layer_rules.png&quot; alt=&quot;Layer Rules&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;For the design rules I’ll be using &lt;a href=&quot;https://jlcpcb.com/capabilities/Capabilities&quot;&gt;JLCPCB&lt;/a&gt; so let’s use their rules. These rules are vendor dependent so check their site.&lt;/p&gt;
-
-&lt;p&gt;You should have something like this when it’s all said and done.
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/clearance_rules.png&quot; alt=&quot;Clearance Rules&quot; width=&quot;700&quot; /&gt;
-Just remember, KiCad doesn’t support via to via distance so don’t go below the manufacturer tolerance there (in my case .254 mm)&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Next up let’s sketch out our board dimensions. Go to the cutout layer and draw your board outline using Add Graphic Line. Pick something a bit bigger than is really necessary if this is your first board.&lt;/p&gt;
-
-&lt;p&gt;You should have something like this sketched out.
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/board_outline.png&quot; alt=&quot;Board Outline&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And after placing your parts you should have something like this. You should place your components in this order, your goal is to make every trace as short as possible.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Connectors&lt;/li&gt;
-  &lt;li&gt;Microcontroller&lt;/li&gt;
-  &lt;li&gt;Clock (Make sure the traces are as short as you can get)&lt;/li&gt;
-  &lt;li&gt;Decoupling Caps (Look at that! We missed a decoupling cap for VDDIO, let’s go back, add one more and then push it forward to the PCB)&lt;/li&gt;
-  &lt;li&gt;Power Regulation&lt;/li&gt;
-  &lt;li&gt;Misc. (LEDs, Jumpers, etc.)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Here’s what I had after all of that
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/pcb_components_placed.png&quot; alt=&quot;Components Placed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Add a Ground Plane to the second layer to provide a low impedance return path for all of your signals.
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/pcb_ground.png&quot; alt=&quot;Ground Placed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;After this is done it’s time to route everything. Remember to route in order of criticality (Clock, Decoupling, Power, Misc.)&lt;/p&gt;
-
-&lt;p&gt;Here’s what I got. It’s far from perfect, but this is a hobby development board. This isn’t going in the next Rover.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/board_routed.png&quot; alt=&quot;Board Routed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Look at that image, notice anything missing? The power traces are still super thin! Let’s make those bigger where we can.&lt;/p&gt;
-
-&lt;p&gt;Here’s how it looks now
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/board_routed_thicker.png&quot; alt=&quot;Board Routed Thicker Traces&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You’ll notice that there are a bunch of little arrows on the PCB. These are from running Design Rule Check. I’ve looked through these errors myself and none of them are real errors. They just have to do with your design rules. (I left my design rules somewhat imprecise)&lt;/p&gt;
-
-&lt;p&gt;Once you’re done with DRC lets set up our silkscreen layer. This is where you place the reference designators for each component on the board.&lt;/p&gt;
-
-&lt;p&gt;Here’s what I got
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/board_ref_des.png&quot; alt=&quot;Board Ref Designators&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Congrats, you laid out the board. Now comes the annoying part. Follow &lt;a href=&quot;https://support.jlcpcb.com/article/84-how-to-generate-the-bom-and-centroid-file-from-kicad&quot;&gt;this&lt;/a&gt;  tutorial on how to add JLCPCB footprints and part numbers if you’re using them.&lt;/p&gt;
-
-&lt;p&gt;The Part #’s I gave you throughout this were the manufacturer number. If you’re using JLC make sure you use their respective LCSC part number. You can either follow that tutorial or just edit the spreadsheet manually (What I tend to opt for)&lt;/p&gt;
-
-&lt;p&gt;Here’s my BOM CSV file after I finished editing it (use Excel for that)
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/bom_csv.png&quot; alt=&quot;BOM CSV File&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here’s what my Pick and Place CSV looked like after adjusting it
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/pp_csv.png&quot; alt=&quot;Pick and Place CSV File&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;After that we need to generate gerber files and drill files.&lt;/p&gt;
-
-&lt;p&gt;File -&amp;gt; Plot -&amp;gt; Generate Drill Files (Pick Directory for output) -&amp;gt; Drill Files Done
-File -&amp;gt; Plot -&amp;gt; Plot (Pick Directory for output) -&amp;gt; Gerber Files Done&lt;/p&gt;
-
-&lt;p&gt;Defaults are fine for both. Once that is done, Zip the Gerber’s and drill files, and it’s time to order.&lt;/p&gt;
-
-&lt;h1 id=&quot;ordering-your-board&quot;&gt;Ordering Your Board&lt;/h1&gt;
-&lt;p&gt;On JLC click instant quote and upload your board files.&lt;/p&gt;
-
-&lt;p&gt;Here’s what I chose for settings. You’ll notice I chose a location for the label they add. This was something I did after the fact so the serial number they print won’t be seen (I hid it under the MCU)
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/jlc_choices.png&quot; alt=&quot;JLCPCB Choices&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You’ll need to check off the assembly box as well if you’d like them to assemble it. Let them place the tooling holes themselves. Once you accept the terms you’ll be transferred to a page where you upload the Pick and Place and BOM files. Go ahead and do that.&lt;/p&gt;
-
-&lt;p&gt;There were some discrepancies in my BOM file I had to change (thanks to conflicting docs on their end) but eventually you get this screen
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/parts_uncomfirmed.png&quot; alt=&quot;Parts Uncomfirmed&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Confirm everything is correct and move on. I had to fiddle with the component orientations somewhat on my end to get it to work. This is the end result.
-&lt;img src=&quot;/assets/images/posts/tutorials/microcontrollers_tutorial_1/jlc_placement.png&quot; alt=&quot;JLC Placement&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And just like that we have 5 boards order and assembled (minus the 0.1” headers) for less than $50 (and that’s with the 3-day shipping).&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h1&gt;
-&lt;p&gt;I hope this helps you when it comes to designing boards and getting started with this sort of thing. I know this was a bit long-winded, but best of luck with your board design :)&lt;/p&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html"></summary></entry><entry><title type="html">SymbiYosys Cheatsheet</title><link href="PatrickCPE.github.io/tutorials/symbiyosys_cheatsheet" rel="alternate" type="text/html" title="SymbiYosys Cheatsheet" /><published>2021-11-03T17:52:46-04:00</published><updated>2021-11-03T17:52:46-04:00</updated><id>PatrickCPE.github.io/tutorials/symbiyosys_cheatsheet</id><content type="html" xml:base="PatrickCPE.github.io/tutorials/symbiyosys_cheatsheet">&lt;hr /&gt;
-
-&lt;p&gt;This cheatsheet shows you the basics of using SymbiYosys on your Verilog code to formally verify it’s functionality.&lt;/p&gt;
-
-&lt;p&gt;You’ll need to download the SymbiYosys toolchain and the solvers by following &lt;a href=&quot;https://symbiyosys.readthedocs.io/en/latest/install.html&quot;&gt;this tutorial&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;You’re also going to want GTKWave&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;gtkwave
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;what-is-symbiyosys&quot;&gt;What is SymbiYosys&lt;/h1&gt;
-&lt;p&gt;It’s a formal proof tool that runs on your HDL design to ensure that it does what you expect.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;why-the-hell-do-you-care&quot;&gt;Why The Hell Do You Care?&lt;/h1&gt;
-&lt;p&gt;Formal proofs guarantee your HDL code does what the spec states it will(if you do them properly). More importantly, it’s easier than testbenches typically (but not a complete substitute!)&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;why-symbiyosys&quot;&gt;Why SymbiYosys&lt;/h1&gt;
-&lt;p&gt;The Verilog version’s free. That’s all folks, can’t say I personally know of other tools like this, but they must exist.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
-&lt;p&gt;This cheatsheet goes over&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Solvers&lt;/li&gt;
-  &lt;li&gt;BMC&lt;/li&gt;
-  &lt;li&gt;Prove&lt;/li&gt;
-  &lt;li&gt;Example .sby File&lt;/li&gt;
-  &lt;li&gt;Basics Assertions&lt;/li&gt;
-  &lt;li&gt;Code Examples&lt;/li&gt;
-  &lt;li&gt;Looking at Failure Traces&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;solvers&quot;&gt;Solvers&lt;/h1&gt;
-&lt;p&gt;Remember that one class you had to take where you learned about formal proofs, k-induction proofs, and all the magic that you can do with modulo?&lt;/p&gt;
-
-&lt;p&gt;Well imagine if all that was done for you and you could just take the results :)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Satisfiability_modulo_theories&quot;&gt;SMT&lt;/a&gt; solvers will take an array of assertions for you and ensure their true. SymbiYosys will format your RTL code so it can be piped through these solvers. Technically I think some solvers use SAT solvers but ya, if you care look into it more on your own.&lt;/p&gt;
-
-&lt;p&gt;The default solver(Yices 2) is usually fine for all intents and purposes. If I decide to do this for grad school then I’ll probably have a much stronger opinion.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;bmc&quot;&gt;BMC&lt;/h1&gt;
-&lt;p&gt;Bounded Model Check is a method of running a set of specification through N trials to ensure no counter example is found. It doesn’t prove anything, but it sure as hell can find bugs quickly.&lt;/p&gt;
-
-&lt;p&gt;If you want to read on why it exists and the advantage of it over the old school method of doing purely boolean comparisons read &lt;a href=&quot;http://www.cs.cmu.edu/~emc/papers/Books%20and%20Edited%20Volumes/Bounded%20Model%20Checking.pdf&quot;&gt;this&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;prove&quot;&gt;Prove&lt;/h1&gt;
-&lt;p&gt;Those k-induction proofs I mentioned? The ones that seem like voodoo that you learned to pass that one test way back when?&lt;/p&gt;
-
-&lt;p&gt;They’re actually useful, and more importantly, they’re solved for you now. These prove that the assertions you make hold true for all time by proving that f(1) is true, then assuming and proving it’s true for f(k+1)&lt;/p&gt;
-
-&lt;p&gt;Here’s a nice &lt;a href=&quot;https://www.youtube.com/watch?v=IFqna5F0kW8&quot;&gt;video&lt;/a&gt; to show you the basics of induction.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;example-demosby-file&quot;&gt;Example demo.sby File&lt;/h1&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;tasks]
-bmc
-prv
-
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;options]
-bmc: mode bmc
-bmc: depth 100
-prv: mode prove
-
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;engines]
-smtbmc
-
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;script]
-&lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-formal&lt;/span&gt; demo.v
-prep &lt;span class=&quot;nt&quot;&gt;-top&lt;/span&gt; demo
-
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;files]
-demo.v
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Tasks: These are different run configurations you can select from. You can run one at a time or all of them.&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sby &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; demo.sby bmc   &lt;span class=&quot;c&quot;&gt;# Run only BMC&lt;/span&gt;
-sby &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; demo.sby       &lt;span class=&quot;c&quot;&gt;# Run all tasks in order&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You can see the different run options in the options section. You can see the area to specify your solving engine.&lt;/p&gt;
-
-&lt;p&gt;The next important part is to specify your source (demo.v in this case). Prep your top level module, and make sure to point to the file.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;basics&quot;&gt;Basics&lt;/h1&gt;
-&lt;p&gt;There are 3 types of statements you can use. These statements must lie within the formal ifdefs, and they must fall in one of the below blocks&lt;/p&gt;
-&lt;div class=&quot;language-verilog highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;`ifdef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FORMAL&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;always&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;posedge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;clk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;statement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    
-&lt;span class=&quot;k&quot;&gt;always&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;statement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;`endif&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;The statements are shown here&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;assume(expression)
-    &lt;ul&gt;
-      &lt;li&gt;Things that the solver will always hold true. Limits the area the solver works in. One example is a known starting state would be assumed&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;assert(expression)
-    &lt;ul&gt;
-      &lt;li&gt;The solver will do everything possible to prove that this statement is false. If it does it will return a fail for BMC or an UNKNOWN for induction&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;cover(expression)
-    &lt;ul&gt;
-      &lt;li&gt;These only apply when you run in cover mode. They will try to do everything they can to prove the expression true within N runs. If they reach them all it will pass. If they don’t, or if they reach them by breaking an assert statement it will fail.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;code-examples&quot;&gt;Code Examples&lt;/h1&gt;
-&lt;div class=&quot;language-verilog highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//demo.v&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;demo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i_clk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i_en&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;reg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;reg&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;initial&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;initial&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;always&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;posedge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i_clk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i_en&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mb&quot;&gt;1'b1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-
-&lt;span class=&quot;cp&quot;&gt;`ifdef&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FORMAL&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;always&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;posedge&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i_clk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;($&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;past&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//Spot the bug? Look at the generated trace to see it&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;//if($past(o_counter) == 15 &amp;amp; $past(enable))  //Fixed version&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;`endif&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;endmodule&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Here’s a extremely simple counter module where we make some statements about the formal properties. Spot the bug in the
-proof? Run the proof by doing this with the demo.v and demo.sby files in the same directory&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sby &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; demo.sby bmc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You should see it fail. Look at the trace it generates in GTK Wave to spot it. Got it?&lt;/p&gt;
-
-&lt;p&gt;(We forget to assert that $past(enable) must be high for o_counter to change in the second assertion)&lt;/p&gt;
-
-&lt;p&gt;This is obviously a pretty dumb example, but trust me this stuff helps a lot compared to a standard test bench.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;viewing-the-output-trace&quot;&gt;Viewing the Output Trace&lt;/h1&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gtkwave demo_bmc/engine_0/trace.vcd
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/symbiyosys_cheatsheet/failed_trace.png&quot; alt=&quot;BMC Trace&quot; width=&quot;700&quot; /&gt;
-Look at the final tick of the clock. You can see enable was pulled low and therefore your output didn’t change? That’s a bug in our proof, not the code. Fix it with the commented out line.&lt;/p&gt;
-
-&lt;p&gt;Now run&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sby &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; demo.sby bmc   &lt;span class=&quot;c&quot;&gt;#Does it pass?&lt;/span&gt;
-sby &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; demo.sby prv   &lt;span class=&quot;c&quot;&gt;#Does it pass?&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h1&gt;
-&lt;p&gt;Give formal verification a shot. If you hate it, you hate it. I like it for finding bugs, and it’s pretty cool.&lt;/p&gt;
-
-&lt;p&gt;If you want to learn all about it check out &lt;a href=&quot;https://zipcpu.com/&quot;&gt;ZipCPU&lt;/a&gt;. This guy has some awesome technical stuff on his site (but it is fairly complicated at times)&lt;/p&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html"></summary></entry><entry><title type="html">State of Affairs</title><link href="PatrickCPE.github.io/blog/state_of_affairs.html" rel="alternate" type="text/html" title="State of Affairs" /><published>2021-11-02T11:41:46-04:00</published><updated>2021-11-02T11:41:46-04:00</updated><id>PatrickCPE.github.io/blog/state_of_affairs</id><content type="html" xml:base="PatrickCPE.github.io/blog/state_of_affairs.html">&lt;hr /&gt;
-&lt;p&gt;This is rambling for my own personal amusement, viewer discretion is advised.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2&gt; What's Happening With Me &lt;/h2&gt;
-&lt;p&gt;Life goes on, and when life gets busy you tend to put off your hobbies and personal projects. Here’s what I’ve been doing as of late.&lt;/p&gt;
-
-&lt;p&gt;Still, remember to look at the bright side of everything :)&lt;/p&gt;
-
-&lt;center&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/SJUhlRoBL8M&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/center&gt;
-
-&lt;hr /&gt;
-
-&lt;h3&gt; School &lt;/h3&gt;
-&lt;p&gt;I’m wrapping up my Senior year next semester. This means I get stuck with capstone, graduate courses, and your all time favorite group projects of people that are far from inspired with their work.&lt;/p&gt;
-
-&lt;p&gt;I’m also trying to figure out what I want to do for my masters (Thanks UML for not having a single teacher that does VLSI design anymore)&lt;/p&gt;
-
-&lt;p&gt;The start of the masters will probably be delayed about half a year until I pay off the debt for the undergrad, but after that the plan as of now is to go into chip design, or possibly do something focused on formal verification of digital systems.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3&gt; Work &lt;/h3&gt;
-&lt;p&gt;There’s my current work, and the process of finding a job for when I graduate.&lt;/p&gt;
-
-&lt;p&gt;In regard to my work at the lab, I’m trying to push out two more papers before I graduate. One for the Stretch team I’m running, and one for the Scooter team.&lt;/p&gt;
-&lt;center&gt;
-(See awesome drawing of us and the worlds funniest assistive robot below)
- &lt;img src=&quot;/assets/images/posts/blogs/state_of_affairs/scooter_team_drawing.png&quot; alt=&quot;Scooter Team Drawing&quot; width=&quot;600&quot; length=&quot;800&quot; align=&quot;center&quot; /&gt;
-&lt;/center&gt;
-
-&lt;p&gt;In terms of finding a job when I graduate it takes up a fair bit of time. There are a few places that I’m really hopeful to work at. Gotta find somewhere where the engineers are smart, and learn every damn thing I can from em :)&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3&gt; Clubs &lt;/h3&gt;
-&lt;p&gt;WARNING: Brace for a rant&lt;/p&gt;
-
-&lt;p&gt;One thing I was really excited for was to start an embedded club at the school. I reached out during the start of Covid to see if they still offer funding for clubs (pretty much wanted to ship everyone dev boards and hop on calls to learn) and they told me no.&lt;/p&gt;
-
-&lt;p&gt;When Covid ended(ended seems far from the right word) in the spring, and we were promised to have in person classes I reached out to the school in early June with all my paperwork and application to start the club and that should of been it.&lt;/p&gt;
-
-&lt;p&gt;The school is blatantly incompetent when it comes to handling clubs. Here’s the highlights for how it went.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;No reply to multiple emails sent (2 months for any reply)&lt;/li&gt;
-  &lt;li&gt;They missed the meetings that they set up&lt;/li&gt;
-  &lt;li&gt;They say everything looked good, and they’d be getting it set up, and then ghost me despite reaching out multiple time&lt;/li&gt;
-  &lt;li&gt;After 3 months of zero response they respond, ask me to join a meeting with an hours notice, and take a final vote on the club with the student government&lt;/li&gt;
-  &lt;li&gt;They approve (Hooray!) … except they never followed up after saying they approved. I asked about it, and was again ghosted&lt;/li&gt;
-  &lt;li&gt;I officially decide to stop dealing with the school and just buy the stuff for my friends and I in the club out of pocket (say bye to all the fancy Zynq boards I wanted to buy on UML’s dime)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Stuff like this makes you appreciate what a good manager does for you behind closed doors. I just wanted to teach some folks and play with some cool tech :(&lt;/p&gt;
-
-&lt;p&gt;On other hands, the robotics club finally got some legitimate funding this year so I can splurge on the stuff I design for them :)&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3&gt; Wrapping Up &lt;/h3&gt;
-&lt;p&gt;Overall, life has been busy. School has screwed up my sleep schedule and I’m officially nocturnal. I intend to get back to writing tutorials and working on some passion projects soon.&lt;/p&gt;
-
-&lt;p&gt;I also intend to shift any tutorials or projects I had on the embedded club’s site to this site, because if UML won’t sponsor a club I’m sure as hell not putting their name on my hard work.&lt;/p&gt;</content><author><name></name></author><category term="blogs" /><summary type="html">This is rambling for my own personal amusement, viewer discretion is advised.</summary></entry><entry><title type="html">C Project Template</title><link href="PatrickCPE.github.io/projects/example_c_project.html" rel="alternate" type="text/html" title="C Project Template" /><published>2021-08-07T22:41:46-04:00</published><updated>2021-08-07T22:41:46-04:00</updated><id>PatrickCPE.github.io/projects/example_project</id><content type="html" xml:base="PatrickCPE.github.io/projects/example_c_project.html">&lt;hr /&gt;
-&lt;p&gt;&lt;em&gt;Moved from UML-Embedded Club Site to my personal site&lt;/em&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
-&lt;p&gt;I created an &lt;a href=&quot;https://github.com/PatrickCPE/c_example&quot;&gt;example project&lt;/a&gt; so you guys can have a basic idea of how to structure your code. There are a few pieces of advice for your projects that will make your life much better in the long run.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;ul&gt;
-  &lt;li&gt;Use Version Control (Always!!!)&lt;/li&gt;
-  &lt;li&gt;Use a Build System (Always!)&lt;/li&gt;
-  &lt;li&gt;Test Your Code (For any sizeable project that you intend to create, test from the start!)&lt;/li&gt;
-  &lt;li&gt;Document Your Code (Always document the basics! If you intend to get help on it use an autodoc tool and document it properly!)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;For Version control the industry standard is Git. Learn it at a basic level, the rest will come with time.&lt;/p&gt;
-
-&lt;p&gt;For our build system we will be using CMake. It supports pretty much everything out there, but its main focus is C and C++.&lt;/p&gt;
-
-&lt;p&gt;For testing, we will be using CTest. This is a simple testing interface that is incorporated with CMake. It merely runs the tests.&lt;/p&gt;
-
-&lt;p&gt;For the test themselves you can either write a bare-bones wrapper by hand, or use a library like Unity (What I use) to test your code.&lt;/p&gt;
-
-&lt;p&gt;For Documentation there is your good ole README file, and that’s always a requirement. F auto-documentation we’ll use Doxygen.&lt;/p&gt;
-
-&lt;p&gt;Doxygen can also output to Sphinx which is the tool I used to make my python doc sites, but for now we’ll make a bare-bones site with Doxygen itself.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;version-control---git&quot;&gt;Version Control - Git&lt;/h1&gt;
-
-&lt;p&gt;Git pretty much keeps track of changes in your project, and it allows you to revert changes if you screw up. It also allows other people to work on the project with you, and to merge your code without causing as many problems.&lt;/p&gt;
-
-&lt;p&gt;Here’s the basic rundown of how to use &lt;a href=&quot;https://www.atlassian.com/git&quot;&gt;Git&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;My basic workflow goes like this. Create a git directory with&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;directory
-git init
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Then I create a .gitignore file and add any files I don’t want tracked to it.&lt;/p&gt;
-
-&lt;p&gt;From there on out my workflow is very simple.&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Add everything in this directory recursively to be added with this commit&lt;/span&gt;
-git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Message detailing what I did, what I changed, or what I absolutely just broke :)&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# And if I need to push remotely I do&lt;/span&gt;
-git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; origin main
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;That’s it. If I screw up I can always fix it later. I don’t bother showing you how to merge or anything because for now I just want you to have a backups of your changes, and keep everything tracked properly.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;build-system---cmake&quot;&gt;Build System - CMake&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&quot;https://cmake.org/&quot;&gt;CMake&lt;/a&gt; is a cross-platform build tool for blah blah blah.&lt;/p&gt;
-
-&lt;p&gt;It allows you to compile your libraries and your code easily. It also has testing incorporated, and it’s a necessity for C or C++ projects. There are other tools, but CMake is the industry standard.&lt;/p&gt;
-
-&lt;p&gt;At the top level of your project you will have a CMakeList.txt file&lt;/p&gt;
-
-&lt;p&gt;This is pretty much the master control file for the project. In your sub folders you’ll have files under the same name with more CMake commands. You pretty much do this recursively till the build tool has your entire project mapped out.&lt;/p&gt;
-
-&lt;p&gt;Here’s the top level CMakeList.txt for this project commented up for you.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#Set min version
-cmake_minimum_required(VERSION 3.20)
-
-#Set project name, version, and support languages
-project(c_example VERSION 0.1 LANGUAGES C)
-#For example to support C and C++
-#project(c_example C C++)
-
-#Use C 11 and disable compiler extensions
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_C_EXTENSIONS OFF)
-
-#Or set the standard for a particular library
-#set_target_properties(lib_a PROPERTIES
-#        C_STANDARD          11
-#        C_STANDARD_REQUIRED ON
-#        C_EXTENSIONS        OFF
-#)
-
-#Set compiler flags for all versions
-set(CMAKE_C_FLAGS &quot;-Wall -Wextra&quot;)
-
-#include(Ctest)
-enable_testing()
-add_subdirectory(src/libs)
-add_subdirectory(src)
-add_subdirectory(tests)
-
-#Example setup for GNU Make for the release directory
-#cmake -G &quot;Unix Makefiles&quot; -S . -B ../build/release/
-#cd ../build/release
-#make
-
-#Example setup for Ninja for the debug directory
-#cmake -G Ninja -S . -B ../build/debug/
-#cd ../build/debug
-#ninja
-
-#Or just use CMake to avoid the low level build tools for either
-#cmake --build ../build/debug/ --config Release --target tes
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This file doesn’t do much for you in my case, all my building is handled inside the subdirectories that I add.&lt;/p&gt;
-
-&lt;p&gt;It’s important to set an up-to-date CMake required version, and to set the proper C standard.Compiler flags can be changed as needed.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;Let’s take a look at the src directories CMakeList.txt file&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#Set compiler flags
-set(CMAKE_C_FLAGS &quot;-Wall -Wextra&quot;)
-
-add_executable(main main.c)
-target_link_libraries(main PRIVATE lib_b)
-
-add_subdirectory(libs/Unity
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This sets flags for this scope, creates an executable main that depends on main.c, and creates a link telling the compiler main depends on lib_b.&lt;/p&gt;
-
-&lt;p&gt;I add the Unity Subdirectory, and it builds and installs the Unity test framework.&lt;/p&gt;
-
-&lt;p&gt;lib_b is added in the subdirectory below that I added in the top level file. Here is that file.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;add_library(lib_a example_lib_a.c)
-add_library(lib_b example_lib_b.c)
-
-target_link_libraries(lib_b PRIVATE lib_a
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You can see here that I create 2 libraries called lib_a, and lib_b from their respective source files. I tell the build tool that lib_b depends on lib_a, and the build tool handles the rest for me.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;When this is all said and done you can run the configuration commands shown in the top level CMake to set up the build system, and then to build your code.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;testing---ctest&quot;&gt;Testing - CTest&lt;/h1&gt;
-&lt;p&gt;The only CMakeList.txt file I failed to mention is in tests. We’ll go over that here.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-#Create executables for tests
-enable_testing()
-#Basic testing without a framework
-add_executable(test_pass test_pass.c)
-add_test(test_pass test_pass)
-
-add_executable(test_fail test_fail.c)
-add_test(test_fail test_fail)
-
-#Testing using the Unity Framework
-add_executable(test_example_lib_b test_example_lib_b.c)
-target_link_libraries(test_example_lib_b PRIVATE unity)
-target_link_libraries(test_example_lib_b PRIVATE lib_b)
-
-add_test(test_example_lib_b test_example_lib_b
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;When it comes to testing you need to enable at the top level, and at the sub-level that you’ll be running the test.&lt;/p&gt;
-
-&lt;p&gt;At a basic level all you need to do is add executables for your test, and list the executable as a test.&lt;/p&gt;
-
-&lt;p&gt;If you do this as shown, CTest will run them all for you.&lt;/p&gt;
-
-&lt;p&gt;CTest is very simple, if the program returns 0, it passes. If it doesn’t, it fails. The first two examples show how simple tests really are, and the third example shows testing using a framework.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;Unity is the framework that we’ll be using in this case.&lt;/p&gt;
-
-&lt;p&gt;Unity pretty much just allows you to assert some condition, and it will return zero if true, or false if not. It also has a lot of niceties like error messaging and comparing in certain bases like hex comparison, etc.&lt;/p&gt;
-
-&lt;p&gt;You can learn how to use their framework &lt;a href=&quot;http://www.throwtheswitch.org/unity&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;In the end, as long as your code is built all you need to do is move into the build directory and run&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ctest
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You’ll get output like this&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;patrick@patrick-desktop:~/ws/club/projects/c_example/build/debug$ ctest
-Test project /home/patrick/ws/club/projects/c_example/build/debug
-    Start 1: test_pass
-1/3 Test #1: test_pass ........................   Passed    0.00 sec
-    Start 2: test_fail
-2/3 Test #2: test_fail ........................***Failed    0.00 sec
-    Start 3: test_example_lib_b
-3/3 Test #3: test_example_lib_b ...............***Failed    0.00 sec
-
-33% tests passed, 2 tests failed out of 3
-
-Total Test time (real) =   0.00 sec
-
-The following tests FAILED:
-          2 - test_fail (Failed)
-          3 - test_example_lib_b (Failed)
-Errors while running CTest
-Output from these tests are in: /home/patrick/ws/club/projects/c_example/build/debug/Testing/Temp...
-Use &quot;--rerun-failed --output-on-failure&quot; to re-run the failed cases verbosely.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Don’t worry, those fails are meant to occur. Those are just to show you how fails work.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;documentation---doxygen&quot;&gt;Documentation - Doxygen&lt;/h1&gt;
-&lt;p&gt;There are two levels of documentation. A simple README showing what your code does, and how to use it is always required. This is the first thing people see when it comes to your project.&lt;/p&gt;
-
-&lt;p&gt;When it comes to working on a large project though it’s often useful to have an autodocumentation tool. For this, we’ll use Doxygen. Doxygen is an autoparser that will read through your code, document the functions, classes, structs, pretty much anything in there and build a website to show you all the information.&lt;/p&gt;
-
-&lt;p&gt;To install it run&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;doxygen
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;doxygen-gui
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Simply go into your docs directory and run doxygui, it’s pretty self explanatory when your in the application. Make sure to save the config to a Doxyfile, and when your ready to build do&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;docs
-doxygui
-doxygen Doxyfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Inside the documents folder you will now have a build folder that contains a html site documentation your project. Open the index.html to see the homepage.&lt;/p&gt;
-
-&lt;p&gt;You can either select to document all code automatically, or only things commented in Doxygen style when you’re in the GUI.&lt;/p&gt;
-
-&lt;p&gt;To learn how to use Doxygen style comments check &lt;a href=&quot;https://www.doxygen.nl/manual/docblocks.html&quot;&gt;this out&lt;/a&gt;.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h1&gt;
-&lt;p&gt;This write-up by no means goes into depth on any of these things. This is a high-level overview and you’re meant to download the repo and look at it yourself to get a better understanding.&lt;/p&gt;
-
-&lt;p&gt;What I do want you to understand is that you need a build system, you need some level of documentation, and if you’re making a substantial project, you need testing.&lt;/p&gt;
-
-&lt;p&gt;The more you invest at startup, the less painful it will be to have to implement this stuff down the road. Best of luck with your projects :)&lt;/p&gt;</content><author><name></name></author><category term="projects" /><summary type="html">Moved from UML-Embedded Club Site to my personal site</summary></entry><entry><title type="html">Peripheral Basics</title><link href="PatrickCPE.github.io/tutorials/peripheral_basics.html" rel="alternate" type="text/html" title="Peripheral Basics" /><published>2021-07-27T22:41:46-04:00</published><updated>2021-07-27T22:41:46-04:00</updated><id>PatrickCPE.github.io/tutorials/peripheral_basics</id><content type="html" xml:base="PatrickCPE.github.io/tutorials/peripheral_basics.html">&lt;hr /&gt;
-&lt;p&gt;&lt;em&gt;Moved from UML-Embedded Club Site to my personal site&lt;/em&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;what-are-peripherals&quot;&gt;What Are Peripherals&lt;/h1&gt;
-&lt;p&gt;At a low level, peripherals are anything that interact with a computer to either give it information or send out information. This information can be pretty much anything.&lt;/p&gt;
-
-&lt;p&gt;A mouse is a peripheral that inputs the X and Y movement you make, and your computer uses that peripheral to determine where you want your cursor to appear on the screen. Another example would be a temperature sensor that communicates over I2C (pronounced I squared C).&lt;/p&gt;
-
-&lt;p&gt;Peripherals can be communicated with via numerous protocols, but we’re only going to cover a few basic types of peripherals and protocols here.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;gpio-inputs&quot;&gt;GPIO Inputs&lt;/h1&gt;
-&lt;p&gt;This is the most basic type of peripheral you can attach to a processor. The pins either read the voltage on the line, or they write a voltage to the line. The voltage is digital, meaning it can only be on or off at the specific device’s voltage.&lt;/p&gt;
-
-&lt;p&gt;Inputs can have numerous configurations such as high impedance, pull-up, pull-down, or floating. These dictate the standard state of the pin. Pull up means the pin is typically high, while pull down means the pin is typically low. High impedance effectively places an infinite resistor in series, while floating means the pin can do anything.
-&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/pull_up_pull_down.png&quot; alt=&quot;Pull Up Pull Down Example&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;gpio-outputs&quot;&gt;GPIO Outputs&lt;/h1&gt;
-&lt;p&gt;Outputs have numerous configurations as well, such as push-pull, open-drain, and open-collector.&lt;/p&gt;
-
-&lt;p&gt;push-pull pins are capable of both sourcing and sinking current to create the desired output due to their structure shown below. Open-Drain pins are only capable of sinking current and rely on external pullups to set the voltage on the pin. This is shown below as well.
-&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/open_drain_push_pull.png&quot; alt=&quot;Open Drain and Push Pull GPIO Configurations&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Open Collector is effectively the same thing as open drain except it uses a BJT rather than a FET, as shown below.
-&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/open_collector.png&quot; alt=&quot;Open Collector GPIO Configuration&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;adcs&quot;&gt;ADCs&lt;/h1&gt;
-&lt;p&gt;Analog to Digital Converters(ADCs) change a message in the Analog domain into a message that can be processed in the Digital domain. They offer N bits of precision over a voltage range V. If you divide that voltage V by the N bits you receive the resolution of your ADC. Converting Analog signals to the Digital domain is a vital part of modern day signal processing.&lt;/p&gt;
-
-&lt;p&gt;Here is an example of what an ADC looks like under the hood at a basic level&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/adc.png&quot; alt=&quot;Discreet Analog to Digital Converter&quot; width=&quot;700&quot; /&gt;
-You can see that there are 8 comparators. This means we can measure 8 bits separately. 8 is 2^3 which means by using an encoder we can measure an Analog signal with 8 bits of accuracy, and only need to read three lines.&lt;/p&gt;
-
-&lt;p&gt;If Vref in this scenario was +5V, we would have 5 V / 8 Bits therefore each bit would have a resolution of ~625mV.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;dacs&quot;&gt;DACs&lt;/h1&gt;
-&lt;p&gt;Digital to Analog Converters(DACs) are the matching pair to your ADCs. Much like we need to convert Analog Signals to Digital Signals, we must do the opposite as well. The music coming from your phone is stored digitally, but eventually the sound played via a speaker must be an Analog waveform.&lt;/p&gt;
-
-&lt;p&gt;DACs have the same principle of a reference voltage V, N bits, and a resolution. An Example DAC is shown below.
-&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/dac.png&quot; alt=&quot;Discreet Digital to Analog Converter&quot; width=&quot;700&quot; /&gt;
-In this example you can see that each bit has a resistor that is double the value of the previous bit in series with the digital line. This means that by setting each individual bit high you can push a proportionate amount of current through the pin, and with the op amp acting inverting amplifier you can effectively translate the digital signals into a known analog signal with a known resolution.&lt;/p&gt;
-
-&lt;p&gt;The resolution in this case if the voltage was +5V would be +5V / 4 Bits = 1.25 V. Note the output would be inverted though.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;There are resistor to resistor DACs as well that are often utilized. Example below.
-&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/dac_r2r.png&quot; alt=&quot;Discreet Digital to Analog Converter R2R&quot; width=&quot;700&quot; /&gt;
-This is useful when you can fit more resistors, and you don’t need the op amp to drive the load.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;i2c&quot;&gt;I2C&lt;/h1&gt;
-&lt;p&gt;I2C (I-Squared-C) is a data transfer/protocol rather than a peripheral itself. Think as a method of delivering a message to a peripheral and telling it what you need to do. I2C is a two wire synchronous protocol.
-&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/i2c_overview.png&quot; alt=&quot;I2C Overview&quot; width=&quot;700&quot; /&gt;
-I2C allows a master device (like your microcontroller or CPU) to communicate with numerous slave devices(like sensors, drivers, other microcontrollers, etc.)&lt;/p&gt;
-
-&lt;p&gt;The first wire is Serial Clock (SCL). This wire sets the clock speed for the I2C bus, and it’s frequency will depend upon the specific peripheral you’re using. Common frequencies are 100 kHz and 400 kHz.&lt;/p&gt;
-
-&lt;p&gt;The second wire is Serial Data (SDA). This wire is used to send all the data between two devices. We’ll go ever an example waveform and how you’d use this protocol below&lt;/p&gt;
-
-&lt;p&gt;Each wire requires a pullup resistor because internally the pins are open-collector/open-drain configuration. The value of resistor you chose depends upon the length of the line, and the frequency at which you communicate, but typically 4.7k works fine.&lt;/p&gt;
-
-&lt;p&gt;Next up we’ll discuss the message window and how the data is formatted.
-&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/i2c_waveform.png&quot; alt=&quot;I2C Waveform&quot; width=&quot;700&quot; /&gt;
-&lt;strong&gt;&lt;em&gt;Start Bit&lt;/em&gt;&lt;/strong&gt;
-First, SDA is pulled low while SCL remains high. This indicates that the bus is going to be used.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Address&lt;/em&gt;&lt;/strong&gt;
-This indicates the address to which the master will be writing. This is an 7 Bit message that is sent Most Significant Bit(MSB) First. The address of the slave device is given in the device’s data sheet.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Read/Write Bit&lt;/em&gt;&lt;/strong&gt;
-The 8th bit of the message determines whether the master will be reading or writing from the slave device specified at the address. 0 is a write operation, 1 is a read operation.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Acknowledge&lt;/em&gt;&lt;/strong&gt;
-To show that the slave device successfully received the message, an acknowledgement(ACK) bit is sent on SCL. This is the 9th Bit.&lt;/p&gt;
-
-&lt;p&gt;If ACK is low that means the slave successfully received the message, and if it is high then the transfer failed, the communication ends, and the master is free to react to that failure.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Data Frame&lt;/em&gt;&lt;/strong&gt;
-Assuming the ACK bit was low, then the master will continue creating a constant clock signal on SCK until it has received or written everything it needs. Master or Slave will continue reading/writing until the master determines that the transfer is done.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Stop Condition&lt;/em&gt;&lt;/strong&gt;
-The transfer stops when the Master pulls SDA high while SCL is already high. You don’t modify SDA while SCL is high unless you intend to stop the transfer.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;spi&quot;&gt;SPI&lt;/h1&gt;
-&lt;p&gt;The final communication protocol that we’ll discuss is SPI. At a basic level SPI is just a clock, two data lines, and on and off switches for your slaves.&lt;/p&gt;
-
-&lt;p&gt;Here is an example configuration with three slave devices.
-&lt;img src=&quot;/assets/images/posts/tutorials/peripheral_basics/spi.png&quot; alt=&quot;SPI Configuration&quot; width=&quot;700&quot; /&gt;
-SCK is the clock for the interface. MOSI is Master Out Slave In. MISO is Master In Slave Out, and lastly SS# means slave select. Slave Select enables the particular peripheral device your master is communicating, and then the data transfer begins.&lt;/p&gt;
-
-&lt;p&gt;There is no exact configuration for the data in SPI, and there are actually four different sampling times for the data depending upon the specific peripheral. The sampling configuration determines at what point in the waveform the data will be sampled for the device’s usage.&lt;/p&gt;
-
-&lt;p&gt;These mode definitions are determines by the value of CPOL and CPHA flags. The &lt;a href=&quot;https://en.wikipedia.org/wiki/Serial_Peripheral_Interface&quot;&gt;Wiki&lt;/a&gt; for SPI has information on this.&lt;/p&gt;
-
-&lt;p&gt;Overall SPI is a simpler protocol (minus the four different configurations) that allows for very fast communication (~x10 faster than I2C).&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h1&gt;
-&lt;p&gt;There are a million more types of protocols out there, and guess what, there is no point in learning them all right now. If you’re designing automotive controls your going to need to learn how to use a CANBus. If you’re making a keyboard you’re going to need to learn the USB protocol. In automation you’re going to need to learn RS-Insert Three Numbers Here protocol.&lt;/p&gt;
-
-&lt;p&gt;This just shows you a few of the common ones. Find parts that serve your purpose, and if they require a specific protocol learn it :)&lt;/p&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Moved from UML-Embedded Club Site to my personal site</summary></entry><entry><title type="html">Linux Basics</title><link href="PatrickCPE.github.io/tutorials/linux_basics.html" rel="alternate" type="text/html" title="Linux Basics" /><published>2021-07-26T22:41:46-04:00</published><updated>2021-07-26T22:41:46-04:00</updated><id>PatrickCPE.github.io/tutorials/linux_basics</id><content type="html" xml:base="PatrickCPE.github.io/tutorials/linux_basics.html">&lt;hr /&gt;
-&lt;p&gt;&lt;em&gt;Moved from UML-Embedded Club Site to my personal site&lt;/em&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;requirements&quot;&gt;Requirements&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;USB Drive - 4 GB or Greater (&lt;strong&gt;&lt;em&gt;Note - Everything on this will be deleted!&lt;/em&gt;&lt;/strong&gt;)&lt;/li&gt;
-  &lt;li&gt;USB Port on your computer (Duh)&lt;/li&gt;
-  &lt;li&gt;At least 25 GB of Storage free on your hard drive (I strongly recommend using 100 GB so you never need to think of it again if you have the space.)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Note: This tutorial is meant for Computers that run Windows. If you are using a Mac, first off I recommend you don’t their hardware is overpriced and horrible and their OS is worse than Windows. Secondly, this guide will not help you.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;starting-out&quot;&gt;Starting Out&lt;/h1&gt;
-
-&lt;p&gt;The first step in installing Linux onto your machine is determining which distribution you want to use. Think of Operating Systems as makes of car, and distributions as specific models of car. Windows is an operating system, but there are multiple versions(XP, Vista, 7, We don’t talk about 8, 10).&lt;/p&gt;
-
-&lt;p&gt;Linux is the overarching operating system, but under that operating system you can choose your flavor. Sites like &lt;a href=&quot;https://distrowatch.com/&quot;&gt;distrowatch&lt;/a&gt; will show you every new and trending distro, and it will have comparisons and news about each.&lt;/p&gt;
-
-&lt;p&gt;For our sake, we’ll be using Ubuntu 20.04 LTS. This is the most recent release of Ubuntu, on of the primary Linux distributions out there. 99% software that runs on linux will run successfully on Ubuntu.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;creating-a-boot-drive&quot;&gt;Creating a Boot Drive&lt;/h1&gt;
-
-&lt;p&gt;Let’s get our boot USB created. We’re going to need to donwload the &lt;a href=&quot;https://ubuntu.com/download/desktop&quot;&gt;Ubuntu 20.04 Desktop&lt;/a&gt; ISO file from that page.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/ubuntu_download_screenshot.png&quot; alt=&quot;Ubuntu Download Picture&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Next up we’re going to need to download a tool called &lt;a href=&quot;https://rufus.ie/en_US/&quot;&gt;Rufus&lt;/a&gt; (aka the real hero of the Kim Possible series)
-&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/rufus_download_screenshot.png&quot; alt=&quot;Rufus Download Picture&quot; width=&quot;700&quot; /&gt;
-Download from the first link shown in the image&lt;/p&gt;
-
-&lt;p&gt;Next up we’re going to need Rufus to burn an ISO onto the flash drive that we’ll be using to install Linux on our computer. Make sure you have atleast a 4 GB flashdrive.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Again, everything on the flash drive will be deleted, so be careful if you have important files!&lt;/em&gt;&lt;/strong&gt;
-&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/rufus_usage_screenshot.png&quot; alt=&quot;Rufus Usage Picture&quot; width=&quot;700&quot; /&gt;
-Select your USB stick in the device panel. You can follow the setup shown in the above screenshot, except rather than select 18.04 select the Ubuntu 20.04 ISO you just downloaded. Once you’ve selected Ubuntu 20.04 LTS go ahead and hit start.&lt;/p&gt;
-
-&lt;p&gt;Once Rufus is done we’re all set to install to our computer using the flash drive :)&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;installing-ubuntu&quot;&gt;Installing Ubuntu&lt;/h1&gt;
-
-&lt;p&gt;Next up we’re going to have to configure our computers BIOS to boot from the USB drive rather than our current operating system that is installed on our hard drive. You access your BIOS when your computer first boots up before your operating system kicks in.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately the button to enter BIOS depends on which manufacturer created your motherboard. For me personally I repeatedly press the F2 key as my computer powers on. You’re going to have to search for yourself to see what the key to access your BIOS is.&lt;/p&gt;
-
-&lt;p&gt;Once you’re in your BIOS menu, you’ll need to navigate to the boot order tab. Once in the boot order tab adjust it such that the first thing that boots is your Ubuntu 20.04 flash drive that you created.&lt;/p&gt;
-
-&lt;p&gt;After you do this, save the bios configuration and continue. Your system should boot into the live image contained within the USB drive. It will look something like this
-&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/ubuntu_install_select.png&quot; alt=&quot;Ubuntu Install Select&quot; width=&quot;700&quot; /&gt;
-You can try the operating system without installing by clicking try. If you try it, you can chose to install from the desktop after. Once you’re ready to install move through the options.&lt;/p&gt;
-
-&lt;p&gt;Once you reach the page asking about updates and other options shown here
-&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/ubuntu_updates_software.png&quot; alt=&quot;Ubuntu Software and Upgrades&quot; width=&quot;700&quot; /&gt;
-I Strongly recommend you do a normal installation, but if you are strapped for hard drive space you can do a minimal install. I’ve had issues with downloading updates while installing Ubuntu before so I actually recommend not doing this(We can upgrade later).&lt;/p&gt;
-
-&lt;p&gt;The box that asks if you would like to install third party software needs to be checked off. This will ensure that things like graphic cards and Wi-Fi chips work properly. Make sure to check this off.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;seriously-read-this-closely&quot;&gt;Seriously, Read This Closely&lt;/h1&gt;
-&lt;hr /&gt;
-
-&lt;p&gt;In the next stage we’re going to choose our installation type. You’ll see a screen like this
-&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/ubuntu_install_type.png&quot; alt=&quot;Ubuntu Install Type&quot; width=&quot;700&quot; /&gt;
-If you have Windows on your machine, there will be an option to install Ubuntu alongside Windows.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Install Ubuntu alongside Windows&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;seriously-read-closely-im-not-responsible-if-you-brick-windows-install&quot;&gt;Seriously, Read Closely, I’m Not Responsible If You Brick Windows Install&lt;/h1&gt;
-&lt;p&gt;Select install alongside Windows. This will automatically partition your hard drive so that both operating systems can exist alongside one another. If you select one of the other options you will likely break your Windows install (unless you know what you’re doing).&lt;/p&gt;
-
-&lt;p&gt;On the next page you will have a menu where you can drag the divider to determine how much of your hard drive space you will give to Ubuntu.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/ubuntu_partition_size.png&quot; alt=&quot;Ubuntu Partition Type&quot; width=&quot;700&quot; /&gt;
-Technically 10 GB is enough, I reccomend you use atleast 25 GB if you have the space, and in all honesty I would recommend 250 GB if you never want to worry about this again. As long as your hard drive has the space I recommend making a fairly large install partition.&lt;/p&gt;
-
-&lt;p&gt;If you intend to develop for Xilinx FPGAs on your Linux machine you’ll need a huge amount of storage space for their IDE. I’m talking nearly 70 GB for that alone. You can thank Xilinx for making horrible software that is as bloated as that.&lt;/p&gt;
-
-&lt;p&gt;Once you’ve determined a size that works for you, and does not interfere with the storage space you need for your Windows drive go ahead and click install now&lt;/p&gt;
-
-&lt;p&gt;As long as the size you opted for work for you go ahead and hit continue once it asks if you would like to write changes to the disk. You’ve officially installed Linux :)&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;learning-linux&quot;&gt;Learning Linux&lt;/h1&gt;
-&lt;p&gt;I’m going to be honest, I don’t have the time to write an entire Linux tutorial for you. I do have time to point you to
-the best one I know of.&lt;/p&gt;
-
-&lt;h1 id=&quot;linux-journey&quot;&gt;&lt;a href=&quot;https://linuxjourney.com/&quot;&gt;Linux Journey&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/linux_basics/linux_journey.png&quot; alt=&quot;Linux Journey Screenshot&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This site is a great guide to getting started with Linux. I highly recommend you do the entire command line section, text-fu section, and if you want to be able to argue with every other Linux user if Vim or Emacs is better, then I suggest you pick on of them to learn in the advanced text-fu section.&lt;/p&gt;
-
-&lt;p&gt;I also highly recommend you check out the lesson on Packages. Ubuntu uses apt, and I recommend you do some reading on tar, gzip, and compiling from source in that chapter as well.&lt;/p&gt;
-
-&lt;p&gt;Once you’ve got those down you should be all set to use Linux. There’s a lot more to learn along the way, but you’re off to a great start :)&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;quick-tips&quot;&gt;Quick Tips&lt;/h1&gt;
-&lt;p&gt;Here are some simple things I want you to know about&lt;/p&gt;
-
-&lt;p&gt;How to Update System&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt upgrade
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;How to see your IP Address&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#This shows the long version&lt;/span&gt;
-ifconfig
-
-&lt;span class=&quot;c&quot;&gt;#This shows the short version&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;hostname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Terminator is a shell that allows you to open multiple within the same program. These shell sessions will share the variables that the initial shell had upon initialization&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;terminator
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;How to shorten commands&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#Bind some long command to a shorter command&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;lol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;echo print out a long statement that says all this just by typing lol into a shell&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Dot files are hidden files in your system. You can see them by doing&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#You can edit them just the same as any other file&lt;/span&gt;
-vim .bashrc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Your bashrc is a shell script that is executed once your terminal is first opened. I often add alias links to the bottom of it like the example shown earlier, so I can work efficiently&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#~ is the symbol for your home directory in linux. This is the directory your shells initially open to&lt;/span&gt;
-vim ~/.bashrc
-&lt;span class=&quot;c&quot;&gt;#Just add anything you want to happen in all shell sessions such as aliases, etc. to end of the file&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;SSH is a command use to connect to remote Unix based machines&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#Use this to work on a machine besides your own&lt;/span&gt;
-ssh username@ip_adress
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Man is a command used to read the manual of another command&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#Read the manual for the program that gives you manuals&lt;/span&gt;
-man man
-&lt;span class=&quot;c&quot;&gt;#Read the manual for ssh&lt;/span&gt;
-man ssh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Moved from UML-Embedded Club Site to my personal site</summary></entry><entry><title type="html">Starting with Raspberry Pi</title><link href="PatrickCPE.github.io/tutorials/starting_with_raspberry_pi.html" rel="alternate" type="text/html" title="Starting with Raspberry Pi" /><published>2021-07-24T22:41:46-04:00</published><updated>2021-07-24T22:41:46-04:00</updated><id>PatrickCPE.github.io/tutorials/starting_with_raspberry_pi</id><content type="html" xml:base="PatrickCPE.github.io/tutorials/starting_with_raspberry_pi.html">&lt;hr /&gt;
-&lt;p&gt;&lt;em&gt;Moved from UML-Embedded Club Site to my personal site&lt;/em&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;requirements&quot;&gt;Requirements&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Basic knowledge of &lt;a href=&quot;https://linuxjourney.com/&quot;&gt;Linux&lt;/a&gt; (It’s possible to connect via windows but this tutorial assumes you’re working in a Linux environment)&lt;/li&gt;
-  &lt;li&gt;Compatible &lt;a href=&quot;https://www.raspberrypi.org/products/&quot;&gt;Raspberry Pi&lt;/a&gt; Model (Most will work. This was tested with the Pi Zero, Pi Zero W, and the Pi 3)&lt;/li&gt;
-  &lt;li&gt;MicroSD Card and method to program it&lt;/li&gt;
-  &lt;li&gt;Cables/Power Supply for your Pi (USB for the Zero, Power Cable for all other models)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;starting-out&quot;&gt;Starting Out&lt;/h1&gt;
-
-&lt;p&gt;This tutorial assumes you are working on a Linux machine. I highly encourage you dual-boot your machine if you ever intend to do any serious work in electronics. You’ll find that you pretty much need to have both Windows and Linux if you want to take advantage of all the modern tools. If you’re new I reccomend just going with &lt;a href=&quot;https://ubuntu.com/download/desktop&quot;&gt;Ubuntu&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The Raspberry Pi that you purchased will be running Raspbian. This is a stripped down version of the Debian Linux distrobution(Ubuntu is based upon Debian as well). There are two versions of Raspian, Raspian Desktop, and Raspian Lite.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Raspian Desktop - Full Desktop Environment capable of running a monitor and doing things like browse the web and playing video.&lt;/li&gt;
-  &lt;li&gt;Raspian Lite - Terminal only distrobution that doesn’t have bloat. This runs significantly faster and if you don’t need a monitor, this is what your system should use.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;installing-raspian&quot;&gt;Installing Raspian&lt;/h1&gt;
-&lt;p&gt;There is a very simple tool for installing the Raspian image onto the SD card. Do the following command in your Linux terminal to install the package&lt;/p&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;snap &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;rpi-imager &lt;span class=&quot;nt&quot;&gt;--devmode&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# When that is done installing do the following command to launch the gui&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;rpi-imager
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Ensure that you’re SD card is connected to your machine and go through the setup for your image.&lt;/p&gt;
-
-&lt;p&gt;Chose OS -&amp;gt; Raspberry Pi OS(Other) -&amp;gt; Raspberry Pi OS (Lite)&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/starting_with_raspberry_pi/rpi_imager.png&quot; alt=&quot;RPI Imager&quot; width=&quot;700&quot; /&gt;
-If you would like to install the full desktop suite opt for Raspberry Pi OS Full, but that is not the point of this tutorial. After your SD card is installed fully remove it and reinsert it into your computer. Two partitions should now appear in your system, Boot and RootFS. For our purposes we will only be touching the Boot partition.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;configuring-the-os&quot;&gt;Configuring the OS&lt;/h1&gt;
-&lt;p&gt;All Pi’s will need the following steps to set them up.&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;PATHTOBOOT/Boot
-
-&lt;span class=&quot;c&quot;&gt;#This file enables ssh on the system&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;ssh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;After that we need to do some configuration if your Pi has Wi-Fi. The only Pi I know that does not have Wi-Fi is the Pi Zero.
-You’ll need to create the following file within the Boot partition and name it wpa_supplicant.conf&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=US
-
-network={
-    ssid=&quot;YOURSSID&quot;
-    psk=&quot;YOURPASSWORD&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Wherein the ssid is the name of your Wi-Fi network, and psk is your password. The Quotes remain around the string. For me personally I had to add the following line due to how my Wi-Fi network handles its keys.&lt;/p&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;network={
-    ssid=&quot;YOURSSID&quot;
-    psk=&quot;YOURPASSWORD&quot;
-    key_mgmt=WPA-PSK
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/starting_with_raspberry_pi/boot_partition.png&quot; alt=&quot;Boot Paritition Setup&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;todo-add-the-info-for-the-pi-zero-with-no-wi-fi&quot;&gt;TODO add the info for the Pi Zero with no Wi-Fi&lt;/h1&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;connecting-to-your-pi&quot;&gt;Connecting to Your Pi&lt;/h1&gt;
-&lt;p&gt;Now that your pi is fully configured we’re going to connect to it via SSH. SSH is a method of logging into a different computer remotely. It’s extremely useful, and you’ll use it when logging into other computers on your network, or even when logging into remote servers that you may be using.&lt;/p&gt;
-
-&lt;p&gt;This assumes you’re on the same Wi-Fi network as your Pi, or in the case of the Pi Zero (without Wi-Fi) that you’re connected to your computer via the USB Data Port.&lt;/p&gt;
-
-&lt;p&gt;The Pi will take a minute or two to boot up and be accessible so after plugging it in give it a bit.&lt;/p&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# If this shows that it is successfully receiving packets move forward with the next command&lt;/span&gt;
-ping raspberrypi.local
-
-&lt;span class=&quot;c&quot;&gt;# This should allow you to login if you could ping successfully&lt;/span&gt;
-ssh pi@raspberrypi.local
-&lt;span class=&quot;c&quot;&gt;# The password by default is raspberry&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If this works successfully then you’ve successfully logged into your pi :)&lt;/p&gt;
-
-&lt;p&gt;If this does not work we’re going to have to look for the IP ourselves. We’re going to need a tool called nmap.&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nmap
-
-&lt;span class=&quot;c&quot;&gt;#This gets your IP address&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;hostname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#Take the IP address that was outputted in the start by that and paste it in the place of the IP in&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#the following command&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nmap &lt;span class=&quot;nt&quot;&gt;-sn&lt;/span&gt; 192.168.0.0/24
-&lt;span class=&quot;c&quot;&gt;#sudo is required to see the manufacturer of each device on your network&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Nmap will have a long list of devices on your network, and you should see one that has the Raspberry Pi Foundation as its creator. Take that IP address and run the following command.&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#Replace the IP address here with the IP you found for your Pi&lt;/span&gt;
-ssh pi@192.168.0.13
-&lt;span class=&quot;c&quot;&gt;#The default password is raspberry&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/starting_with_raspberry_pi/ssh_success.png&quot; alt=&quot;SSH Success&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;h1 id=&quot;after-logging-in&quot;&gt;After Logging In&lt;/h1&gt;
-&lt;p&gt;Now that you’re in lets configure a few things. Run the following command on your shell that is now logged into the pi.&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# This will open up an ncurses GUI to configure the Pi&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;raspi-config
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Inside the GUI we’re going to make a few changes&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;System Options -&amp;gt; Password -&amp;gt; Configure a new password for the pi user&lt;/li&gt;
-  &lt;li&gt;System Options -&amp;gt; Hostname -&amp;gt; Configure a new hostname for your pi (this was previously raspberrypi)&lt;/li&gt;
-  &lt;li&gt;Localisation Options -&amp;gt; Customize all of these, so they suit your locale and keyboard type&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/starting_with_raspberry_pi/raspi_conf.png&quot; alt=&quot;Raspi-Conf&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now that you set up the new hostname and password your next ssh session will require you to do&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh pi@newhostname
-&lt;span class=&quot;c&quot;&gt;#Password is whatever you set it to&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;conclussion&quot;&gt;Conclussion&lt;/h1&gt;
-&lt;p&gt;With all of that wrapped up and the configuration complete we’re all done :)
-Congrats on setting up your Pi to work headless!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorials/starting_with_raspberry_pi/pi_zero_w_picture.jpg&quot; alt=&quot;My Pi Zero W&quot; width=&quot;700&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;There’s one final tip I’ll leave you with, you should shutdown your Pi using the terminal rather than just unplugging it. This helps to prevent data corruption.&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#This command will shut down the pi&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;shutdown now
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Moved from UML-Embedded Club Site to my personal site</summary></entry><entry><title type="html">Soft Robotics Gripper Driver</title><link href="PatrickCPE.github.io/projects/sr_driver.html" rel="alternate" type="text/html" title="Soft Robotics Gripper Driver" /><published>2021-04-23T22:41:46-04:00</published><updated>2021-04-23T22:41:46-04:00</updated><id>PatrickCPE.github.io/projects/sr_driver</id><content type="html" xml:base="PatrickCPE.github.io/projects/sr_driver.html">&lt;hr /&gt;
-
-&lt;p&gt;A quick writeup of a ROS based driver for the soft robotic gripper, and the UR series arms.&lt;br /&gt;
-Can be found here: &lt;a href=&quot;https://github.com/PatrickCPE/sr_driver&quot;&gt;https://github.com/PatrickCPE/sr_driver&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;background&quot;&gt;Background&lt;/h1&gt;
-&lt;p&gt;Soft Robotics developed this pretty sick pneumatic based gripper, but the control depends on the UR Pendant attached to the UR5 arm we use.
-This is extremely cumbersome, and it doesn’t work with the automated grasping system we have developed at our lab.&lt;br /&gt;
-After initial attempts at writing an entire TCP communication library I discovered a pretty well written and well documented library for the UR series robots Real Time Data Exchange Interface (RTDE) in UR_RTDE.&lt;/p&gt;
-
-&lt;h1 id=&quot;sr_gripper-state-machine&quot;&gt;SR_Gripper State Machine&lt;/h1&gt;
-&lt;p&gt;In this state machine the message represents the +24V digital inputs into the codrive pneumatic pump system.&lt;br /&gt;
-The digital signals are created via the UR5’s control box’s. Bit 1 is D1, 2 is D2, 3 is D3.&lt;br /&gt;
-It should be noted that you only remain in these states for a certain period of time depending upon the pressure the system’s ADC reads.&lt;br /&gt;
-The below state diagram shows the basic concept.&lt;/p&gt;
-
-&lt;center&gt;
-&lt;img src=&quot;/assets/images/sr_gripper_fsm.png&quot; alt=&quot;Soft Robotic Gripper State Machine&quot; /&gt;
-&lt;/center&gt;
-
-&lt;p&gt;Ignoring the neutral state which isn’t exactly useful in my particular use case you can simplify this quite a bit.&lt;br /&gt;
-Note the state machine ignores the pressure requirements for each state.&lt;br /&gt;
-After determine these through the precision technique of guessing and checking (intelligently of course ) I wrote up a ROS package that can handle this.&lt;br /&gt;
-After dealing with some strange type casting issues that totally didn’t nearly blow up this $1000 gripper the package worked.&lt;/p&gt;
-
-&lt;h1 id=&quot;using-the-package&quot;&gt;Using the Package&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Ensure that the pinout corresponds to your install of the SR Gripper (Analog Input 0, and Digital 0,1,2 in our case)&lt;/li&gt;
-  &lt;li&gt;Modify the code to support your installation pinout&lt;/li&gt;
-  &lt;li&gt;Update the voltage bounds to whatever grasp bounds you want (this was the guess and check portion done via the UR Pendant)&lt;/li&gt;
-  &lt;li&gt;If updating the voltage bounds update the watchdog timer, so it corresponds properly&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;When all of that is done it’s pretty simple&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;roscore&lt;/li&gt;
-  &lt;li&gt;rosrun sr_driver sr_driver.py&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Publish your desired state as a string to /sr_gripper&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;rostopic pub /sr_gripper std_msgs/String “data: ‘open’”&lt;/li&gt;
-  &lt;li&gt;rostopic pub /sr_gripper std_msgs/String “data: ‘closed’”&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="projects" /><summary type="html"></summary></entry><entry><title type="html">Altium Layout Cheatsheet</title><link href="PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html" rel="alternate" type="text/html" title="Altium Layout Cheatsheet" /><published>2021-02-28T02:41:46-05:00</published><updated>2021-02-28T02:41:46-05:00</updated><id>PatrickCPE.github.io/tutorials/altium_layout_guide</id><content type="html" xml:base="PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html">&lt;hr /&gt;
 &lt;h2 id=&quot;creating-the-board&quot;&gt;Creating the board&lt;/h2&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;strong&gt;ProjectName.PrjPcb » Right Click » Add New to Project » PCB&lt;br /&gt;
@@ -1528,7 +57,7 @@ Execute Changes&lt;/strong&gt;&lt;/p&gt;
 Panels » Properties&lt;br /&gt;
 Properties » Enable Stack Symmetry&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Set up Planes and Signal layers (Standard is 1 oz. copper, if it’s a high power board 2 oz. may be neccassary but for hobby projects realize 2 oz. is expensive!)&lt;/p&gt;
+&lt;p&gt;Set up Planes and Signal layers (Standard is 1 oz. copper. If it’s a high power board 2 oz. may be necessary but for hobby projects realize 2 oz. is expensive!)&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Via Types » Ensure through hole via is present(If you need partial/embedded vias you’ll be able to figure it out here on your own)&lt;/strong&gt;&lt;/p&gt;
 
@@ -1539,7 +68,7 @@ Properties » Enable Stack Symmetry&lt;/strong&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h2 id=&quot;basic-electrical-rule-configuration&quot;&gt;Basic Electrical Rule Configuration&lt;/h2&gt;
 &lt;hr /&gt;
-&lt;p&gt;Here’s some basics to get you started, ICs tend to have metric based packages so probably best to use mm here.&lt;/p&gt;
+&lt;p&gt;Here are some basics to get you started, ICs tend to have metric based packages so probably best to use mm here.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Route Width:&lt;/strong&gt; 0.25 mm	Where: Routing Grid Design Rule (Can also do whatever 50 ohm impedance is for your dielectric/stackup)&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Clearance:&lt;/strong&gt; 0.25 mm		Where: Electrical Clearance Design Rule	(High speed signals need special care!)&lt;/li&gt;
@@ -1559,7 +88,7 @@ Set the grid definition here as well so you can see it well&lt;/p&gt;
 &lt;h2 id=&quot;pcb-rules&quot;&gt;PCB Rules&lt;/h2&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;strong&gt;Design » Rules&lt;/strong&gt;&lt;br /&gt;
-Set up everything according to what your manufacturer supports. Some manufactures will provide an altium rule file to import, and if they do love them eternally because so much less busy work&lt;/p&gt;
+Set up everything according to what your manufacturer supports. Some manufacturers will provide an Altium rule file to import, and if they do love them eternally because so much less busy work&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;basic-setup&quot;&gt;Basic setup&lt;/h2&gt;
@@ -1571,7 +100,7 @@ Set up everything according to what your manufacturer supports. Some manufacture
   &lt;li&gt;&lt;strong&gt;routing vias:&lt;/strong&gt; 1mm diameter, 0.6mm hole size&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Yes, you can be more specific, and if the boards high density please do look in depth at your manufacturers capabilities. If it’s a hobby project, who cares :)&lt;/p&gt;
+&lt;p&gt;Yes, you can be more specific, and if the board’s high density please look in depth at your manufacturer’s capabilities. If it’s a hobby project, who cares :)&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;placement&quot;&gt;Placement&lt;/h2&gt;
@@ -1579,10 +108,10 @@ Set up everything according to what your manufacturer supports. Some manufacture
 &lt;p&gt;My first boss taught me that 90% of the battle is placement, and I recommend you take his advice.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Spend time making the rat’s nest of traces as short as possible. Rotate parts around, make sure there is as short of a distance as possible for you to route wires.&lt;/li&gt;
+  &lt;li&gt;Spend time making the rat’s nest of traces as short as possible. Rotate parts around, and make sure there is as short of a distance as possible for you to route wires.&lt;/li&gt;
   &lt;li&gt;Place Connectors and any mechanical requirements First, then place components as fits.&lt;/li&gt;
   &lt;li&gt;Make sure you place the bypass caps as close as physically possible to the VCC and GND pins of your components!&lt;/li&gt;
-  &lt;li&gt;If you need to use vias use them, there’s different theories on what’s best here. Some people prefer routing all on the top layer, some believe hiding the signals in your stack up is more beneficial.&lt;/li&gt;
+  &lt;li&gt;If you need to use vias use them, there are different theories on what’s best here. Some people prefer routing all on the top layer, some believe hiding the signals in your stack up is more beneficial.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;I’ll point you to Henry Ott (hottconsultants.com) if you want to read up on the different stack ups and routing techniques
@@ -1598,7 +127,7 @@ I also hear good things about Howard Johnson, and John Howie(totally different n
 &lt;p&gt;&lt;strong&gt;Polygon Pour » Draw » Click Polygon » Properties » Assign Net » Repour&lt;/strong&gt;&lt;br /&gt;
 (If you mess with things be sure to repour, it’ll fix some weird issues)&lt;/p&gt;
 
-&lt;p&gt;If you think yourself a genius feel free to attempt to split your ground planes, if your like the rest of us mortals do the best to ensure your board has as solid of a ground plane as possible.&lt;/p&gt;
+&lt;p&gt;If you think yourself a genius feel free to attempt to split your ground planes, if you’re like the rest of us mortals do the best to ensure your board has as solid of a ground plane as possible.&lt;/p&gt;
 
 &lt;p&gt;A solid plane rather than a split one is almost always better.&lt;/p&gt;
 
@@ -1651,7 +180,7 @@ File » Assembly Output&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Right Click Project » Add New to Project » Output Job File&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Save file as desired name&lt;/p&gt;
+&lt;p&gt;Save file with desired name&lt;/p&gt;
 
 &lt;h3 id=&quot;basic-set-of-outputs-to-set-up-in-the-outjob-file&quot;&gt;Basic set of outputs to set up in the .OutJob file&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Fabrication » Gerber » PCB Document&lt;br /&gt;
@@ -1662,7 +191,7 @@ Documentation Output » PCB Prints » PCB Document&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;configuring-the-outputs&quot;&gt;Configuring the outputs&lt;/h3&gt;
 &lt;p&gt;To Configure each output right click and hit configure&lt;br /&gt;
-&lt;strong&gt;Gerber Config&lt;/strong&gt;  - (Format, 4:4, Units:mm, layers » plot layers » used on, advanced » position on filme » reference to relative origin)&lt;/p&gt;
+&lt;strong&gt;Gerber Config&lt;/strong&gt;  - (Format, 4:4, Units:mm, layers » plot layers » used on, advanced » position on file » reference to relative origin)&lt;/p&gt;
 
 &lt;h3 id=&quot;set-up-the-output-container&quot;&gt;Set up the output container&lt;/h3&gt;
 &lt;p&gt;Click the folder structure in output containers.&lt;/p&gt;
@@ -1670,11 +199,11 @@ Documentation Output » PCB Prints » PCB Document&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Now check the enable box for every file you want in that folder.&lt;br /&gt;
 Set the top file path to manually managed.&lt;/p&gt;
 
-&lt;p&gt;I recommend you store everything in a folder call outputs because it looks better.&lt;/p&gt;
+&lt;p&gt;I recommend you store everything in a folder called outputs because it looks better.&lt;/p&gt;
 
 &lt;p&gt;You may want to go into advanced and enable auto load of gerber and NC drill outputs so you can check to see if they’re accurate after being created&lt;/p&gt;
 
-&lt;p&gt;Click the PDF Container and add your PDF’s to it, adjust this output structure as well.
+&lt;p&gt;Click the PDF Container and add your PDFs to it, adjust this output structure as well.
 Name it as you’d like and configure auto open if you want&lt;/p&gt;
 
 &lt;p&gt;ODB++ is a new format that contains pick and place info alongside board info. Fancy board houses like it. If you’re getting high quality boards or a large number of boards made
@@ -1688,13 +217,13 @@ please just communicate with your board house/assembly house. They’ll tell you
 &lt;p&gt;&lt;strong&gt;Right Click Project Name » Add new to project » Active Bom&lt;br /&gt;
 Properties » Set Production Quantity to see best prices&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Now go through each type of component and select the manufacture you want to buy from, Once you select the manufacturer give it a user rank by making a star rating.&lt;/p&gt;
+&lt;p&gt;Now go through each type of component and select the manufacturer you want to buy from, Once you select the manufacturer give it a user rank by making a star rating.&lt;/p&gt;
 
 &lt;p&gt;Once you do this the status message on the far right side of the BOM should become a green check box for the items that were in stock.&lt;br /&gt;
-Add vendors links for any products that still need them by clicking the part and doing add solution.&lt;/p&gt;
+Add vendors’ links for any products that still need them by clicking the part and doing add solution.&lt;/p&gt;
 
 &lt;p&gt;If you replace a part with a new solution note that whatever option has the most stars will be used if available.&lt;br /&gt;
-(ie: if you have 2 different types of amps you can use but the preferred one is usually out of stock set the preffered to 5 stars and option 2 to 4)&lt;/p&gt;
+(ie: if you have 2 different types of amps you can use but the preferred one is usually out of stock set the preferred to 5 stars and option 2 to 4)&lt;/p&gt;
 
 &lt;p&gt;If you entered the production amount the tool will help you pick from the different distributors and ensure stocks.&lt;/p&gt;
 
@@ -1712,7 +241,145 @@ Add vendors links for any products that still need them by clicking the part and
 &lt;p&gt;Now go into your output job file and click your output containers.
 Click generate content for each and ensure it’s correct.&lt;/p&gt;
 
-&lt;p&gt;Now you have the pdfs of your schematic and board to share with everyone, and your manufacturing files! You’re all set to have it made :)&lt;/p&gt;
+&lt;p&gt;Now you have the pdfs of your schematic and board to share with everyone and your manufacturing files! You’re all set to have it made&lt;/p&gt;
 
 &lt;hr /&gt;
-&lt;h3 id=&quot;now-you-have-to-write-the-firmware-youve-been-avoiding-&quot;&gt;Now you have to write the firmware you’ve been avoiding :)&lt;/h3&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Creating the board ProjectName.PrjPcb » Right Click » Add New to Project » PCB PCB1.PcbDoc » Right Click » Rename(as desired) Configuring the Board Set the Origin Edit » Origin » Set Set Units View » Toggle Units (Hotkey: Q) Set Snapgrid Hotkey: G Hotkey: Ctrl+Shift+G (Opens snapgrid settings rather than swap between predefined snapgrids) Edit the Board Shape Ctrl+PgDown: Zoom Fit View » Board Planning Mode (Hotkey: 1) Design » Edit Board Shape Adjust Board corners until desired board shape is achieved You can also redraw with Design » Redefine Board Shape Draw the polygon fill to create board Transfer the Design from schematic Design » Update PCB Document Name.PcbDoc from PCB Design » Import Changes from Name.PrjPcb Validate Changes Execute Changes If you’re missing any footprints you’ll get an error when you try to import Setup Layer View Panels » View Configuration (Hotkey: L) Setting Up the Stackup Design » Layer Stack Manager (Make sure to save!) Panels » Properties Properties » Enable Stack Symmetry Set up Planes and Signal layers (Standard is 1 oz. copper, if it’s a high power board 2 oz. may be neccassary but for hobby projects realize 2 oz. is expensive!) Via Types » Ensure through hole via is present(If you need partial/embedded vias you’ll be able to figure it out here on your own) Remember to save the stackup! Before you Place Set Up Your Snap Grid! Basic Electrical Rule Configuration Here’s some basics to get you started, ICs tend to have metric based packages so probably best to use mm here. Route Width: 0.25 mm Where: Routing Grid Design Rule (Can also do whatever 50 ohm impedance is for your dielectric/stackup) Clearance: 0.25 mm Where: Electrical Clearance Design Rule (High speed signals need special care!) Board Definition Grid: 5 mm Where: Cartesian Grid Editor Component Placement Grid: 1 mm Where: Cartesian Grid Editor Routing Grid: 1 mm Where: Cartesian Grid editor Via size: 1 mm Where: Routing Via style design rule (High current traces may need larger/multiple vias) Via hole: 0.6 mm Where: Routing Via Style Design Rule Altium Support Polar Grids if you’re doing a curved board but I’m not going into that Cartesian Grid Editor (Hotkey:Ctrl+G) Set the grid definition here as well so you can see it well PCB Rules Design » Rules Set up everything according to what your manufacturer supports. Some manufactures will provide an altium rule file to import, and if they do love them eternally because so much less busy work Basic setup clearance: 0.25mm for all signal: 0.25mm standard power: thick traces, minimum can still be low for small offshoots to pins, etc routing vias: 1mm diameter, 0.6mm hole size Yes, you can be more specific, and if the boards high density please do look in depth at your manufacturers capabilities. If it’s a hobby project, who cares :) Placement My first boss taught me that 90% of the battle is placement, and I recommend you take his advice. Spend time making the rat’s nest of traces as short as possible. Rotate parts around, make sure there is as short of a distance as possible for you to route wires. Place Connectors and any mechanical requirements First, then place components as fits. Make sure you place the bypass caps as close as physically possible to the VCC and GND pins of your components! If you need to use vias use them, there’s different theories on what’s best here. Some people prefer routing all on the top layer, some believe hiding the signals in your stack up is more beneficial. I’ll point you to Henry Ott (hottconsultants.com) if you want to read up on the different stack ups and routing techniques I also hear good things about Howard Johnson, and John Howie(totally different names, not clones or anything) has some stuff on EMC, but it’s a bit harder to find Planes Place your planes now! You need to have a small keepout area on the edge of the board to make manufacturers happy Polygon Pour » Draw » Click Polygon » Properties » Assign Net » Repour (If you mess with things be sure to repour, it’ll fix some weird issues) If you think yourself a genius feel free to attempt to split your ground planes, if your like the rest of us mortals do the best to ensure your board has as solid of a ground plane as possible. A solid plane rather than a split one is almost always better. Basic Routing Route Mode (Hotkey: Ctrl+W) Connect everything with the shortest trace possible! Highest priority signals get routed first, remember some lines need controlled impedance/differential pair routing Route slow speed traces last Make sure to put vias to prevent any dead copper! There are fancy methods of making high speed transmission lines with vias along fancy traces but that’s application specific In general spread some via stitch out around the board after to help with return paths. The person who taught me taught me to do it pseudo randomly to prevent “resonance of something”. I can’t quite remember everything ¯_(ツ)_/¯ , but he’s a pretty bright guy so I’d assume he was right. Autorouting is a privilege you earn after you learn when to use it. If you’re starting out you don’t know how to and shouldn’t. It can save time in some cases but I avoid it 95% of the time Boards Done -&amp;gt; Design Rule Check Tools » Design Rule Check Fix or approve any errors Check your board out! Press 3 to view the board in 3D, make sure everything looks alright Press 2 to go back to routing mode Fabrication Outputs(Getting your board made!) You can either output individual files from File » Fabrication Output File » Assembly Output You can also export to other tools such as HyperLynx (super fancy sim software for EMI that you’ll only get to play with if your company has a license) from the file tab. You can print PDFs from here as well, Altium can output 3D pdf files that allow rotation and zoom in Adobe Acrobat almost as if you were looking at the assembly in Solidworks. Setting Up Output Job Files This will output everything you want, think of it like the CMake of Altium Right Click Project » Add New to Project » Output Job File Save file as desired name Basic set of outputs to set up in the .OutJob file Fabrication » Gerber » PCB Document Fabrication » NC Drill Files » PCB Document Assembly » Generate pick and place files » PCB Document Documentation Output » Schematic Prints » (single page for basic setup) Documentation Output » PCB Prints » PCB Document Configuring the outputs To Configure each output right click and hit configure Gerber Config - (Format, 4:4, Units:mm, layers » plot layers » used on, advanced » position on filme » reference to relative origin) Set up the output container Click the folder structure in output containers. Now check the enable box for every file you want in that folder. Set the top file path to manually managed. I recommend you store everything in a folder call outputs because it looks better. You may want to go into advanced and enable auto load of gerber and NC drill outputs so you can check to see if they’re accurate after being created Click the PDF Container and add your PDF’s to it, adjust this output structure as well. Name it as you’d like and configure auto open if you want ODB++ is a new format that contains pick and place info alongside board info. Fancy board houses like it. If you’re getting high quality boards or a large number of boards made please just communicate with your board house/assembly house. They’ll tell you what they prefer, and if you give them what they prefer it’ll save you a bit of money hopefully We’re going to add our BOM to the output as well, but we need to set it up first Active BOM Right Click Project Name » Add new to project » Active Bom Properties » Set Production Quantity to see best prices Now go through each type of component and select the manufacture you want to buy from, Once you select the manufacturer give it a user rank by making a star rating. Once you do this the status message on the far right side of the BOM should become a green check box for the items that were in stock. Add vendors links for any products that still need them by clicking the part and doing add solution. If you replace a part with a new solution note that whatever option has the most stars will be used if available. (ie: if you have 2 different types of amps you can use but the preferred one is usually out of stock set the preffered to 5 stars and option 2 to 4) If you entered the production amount the tool will help you pick from the different distributors and ensure stocks. Save the bom and the project! Now go back to your output job file and add the bom, I recommend you customize it and add either the single supplier or double supplier template. Add it to your output folder container! Wrap Up Save everything! You can reuse things like rules setups and your output job file for most cases! Now go into your output job file and click your output containers. Click generate content for each and ensure it’s correct. Now you have the pdfs of your schematic and board to share with everyone, and your manufacturing files! You’re all set to have it made :) Now you have to write the firmware you’ve been avoiding :)</summary></entry></feed>
+&lt;h3 id=&quot;now-you-have-to-write-the-firmware-youve-been-avoiding-&quot;&gt;Now you have to write the firmware you’ve been avoiding :)&lt;/h3&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Project Workflow and Shortcuts for Altium Designer 2020 - Schematic Tool Creating the board ProjectName.PrjPcb » Right Click » Add New to Project » PCB PCB1.PcbDoc » Right Click » Rename(as desired) Configuring the Board Set the Origin Edit » Origin » Set Set Units View » Toggle Units (Hotkey: Q) Set Snapgrid Hotkey: G Hotkey: Ctrl+Shift+G (Opens snapgrid settings rather than swap between predefined snapgrids) Edit the Board Shape Ctrl+PgDown: Zoom Fit View » Board Planning Mode (Hotkey: 1) Design » Edit Board Shape Adjust Board corners until desired board shape is achieved You can also redraw with Design » Redefine Board Shape Draw the polygon fill to create board Transfer the Design from schematic Design » Update PCB Document Name.PcbDoc from PCB Design » Import Changes from Name.PrjPcb Validate Changes Execute Changes If you’re missing any footprints you’ll get an error when you try to import Setup Layer View Panels » View Configuration (Hotkey: L) Setting Up the Stackup Design » Layer Stack Manager (Make sure to save!) Panels » Properties Properties » Enable Stack Symmetry Set up Planes and Signal layers (Standard is 1 oz. copper. If it’s a high power board 2 oz. may be necessary but for hobby projects realize 2 oz. is expensive!) Via Types » Ensure through hole via is present(If you need partial/embedded vias you’ll be able to figure it out here on your own) Remember to save the stackup! Before you Place Set Up Your Snap Grid! Basic Electrical Rule Configuration Here are some basics to get you started, ICs tend to have metric based packages so probably best to use mm here. Route Width: 0.25 mm Where: Routing Grid Design Rule (Can also do whatever 50 ohm impedance is for your dielectric/stackup) Clearance: 0.25 mm Where: Electrical Clearance Design Rule (High speed signals need special care!) Board Definition Grid: 5 mm Where: Cartesian Grid Editor Component Placement Grid: 1 mm Where: Cartesian Grid Editor Routing Grid: 1 mm Where: Cartesian Grid editor Via size: 1 mm Where: Routing Via style design rule (High current traces may need larger/multiple vias) Via hole: 0.6 mm Where: Routing Via Style Design Rule Altium Support Polar Grids if you’re doing a curved board but I’m not going into that Cartesian Grid Editor (Hotkey:Ctrl+G) Set the grid definition here as well so you can see it well PCB Rules Design » Rules Set up everything according to what your manufacturer supports. Some manufacturers will provide an Altium rule file to import, and if they do love them eternally because so much less busy work Basic setup clearance: 0.25mm for all signal: 0.25mm standard power: thick traces, minimum can still be low for small offshoots to pins, etc routing vias: 1mm diameter, 0.6mm hole size Yes, you can be more specific, and if the board’s high density please look in depth at your manufacturer’s capabilities. If it’s a hobby project, who cares :) Placement My first boss taught me that 90% of the battle is placement, and I recommend you take his advice. Spend time making the rat’s nest of traces as short as possible. Rotate parts around, and make sure there is as short of a distance as possible for you to route wires. Place Connectors and any mechanical requirements First, then place components as fits. Make sure you place the bypass caps as close as physically possible to the VCC and GND pins of your components! If you need to use vias use them, there are different theories on what’s best here. Some people prefer routing all on the top layer, some believe hiding the signals in your stack up is more beneficial. I’ll point you to Henry Ott (hottconsultants.com) if you want to read up on the different stack ups and routing techniques I also hear good things about Howard Johnson, and John Howie(totally different names, not clones or anything) has some stuff on EMC, but it’s a bit harder to find Planes Place your planes now! You need to have a small keepout area on the edge of the board to make manufacturers happy Polygon Pour » Draw » Click Polygon » Properties » Assign Net » Repour (If you mess with things be sure to repour, it’ll fix some weird issues) If you think yourself a genius feel free to attempt to split your ground planes, if you’re like the rest of us mortals do the best to ensure your board has as solid of a ground plane as possible. A solid plane rather than a split one is almost always better. Basic Routing Route Mode (Hotkey: Ctrl+W) Connect everything with the shortest trace possible! Highest priority signals get routed first, remember some lines need controlled impedance/differential pair routing Route slow speed traces last Make sure to put vias to prevent any dead copper! There are fancy methods of making high speed transmission lines with vias along fancy traces but that’s application specific In general spread some via stitch out around the board after to help with return paths. The person who taught me taught me to do it pseudo randomly to prevent “resonance of something”. I can’t quite remember everything ¯_(ツ)_/¯ , but he’s a pretty bright guy so I’d assume he was right. Autorouting is a privilege you earn after you learn when to use it. If you’re starting out you don’t know how to and shouldn’t. It can save time in some cases but I avoid it 95% of the time Boards Done -&amp;gt; Design Rule Check Tools » Design Rule Check Fix or approve any errors Check your board out! Press 3 to view the board in 3D, make sure everything looks alright Press 2 to go back to routing mode Fabrication Outputs(Getting your board made!) You can either output individual files from File » Fabrication Output File » Assembly Output You can also export to other tools such as HyperLynx (super fancy sim software for EMI that you’ll only get to play with if your company has a license) from the file tab. You can print PDFs from here as well, Altium can output 3D pdf files that allow rotation and zoom in Adobe Acrobat almost as if you were looking at the assembly in Solidworks. Setting Up Output Job Files This will output everything you want, think of it like the CMake of Altium Right Click Project » Add New to Project » Output Job File Save file with desired name Basic set of outputs to set up in the .OutJob file Fabrication » Gerber » PCB Document Fabrication » NC Drill Files » PCB Document Assembly » Generate pick and place files » PCB Document Documentation Output » Schematic Prints » (single page for basic setup) Documentation Output » PCB Prints » PCB Document Configuring the outputs To Configure each output right click and hit configure Gerber Config - (Format, 4:4, Units:mm, layers » plot layers » used on, advanced » position on file » reference to relative origin) Set up the output container Click the folder structure in output containers. Now check the enable box for every file you want in that folder. Set the top file path to manually managed. I recommend you store everything in a folder called outputs because it looks better. You may want to go into advanced and enable auto load of gerber and NC drill outputs so you can check to see if they’re accurate after being created Click the PDF Container and add your PDFs to it, adjust this output structure as well. Name it as you’d like and configure auto open if you want ODB++ is a new format that contains pick and place info alongside board info. Fancy board houses like it. If you’re getting high quality boards or a large number of boards made please just communicate with your board house/assembly house. They’ll tell you what they prefer, and if you give them what they prefer it’ll save you a bit of money hopefully We’re going to add our BOM to the output as well, but we need to set it up first Active BOM Right Click Project Name » Add new to project » Active Bom Properties » Set Production Quantity to see best prices Now go through each type of component and select the manufacturer you want to buy from, Once you select the manufacturer give it a user rank by making a star rating. Once you do this the status message on the far right side of the BOM should become a green check box for the items that were in stock. Add vendors’ links for any products that still need them by clicking the part and doing add solution. If you replace a part with a new solution note that whatever option has the most stars will be used if available. (ie: if you have 2 different types of amps you can use but the preferred one is usually out of stock set the preferred to 5 stars and option 2 to 4) If you entered the production amount the tool will help you pick from the different distributors and ensure stocks. Save the bom and the project! Now go back to your output job file and add the bom, I recommend you customize it and add either the single supplier or double supplier template. Add it to your output folder container! Wrap Up Save everything! You can reuse things like rules setups and your output job file for most cases! Now go into your output job file and click your output containers. Click generate content for each and ensure it’s correct. Now you have the pdfs of your schematic and board to share with everyone and your manufacturing files! You’re all set to have it made Now you have to write the firmware you’ve been avoiding :)</summary></entry><entry><title type="html">Altium Schematic Cheatsheet</title><link href="PatrickCPE.github.io/tutorials/altium_schematic_cheatsheet.html" rel="alternate" type="text/html" title="Altium Schematic Cheatsheet" /><published>2021-02-28T01:41:46-05:00</published><updated>2021-02-28T01:41:46-05:00</updated><id>PatrickCPE.github.io/tutorials/altium_schematic_guide</id><content type="html" xml:base="PatrickCPE.github.io/tutorials/altium_schematic_cheatsheet.html">&lt;hr /&gt;
+&lt;p&gt;Project Workflow and Shortcuts for Altium Designer 2020 - Schematic Tool&lt;/p&gt;
+
+&lt;p&gt;Note: Thou is the same as Mill for anyone who doesn’t know, 1/1000 of an inch!&lt;/p&gt;
+
+&lt;h1 id=&quot;altium-schematic-design-guide&quot;&gt;Altium Schematic Design Guide&lt;/h1&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;creating-the-project&quot;&gt;Creating the project&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;File » New » Project&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Default PCB will work for your basic project.&lt;br /&gt;
+I recommend you use Git, or SVN if you prefer that. I believe Altium actually incorporates SVN but I’m a Git guy myself, and it does have some Git support (although I still use a terminal).&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;adding-a-schematic&quot;&gt;Adding a Schematic&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Right Click Project » Add New to Project » Schematic&lt;br /&gt;
+Right Click Schematic » Rename&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Rename as you find appropriate&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;configuring-properties&quot;&gt;Configuring Properties&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;Property Configuration &lt;strong&gt;(Panels » Property)&lt;/strong&gt;&lt;br /&gt;
+Set Visible Snap Grid (I go with 100 mil)&lt;br /&gt;
+Set Layout Snap Grid (Again, 100 mil)&lt;br /&gt;
+Set Page Color (Slightly Gray is Better on my Eyes, Choice is yours!)&lt;br /&gt;
+Set Sheet Size (Whatever you prefer, it’s rare to actually print schematics nowadays, but I recommend it when you check traces!)&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;selecting-components&quot;&gt;Selecting Components&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;There are two options in Altium, the Altium Vault and personal Libraries&lt;/p&gt;
+
+&lt;p&gt;If your in a large company they’ll probably have their own library to ensuring manufacturing tolerances, but I like the Altium Vault Library cause it saves time and shows part availability. The standard component library does have your standard passives/connectors that you can use as well. I might make a tutorial on component generation later, but school’s killing me right now.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;selecting-parts-via-manufacturer-part-search&quot;&gt;Selecting Parts Via Manufacturer Part Search&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;Using Manufacturer Part Search &lt;strong&gt;(Panels » Manufacturer Part Search)&lt;/strong&gt;&lt;br /&gt;
+It has built in filter systems if you click the funnel shaped symbol on the top left, querying works rather well, and then you can filter down to desired packaged size/stock/etc after the fact.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;example search: “smd led 0603 red”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This will yield plenty of suitable parts, and it integrates with Octopart (part availability from distributors) to tell you pricing and availability. Some components will have the footprint designed by Altium (typically there’s a small, medium, and large footprint). When designing for manufacture part availability and price is huge!&lt;/p&gt;
+
+&lt;p&gt;when you picked out a part you want to use&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;right click » place » left click to place on schematic&lt;br /&gt;
+right click » add supplier link and parameter to part(if you want to) » left click part on schematic&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;selecting-parts-via-local-libraries&quot;&gt;Selecting Parts Via Local Libraries&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;Using Local/Content Server Libraries&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Panels » Components&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I’ll be honest I don’t have a content server so I can’t really speak for it, but here’s how to use the local libraries&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h4 id=&quot;installing-libraries&quot;&gt;Installing Libraries&lt;/h4&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Components » The 3 Bar Icon » File Based Library Preferences » Installed » Installed&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also just store the component in the local project directory if you’d like to use it within just the project. Querying and Parameterized search is the same for local components as Manufacturer Part Search. Placing the component is the same as well&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;wiring-the-schematic&quot;&gt;Wiring the Schematic&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ctrl+W » Draw Wires&lt;/li&gt;
+  &lt;li&gt;Left click to place&lt;/li&gt;
+  &lt;li&gt;Left Click Hold and drag to move wire and component&lt;/li&gt;
+  &lt;li&gt;Left Click+Ctrl Hold and drag to move just components&lt;/li&gt;
+  &lt;li&gt;Right Click to exit wire mode**&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you prefer the arch to show where connections don’t exist it’s in the general page of preferences for the schematic&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;net-labels&quot;&gt;Net Labels&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;Right Click the Quickbar in the wire slot and select net label &lt;br /&gt;
+Use &lt;strong&gt;Tab » Preferences&lt;/strong&gt; to declare the labels&lt;br /&gt;
+Place on a net to label it&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;general-rules-for-drawing-schematics&quot;&gt;General Rules for Drawing Schematics&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+  &lt;li&gt;High voltage at the top, Ground at the bottom&lt;/li&gt;
+  &lt;li&gt;Signals move form left to right&lt;/li&gt;
+  &lt;li&gt;Don’t connect more than 2 signals at a single dot if possible, this ensures you can see what is and what isn’t a connection.&lt;/li&gt;
+  &lt;li&gt;Ensure Reference Designators are done properly&lt;/li&gt;
+  &lt;li&gt;Put relevant calculations right on the schematic with a text comment&lt;/li&gt;
+  &lt;li&gt;Fill out your name, project name, and revision number on the schematic&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;schematic-hotkeys&quot;&gt;Schematic Hotkeys&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Spacebar: Rotate Part 90 degrees&lt;br /&gt;
+X: Flip along X-axis&lt;br /&gt;
+Y: Flip along Y-axis&lt;br /&gt;
+Tab: Display Properties for a placed part, any properties filled out are kept for subsequent places of the same component(good to label reference designators)&lt;br /&gt;
+Ctrl+Wheel: Zoom in or Out&lt;br /&gt;
+Right Click+Drag: Move schematic&lt;br /&gt;
+Ctrl+PgDwn: Fit Sheet to page&lt;br /&gt;
+G: Cycle snap grids&lt;br /&gt;
+Ctrl+W: Draw Wires&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;with-all-of-this-in-mind-go-ahead-and-draw-up-your-schematic-then-well-move-onto-erc-checks&quot;&gt;With all of this in mind, go ahead and draw up your schematic. Then we’ll move onto ERC checks.&lt;/h2&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;configure-error-reporting&quot;&gt;Configure Error Reporting&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Project » Project Options » Error Reporting&lt;/strong&gt;&lt;br /&gt;
+Chose the severity level of each warning if you’d like to alter the defaults, as a beginner I’d leave it alone&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Project » Project Options » Set up as desired&lt;/strong&gt;&lt;br /&gt;
+If you want certain types of pins connecting to other pins configure it here. I recommend you atleast have warnings for unconnected pins&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;running-design-rule-check&quot;&gt;Running Design Rule Check&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Panels » Messages&lt;br /&gt;
+Project » Validate Projectname.PrjPcb&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You will see errors outputted in the message box, double click the message to zoom on the error. if you consider the error to be acceptable (for example leaving one end of a potentiometer unconnected).&lt;/p&gt;
+
+&lt;p&gt;Right click the message and place no erc for the connection if it’s a false error. If there’s an actual error fix it, then rerun the Validation&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;youre-now-done-with-the-schematic-check-out-the-pcb-tutorial-if-youre-responsible-for-the-layout-as-well-hope-this-helped-&quot;&gt;You’re now done with the schematic! Check out the PCB tutorial if you’re responsible for the layout as well, hope this helped :)&lt;/h2&gt;</content><author><name></name></author><category term="tutorials" /><summary type="html">Project Workflow and Shortcuts for Altium Designer 2020 - Schematic Tool Note: Thou is the same as Mill for anyone who doesn’t know, 1/1000 of an inch! Altium Schematic Design Guide Creating the project File » New » Project Default PCB will work for your basic project. I recommend you use Git, or SVN if you prefer that. I believe Altium actually incorporates SVN but I’m a Git guy myself, and it does have some Git support (although I still use a terminal). Adding a Schematic Right Click Project » Add New to Project » Schematic Right Click Schematic » Rename Rename as you find appropriate Configuring Properties Property Configuration (Panels » Property) Set Visible Snap Grid (I go with 100 mil) Set Layout Snap Grid (Again, 100 mil) Set Page Color (Slightly Gray is Better on my Eyes, Choice is yours!) Set Sheet Size (Whatever you prefer, it’s rare to actually print schematics nowadays, but I recommend it when you check traces!) Selecting Components There are two options in Altium, the Altium Vault and personal Libraries If your in a large company they’ll probably have their own library to ensuring manufacturing tolerances, but I like the Altium Vault Library cause it saves time and shows part availability. The standard component library does have your standard passives/connectors that you can use as well. I might make a tutorial on component generation later, but school’s killing me right now. Selecting Parts Via Manufacturer Part Search Using Manufacturer Part Search (Panels » Manufacturer Part Search) It has built in filter systems if you click the funnel shaped symbol on the top left, querying works rather well, and then you can filter down to desired packaged size/stock/etc after the fact. example search: “smd led 0603 red” This will yield plenty of suitable parts, and it integrates with Octopart (part availability from distributors) to tell you pricing and availability. Some components will have the footprint designed by Altium (typically there’s a small, medium, and large footprint). When designing for manufacture part availability and price is huge! when you picked out a part you want to use right click » place » left click to place on schematic right click » add supplier link and parameter to part(if you want to) » left click part on schematic Selecting Parts Via Local Libraries Using Local/Content Server Libraries Panels » Components I’ll be honest I don’t have a content server so I can’t really speak for it, but here’s how to use the local libraries Installing Libraries Components » The 3 Bar Icon » File Based Library Preferences » Installed » Installed You can also just store the component in the local project directory if you’d like to use it within just the project. Querying and Parameterized search is the same for local components as Manufacturer Part Search. Placing the component is the same as well Wiring the Schematic Ctrl+W » Draw Wires Left click to place Left Click Hold and drag to move wire and component Left Click+Ctrl Hold and drag to move just components Right Click to exit wire mode** If you prefer the arch to show where connections don’t exist it’s in the general page of preferences for the schematic Net Labels Right Click the Quickbar in the wire slot and select net label Use Tab » Preferences to declare the labels Place on a net to label it General Rules for Drawing Schematics High voltage at the top, Ground at the bottom Signals move form left to right Don’t connect more than 2 signals at a single dot if possible, this ensures you can see what is and what isn’t a connection. Ensure Reference Designators are done properly Put relevant calculations right on the schematic with a text comment Fill out your name, project name, and revision number on the schematic Schematic Hotkeys Spacebar: Rotate Part 90 degrees X: Flip along X-axis Y: Flip along Y-axis Tab: Display Properties for a placed part, any properties filled out are kept for subsequent places of the same component(good to label reference designators) Ctrl+Wheel: Zoom in or Out Right Click+Drag: Move schematic Ctrl+PgDwn: Fit Sheet to page G: Cycle snap grids Ctrl+W: Draw Wires With all of this in mind, go ahead and draw up your schematic. Then we’ll move onto ERC checks. Configure Error Reporting Project » Project Options » Error Reporting Chose the severity level of each warning if you’d like to alter the defaults, as a beginner I’d leave it alone Project » Project Options » Set up as desired If you want certain types of pins connecting to other pins configure it here. I recommend you atleast have warnings for unconnected pins Running Design Rule Check Panels » Messages Project » Validate Projectname.PrjPcb You will see errors outputted in the message box, double click the message to zoom on the error. if you consider the error to be acceptable (for example leaving one end of a potentiometer unconnected). Right click the message and place no erc for the connection if it’s a false error. If there’s an actual error fix it, then rerun the Validation You’re now done with the schematic! Check out the PCB tutorial if you’re responsible for the layout as well, hope this helped :)</summary></entry></feed>

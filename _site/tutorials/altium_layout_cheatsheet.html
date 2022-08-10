@@ -17,14 +17,14 @@
 <meta name="generator" content="Jekyll v3.8.7" />
 <meta property="og:title" content="Altium Layout Cheatsheet" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="And here’s the cheatsheet for schematic design. BOM management and manufacturing files in here too :)" />
-<meta property="og:description" content="And here’s the cheatsheet for schematic design. BOM management and manufacturing files in here too :)" />
+<meta name="description" content="Cheatsheet for my workflow in Altium’s layout tool" />
+<meta property="og:description" content="Cheatsheet for my workflow in Altium’s layout tool" />
 <link rel="canonical" href="PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html" />
 <meta property="og:url" content="PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-02-28T02:41:46-05:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html","headline":"Altium Layout Cheatsheet","dateModified":"2021-02-28T02:41:46-05:00","datePublished":"2021-02-28T02:41:46-05:00","description":"And here’s the cheatsheet for schematic design. BOM management and manufacturing files in here too :)","mainEntityOfPage":{"@type":"WebPage","@id":"PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html","headline":"Altium Layout Cheatsheet","dateModified":"2021-02-28T02:41:46-05:00","datePublished":"2021-02-28T02:41:46-05:00","description":"Cheatsheet for my workflow in Altium’s layout tool","mainEntityOfPage":{"@type":"WebPage","@id":"PatrickCPE.github.io/tutorials/altium_layout_cheatsheet.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -66,6 +66,8 @@
 </center>
 
 <hr>
+<p>Project Workflow and Shortcuts for Altium Designer 2020 - Schematic Tool</p>
+
 <h2 id="creating-the-board">Creating the board</h2>
 <hr>
 <p><strong>ProjectName.PrjPcb » Right Click » Add New to Project » PCB<br>
@@ -122,7 +124,7 @@ Execute Changes</strong></p>
 Panels » Properties<br>
 Properties » Enable Stack Symmetry</strong></p>
 
-<p>Set up Planes and Signal layers (Standard is 1 oz. copper, if it’s a high power board 2 oz. may be neccassary but for hobby projects realize 2 oz. is expensive!)</p>
+<p>Set up Planes and Signal layers (Standard is 1 oz. copper. If it’s a high power board 2 oz. may be necessary but for hobby projects realize 2 oz. is expensive!)</p>
 
 <p><strong>Via Types » Ensure through hole via is present(If you need partial/embedded vias you’ll be able to figure it out here on your own)</strong></p>
 
@@ -133,7 +135,7 @@ Properties » Enable Stack Symmetry</strong></p>
 <hr>
 <h2 id="basic-electrical-rule-configuration">Basic Electrical Rule Configuration</h2>
 <hr>
-<p>Here’s some basics to get you started, ICs tend to have metric based packages so probably best to use mm here.</p>
+<p>Here are some basics to get you started, ICs tend to have metric based packages so probably best to use mm here.</p>
 <ul>
   <li>
 <strong>Route Width:</strong> 0.25 mm	Where: Routing Grid Design Rule (Can also do whatever 50 ohm impedance is for your dielectric/stackup)</li>
@@ -160,7 +162,7 @@ Set the grid definition here as well so you can see it well</p>
 <h2 id="pcb-rules">PCB Rules</h2>
 <hr>
 <p><strong>Design » Rules</strong><br>
-Set up everything according to what your manufacturer supports. Some manufactures will provide an altium rule file to import, and if they do love them eternally because so much less busy work</p>
+Set up everything according to what your manufacturer supports. Some manufacturers will provide an Altium rule file to import, and if they do love them eternally because so much less busy work</p>
 
 <hr>
 <h2 id="basic-setup">Basic setup</h2>
@@ -176,7 +178,7 @@ Set up everything according to what your manufacturer supports. Some manufacture
 <strong>routing vias:</strong> 1mm diameter, 0.6mm hole size</li>
 </ul>
 
-<p>Yes, you can be more specific, and if the boards high density please do look in depth at your manufacturers capabilities. If it’s a hobby project, who cares :)</p>
+<p>Yes, you can be more specific, and if the board’s high density please look in depth at your manufacturer’s capabilities. If it’s a hobby project, who cares :)</p>
 
 <hr>
 <h2 id="placement">Placement</h2>
@@ -184,10 +186,10 @@ Set up everything according to what your manufacturer supports. Some manufacture
 <p>My first boss taught me that 90% of the battle is placement, and I recommend you take his advice.</p>
 
 <ul>
-  <li>Spend time making the rat’s nest of traces as short as possible. Rotate parts around, make sure there is as short of a distance as possible for you to route wires.</li>
+  <li>Spend time making the rat’s nest of traces as short as possible. Rotate parts around, and make sure there is as short of a distance as possible for you to route wires.</li>
   <li>Place Connectors and any mechanical requirements First, then place components as fits.</li>
   <li>Make sure you place the bypass caps as close as physically possible to the VCC and GND pins of your components!</li>
-  <li>If you need to use vias use them, there’s different theories on what’s best here. Some people prefer routing all on the top layer, some believe hiding the signals in your stack up is more beneficial.</li>
+  <li>If you need to use vias use them, there are different theories on what’s best here. Some people prefer routing all on the top layer, some believe hiding the signals in your stack up is more beneficial.</li>
 </ul>
 
 <p>I’ll point you to Henry Ott (hottconsultants.com) if you want to read up on the different stack ups and routing techniques
@@ -203,7 +205,7 @@ I also hear good things about Howard Johnson, and John Howie(totally different n
 <p><strong>Polygon Pour » Draw » Click Polygon » Properties » Assign Net » Repour</strong><br>
 (If you mess with things be sure to repour, it’ll fix some weird issues)</p>
 
-<p>If you think yourself a genius feel free to attempt to split your ground planes, if your like the rest of us mortals do the best to ensure your board has as solid of a ground plane as possible.</p>
+<p>If you think yourself a genius feel free to attempt to split your ground planes, if you’re like the rest of us mortals do the best to ensure your board has as solid of a ground plane as possible.</p>
 
 <p>A solid plane rather than a split one is almost always better.</p>
 
@@ -256,7 +258,7 @@ File » Assembly Output</strong></p>
 
 <p><strong>Right Click Project » Add New to Project » Output Job File</strong></p>
 
-<p>Save file as desired name</p>
+<p>Save file with desired name</p>
 
 <h3 id="basic-set-of-outputs-to-set-up-in-the-outjob-file">Basic set of outputs to set up in the .OutJob file</h3>
 <p><strong>Fabrication » Gerber » PCB Document<br>
@@ -267,7 +269,7 @@ Documentation Output » PCB Prints » PCB Document</strong></p>
 
 <h3 id="configuring-the-outputs">Configuring the outputs</h3>
 <p>To Configure each output right click and hit configure<br>
-<strong>Gerber Config</strong>  - (Format, 4:4, Units:mm, layers » plot layers » used on, advanced » position on filme » reference to relative origin)</p>
+<strong>Gerber Config</strong>  - (Format, 4:4, Units:mm, layers » plot layers » used on, advanced » position on file » reference to relative origin)</p>
 
 <h3 id="set-up-the-output-container">Set up the output container</h3>
 <p>Click the folder structure in output containers.</p>
@@ -275,11 +277,11 @@ Documentation Output » PCB Prints » PCB Document</strong></p>
 <p>Now check the enable box for every file you want in that folder.<br>
 Set the top file path to manually managed.</p>
 
-<p>I recommend you store everything in a folder call outputs because it looks better.</p>
+<p>I recommend you store everything in a folder called outputs because it looks better.</p>
 
 <p>You may want to go into advanced and enable auto load of gerber and NC drill outputs so you can check to see if they’re accurate after being created</p>
 
-<p>Click the PDF Container and add your PDF’s to it, adjust this output structure as well.
+<p>Click the PDF Container and add your PDFs to it, adjust this output structure as well.
 Name it as you’d like and configure auto open if you want</p>
 
 <p>ODB++ is a new format that contains pick and place info alongside board info. Fancy board houses like it. If you’re getting high quality boards or a large number of boards made
@@ -293,13 +295,13 @@ please just communicate with your board house/assembly house. They’ll tell you
 <p><strong>Right Click Project Name » Add new to project » Active Bom<br>
 Properties » Set Production Quantity to see best prices</strong></p>
 
-<p>Now go through each type of component and select the manufacture you want to buy from, Once you select the manufacturer give it a user rank by making a star rating.</p>
+<p>Now go through each type of component and select the manufacturer you want to buy from, Once you select the manufacturer give it a user rank by making a star rating.</p>
 
 <p>Once you do this the status message on the far right side of the BOM should become a green check box for the items that were in stock.<br>
-Add vendors links for any products that still need them by clicking the part and doing add solution.</p>
+Add vendors’ links for any products that still need them by clicking the part and doing add solution.</p>
 
 <p>If you replace a part with a new solution note that whatever option has the most stars will be used if available.<br>
-(ie: if you have 2 different types of amps you can use but the preferred one is usually out of stock set the preffered to 5 stars and option 2 to 4)</p>
+(ie: if you have 2 different types of amps you can use but the preferred one is usually out of stock set the preferred to 5 stars and option 2 to 4)</p>
 
 <p>If you entered the production amount the tool will help you pick from the different distributors and ensure stocks.</p>
 
@@ -317,7 +319,7 @@ Add vendors links for any products that still need them by clicking the part and
 <p>Now go into your output job file and click your output containers.
 Click generate content for each and ensure it’s correct.</p>
 
-<p>Now you have the pdfs of your schematic and board to share with everyone, and your manufacturing files! You’re all set to have it made :)</p>
+<p>Now you have the pdfs of your schematic and board to share with everyone and your manufacturing files! You’re all set to have it made</p>
 
 <hr>
 <h3 id="now-you-have-to-write-the-firmware-youve-been-avoiding-">Now you have to write the firmware you’ve been avoiding :)</h3>
