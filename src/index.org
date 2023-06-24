@@ -1,12 +1,13 @@
-#+title: Index
+#+title: Fake Long Title 
 #+description: Index page for patrickcpe.com
 #+options: toc:t
 
 #+begin_export html
-<center>
-<a href="https://www.gnu.org/software/emacs/"> <img src="../assets/made_with_emacs.png"></a>
-<a href="https://www.spacemacs.org/"> <img src="../assets/made_with_spacemacs.png"></a>
-</center>
+<div class="topnav">
+  <a class="active" href="file:///home/patrick/ws/patrickcpe/build/index.html#home">Home</a>
+  <a href="https://youtube.com">News</a>
+  <a href="https://google.com">Contact</a>
+</div>
 #+end_export
 
 * Testing
@@ -22,7 +23,7 @@ SCHEDULED: <2023-06-24 Sat 17:00>
 ** DONE C
 CLOSED: [2023-06-24 Sat 13:24]
 Testing
-#+begin_src c
+#+begin_src C++
   int test = 3;
   // TODO FIXME FAIL DONE testing
   // Testing this out
@@ -46,13 +47,11 @@ Testing
 #+begin_src shell
  echo "Hello there" 
 #+end_src
-** Elisp
+** TODO Elisp
 Testing
-#+begin_src elisp
+#+begin_src lisp
   (require 'ox-publish) 
 #+end_src
-
-
 
 #+begin_export html
 <center>
@@ -66,4 +65,12 @@ Testing
 | Table Test | Tihngs |
 |            |    123 |
 | x          |    123 |
+** TODO H3 testing [1/1]
+- [X] Testing 1
+- [] Testing 2
+- [X] Testing 3
 
+#+caption: Test Caption
+[[file:/home/patrick/Pictures/patrick_pointcloud.png]]
+
+*** H4 string
