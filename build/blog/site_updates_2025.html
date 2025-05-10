@@ -18,10 +18,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org98736df">Death of the Old Site</a></li>
-<li><a href="#org0c20cad">Birth of the New Site</a></li>
-<li><a href="#orgba60971">Where I've Been</a></li>
-<li><a href="#org854b749">Plans for the Future</a></li>
+<li><a href="#orgb3fc62f">Death of the Old Site</a></li>
+<li><a href="#orgec8ea9d">Birth of the New Site</a></li>
+<li><a href="#org69d5030">Where I've Been</a></li>
+<li><a href="#orgd3aaf81">Plans for the Future</a></li>
 </ul>
 </div>
 </div>
@@ -34,9 +34,9 @@
 <a href="/links.html">Links</a>
 </div>
 
-<div id="outline-container-org98736df" class="outline-2">
-<h2 id="org98736df">Death of the Old Site</h2>
-<div class="outline-text-2" id="text-org98736df">
+<div id="outline-container-orgb3fc62f" class="outline-2">
+<h2 id="orgb3fc62f">Death of the Old Site</h2>
+<div class="outline-text-2" id="text-orgb3fc62f">
 <p>
 The old version of this site was hosted using Jekyll, Ruby, Markdown, and a good old batch of glue scripts.
 I'd build it and deploy it via <a href="https://github.io">Github's free hosting</a>
@@ -58,9 +58,9 @@ method of lazy loading any package you may need during development. You can stil
 </p>
 </div>
 </div>
-<div id="outline-container-org0c20cad" class="outline-2">
-<h2 id="org0c20cad">Birth of the New Site</h2>
-<div class="outline-text-2" id="text-org0c20cad">
+<div id="outline-container-orgec8ea9d" class="outline-2">
+<h2 id="orgec8ea9d">Birth of the New Site</h2>
+<div class="outline-text-2" id="text-orgec8ea9d">
 <p>
 The new site is written in Org mode. I use Org Mode's export capabilities to recurse through all source files,
 and simply host the HTML it generates.
@@ -136,13 +136,67 @@ With all that in place you get this site :)
 </p>
 
 <p>
+When it comes to deployment via github I use the following github actions script:
+</p>
+<div class="org-src-container">
+<pre class="src src-yaml"># Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["master"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+	uses: actions/checkout@v4
+      - name: Setup Pages
+	uses: actions/configure-pages@v5
+      - name: Upload artifact
+	uses: actions/upload-pages-artifact@v3
+	with:
+	  # Upload entire build folder
+	  path: 'build'
+      - name: Deploy to GitHub Pages
+	id: deployment
+	uses: actions/deploy-pages@v4
+</pre>
+</div>
+
+<p>
+You will need to configure it to <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">deploy via actions</a> and you may need to configure your <a href="https://stackoverflow.com/questions/76937061/branch-master-is-not-allowed-to-deploy-to-github-pages-due-to-environment-prot">protected publish branch</a>, but that was simple enough.
+</p>
+
+<p>
 I think the design looks nice, and it's as simple as it can come.
 </p>
 </div>
 </div>
-<div id="outline-container-orgba60971" class="outline-2">
-<h2 id="orgba60971">Where I've Been</h2>
-<div class="outline-text-2" id="text-orgba60971">
+<div id="outline-container-org69d5030" class="outline-2">
+<h2 id="org69d5030">Where I've Been</h2>
+<div class="outline-text-2" id="text-org69d5030">
 <p>
 I used to make posts back during Uni where I thought I had sooooo much work to do :)
 I've only been working for ~3.5 years since then but I've already worked on 5 chips somehow, gotta love crazy schedules.
@@ -157,9 +211,9 @@ I bought myself a house and have to deal with everything that goes along with th
 </p>
 </div>
 </div>
-<div id="outline-container-org854b749" class="outline-2">
-<h2 id="org854b749">Plans for the Future</h2>
-<div class="outline-text-2" id="text-org854b749">
+<div id="outline-container-orgd3aaf81" class="outline-2">
+<h2 id="orgd3aaf81">Plans for the Future</h2>
+<div class="outline-text-2" id="text-orgd3aaf81">
 <p>
 I couldn't tell you what the future holds. If I could read the future I'd get paid a lot more.
 Here's some ideas I was pondering, who knows what will happen :)
