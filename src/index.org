@@ -1,76 +1,51 @@
-#+title: Fake Long Title 
+#+title: PatrickCPE
 #+description: Index page for patrickcpe.com
 #+options: toc:t
 
 #+begin_export html
 <div class="topnav">
-  <a class="active" href="file:///home/patrick/ws/patrickcpe/build/index.html#home">Home</a>
-  <a href="https://youtube.com">News</a>
-  <a href="https://google.com">Contact</a>
+  <a class="active" href="/index.html">Home</a>
+  <a href="/tutorials.html">Tutorials</a>
+  <a href="/projects.html">Projects</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/about_me.html">About Me</a>
+  <a href="/links.html">Links</a>
 </div>
 #+end_export
 
-* Testing
-Test will go in *here!*
+* Welcome!
+My name's Patrick. I'm a Computer Engineer who works in Design Verification, Digital Design, and Embedded Software.
+This sites home to my Blog, Project Write-Ups, Tutorials, Rants,
+and whatever else in the world I'm in the mood for :)
 
-Alongside other stuff
-* [#B] Testing Further
-"Placing other stuff here"
+If any of that interests you check my posts out, and feel free to reach out!
 
-and then things! :)
-* TODO [#A] Testing Stuff and Things
-SCHEDULED: <2023-06-24 Sat 17:00>
-** DONE C
-CLOSED: [2023-06-24 Sat 13:24]
-Testing
-#+begin_src C++
-  int test = 3;
-  // TODO FIXME FAIL DONE testing
-  // Testing this out
-  /*
-    Testing things here too
-  ,*/
-#+end_src
-** Python
-Testing
-#+begin_src python
-  print("Hello world")
-#+end_src
-Testing
-** Verilog
-Testing
-#+begin_src verilog
-  wire input_1;
-#+end_src
-** Shell
-Testing
-#+begin_src shell
- echo "Hello there" 
-#+end_src
-** TODO Elisp
-Testing
-#+begin_src lisp
-  (require 'ox-publish) 
-#+end_src
+* Recent Posts
+** [[file:blog/site_updates_2025.org][Site Updates 2025]]
+
+
+* Interests
+- Electronics
+- Digital Design
+- Design Verification
+- Formal Verification
+- Processor and DSP Design
+- Embedded Software
+- Hiking
+- Lord of the Rings
+- Breaking Things
+- Fixing Things
+- Breaking Things Again :)
+
+
 
 #+begin_export html
 <center>
-<a href="https://www.gnu.org/software/emacs/"> <img src="../assets/made_with_emacs.png"></a>
-<a href="https://www.spacemacs.org/"> <img src="../assets/made_with_spacemacs.png"></a>
+<a href="https://www.gnu.org/software/emacs/"> <img src="/assets/images/made_with_emacs.png"></a>
+<a href="https://www.spacemacs.org/"> <img src="/assets/images/made_with_spacemacs.png"></a>
+<br>
+Contact: <a href = mailto: "Pat@PatrickCPE.com">Pat@PatrickCPE.com</a>
+<br>
+©PatrickCPE
 </center>
 #+end_export
-
-[[https://google.com][test link]]
-
-| Table Test | Tihngs |
-|            |    123 |
-| x          |    123 |
-** TODO H3 testing [1/1]
-- [X] Testing 1
-- [] Testing 2
-- [X] Testing 3
-
-#+caption: Test Caption
-[[file:/home/patrick/Pictures/patrick_pointcloud.png]]
-
-*** H4 string
