@@ -21,8 +21,8 @@ and whatever else in the world I'm in the mood for :)
 If any of that interests you check my posts out, and feel free to reach out!
 
 * Recent Posts
-** [[file:blog/site_updates_2025.org][Site Updates 2025]]
-
+** [[file:tutorials/tmux_setup.org][TMUX Setup]] - Persistent sessions, split-able terminals, panes, and TPM package management
+** [[file:blog/site_updates_2026.org][Site Updates 2026]] - A complete remodel of the site, where I've been, and future plans
 
 * Interests
 - Electronics

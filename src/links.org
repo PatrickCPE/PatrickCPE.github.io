@@ -48,6 +48,7 @@ This is how the internet was meant to be used before search engines gave up the 
 - [[https://pages.cs.wisc.edu/~remzi/OSTEP/][Operating Systems: Three Easy Pieces]] - A free OS textbook hosted online. Fairly comprehensive and a good reference
 - [[https://notes.shichao.io/][Shichao's Notes]] - A great reference for Unix info and TCP info
 - [[https://www.unixsheikh.com][Unix Sheikh]] - Some more systemd hatred. Some Linux/BSD post, rants, and some good reading
+- [[https://sanctum.geek.nz/][Tom Ryder]] - Some interesting software takes here
 * Security
 - [[https://spyware.neocities.org/][Spyware Watchdog]] - A great report on what software is glowing bright as the sun. Also lots of (justified) hatred for cloud flare and the fact it's probably a service for the Glowies and Technocrats
 - [[https://www.usenix.org/system/files/sec20-ender.pdf][Xilinx 7 Series Encryption Crack]] - Because breaking stuff is fun :)

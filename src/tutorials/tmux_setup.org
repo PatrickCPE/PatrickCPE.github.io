@@ -1,0 +1,252 @@
+#+title: TMUX Setup
+#+description: TMUX installation, setup, package management, and usage
+#+options: toc:t
+
+#+begin_export html
+<div class="topnav">
+<a href="/index.html">Home</a>
+<a class="active" href="/tutorials.html">Tutorials</a>
+<a href="/projects.html">Projects</a>
+<a href="/blogs.html">Blog</a>
+<a href="/about_me.html">About Me</a>
+<a href="/links.html">Links</a>
+</div>
+#+end_export
+
+* Overview
+TMUX is a terminal multiplexer. It gives you quick access to multiple terminals that persists across shell sessions, and can remain open even if you disconnect via SSH.
+It allows you to split shells and open new windows akin to Terminator.
+
+I highly recommend all your shell sessions are run via TMUX.
+* TMUX
+** Installation
+Installation of the base package is rather straightforward for most systems. On APT based systems:
+#+begin_src shell
+sudo apt install tmux
+#+end_src
+This will install the base package for tmux. Note some of my plugins may not work on this version.
+
+I built the latest from source via:
+#+begin_src shell
+git clone https://github.com/tmux/tmux.git
+cd tmux
+sh autogen.sh
+./configure
+make && sudo make install
+#+end_src
+This will ensure you have the latest stable version
+
+I also need the following package for one of my plugins
+#+begin_src shell
+sudo snap install yq
+#+end_src
+Without further ado onto TMUX plugins
+** Configuration
+Let's configure the basic setup first. Add the following to ~/tmux.conf. This is based on [[https://github.com/justinwalz/dotfiles/blob/main/.tmux.conf][justinwalz's config]]
+#+begin_src shell
+# reload config
+bind-key r source-file ~/.tmux.conf \; display "Reloaded config."
+
+# switch prefix to control-a, unmap b
+set -g prefix C-a
+unbind C-b
+
+# allow multiple commands in sequence w/o pressing prefix again (default 500 millis)
+set -g repeat-time 2000
+
+# remove delay
+set -sg escape-time 1
+
+# number of lines in window history
+set -g history-limit 20000
+
+# Unbind default split keys
+unbind-key '"'
+unbind-key %
+
+# Bind new keys for splitting
+# NOTE: If you're using tmux-sessionist you'll need to place this after it's loading or re-bind it
+# I like this keybind setup I have :)
+bind-key g split-window -h -c "#{pane_current_path}"
+bind-key v split-window -v -c "#{pane_current_path}"
+
+
+## ENV ##
+
+# Set default shell here
+# set-option -g default-shell /usr/bin/bash
+# set-option -g default-command /usr/bin/bash
+
+## MOVEMENT ##
+# vim style movement (PRE [ then hjkl)
+set -wg mode-keys vi
+
+# vim style through panes
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+# vim style through windows (PRE Control-H/L)
+bind-key -r C-h select-window -t :-
+bind-key -r C-l select-window -t :+
+
+# vim style through resizing
+bind-key -r H resize-pane -L 5
+bind-key -r J resize-pane -D 5
+bind-key -r K resize-pane -U 5
+bind-key -r L resize-pane -R 5
+#+end_src
+
+Base TMUX offers very useful features, but I prefer to have a few more bells and whistles.
+
+For this I use [[https://github.com/tmux-plugins/tpm][tmux plugin manager]]. It can be installed as follows:
+#+begin_src shell
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#+end_src
+After cloning this workspace you'll need to update your tmux.conf
+#+begin_src shell
+# edit ~/tmux.conf
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+# The sensible plugin is a set of pretty good default settings
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+#+end_src
+I install the following set of plugins for mine. You can view other plugins [[https://github.com/tmux-plugins/list][here]].
+#+begin_src shell
+# Pretty Theme
+set -g @plugin 'dracula/tmux'
+
+# Pretty font
+set -g @plugin 'joshmedeski/tmux-nerd-font-window-name'
+
+# Restore TMUX sessions after shutdown/reboot - backups occur every 15 minutes by default
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+# Add's a systemd user-script to initialize tmux-server on startup
+# May need to edit the binary path if you installed it from source
+# edit here if needed: ${HOME}/.config/systemd/user/tmux.service
+set -g @continuum-boot 'on'
+# Restore prior sessions on powerup
+set -g @continuum-restore 'on'
+
+# Tool to do fuzzy text copy and paste from the screen above
+set -g @plugin 'laktak/extrakto'
+
+# More standard mouse functionallity
+set -g @plugin 'nhdaly/tmux-better-mouse-mode'
+# And enable mouse mode in the first place
+set-option -g mouse on
+
+# An interactive tool to remind you of your TMUX commands
+set -g @plugin 'alexwforsythe/tmux-which-key'
+
+# Notifies when a pane returns, useful when running long jobs
+set -g @plugin 'rickstaa/tmux-notify'
+
+# Plugin for regex search for files/text/paths/etc.
+set -g @plugin 'tmux-plugins/tmux-copycat'
+
+# Plugin for tmux copying and pasting, tmux has a copy mode that doesn't work great with clipboards by default!
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+# Useful for session management
+set -g @plugin 'tmux-plugins/tmux-sessionist'
+# I override their default binding of 'g' because that's my horizontal split!
+#+end_src
+
+To handle the sessionist conflict I just edit it out in the sessionist.tmux file and bind it to 'G' rather than 'g'.
+Your key selections are yours, be unique, have fun.
+** Usage
+*** Workflow
+Typically my workflow goes as follows:
+-create a new TMUX session for some specific, I typically name it with the date just so I can have them sorted. This is because at work I'll have multiple projects I work on and I may have sessions from a long time ago. Year is probably overkill :)
+#+begin_src shell
+tmux new -s project_session_name_YYYY_MM_DD
+#+end_src
+You can also use the sensible command if you're already in a session so you don't have to disconnect
+
+From here I'll initialize my windows and split them as I'd typically need for my task at hand. I keep a separate session for each unique task. Sessionist allows you to split up terminals as seems appropriate
+*** Commands
+Here's my list of commands
+|-----------------+---------------------------+------------------------------------------------------------|
+| Plugins         | Command                   | Command                                                    |
+|-----------------+---------------------------+------------------------------------------------------------|
+| tmux            | ctrl + a                  | prefix commands                                            |
+| tmux            | prefix + z                | zoom in/out on pane                                        |
+| tmux            | prefix + r                | reload configuration                                       |
+| tmux            | prefix + g                | horizontal split                                           |
+| tmux            | prefix + v                | vertical split                                             |
+| tmux            | prefix + h                | jump left to pane                                          |
+| tmux            | prefix + j                | jump down to pane                                          |
+| tmux            | prefix + k                | jump up to pane                                            |
+| tmux            | prefix + l                | jump right to pane                                         |
+| tmux            | prefix + H                | resize pane left                                           |
+| tmux            | prefix + J                | resize pane down                                           |
+| tmux            | prefix + K                | resize pane up                                             |
+| tmux            | prefix + L                | resize pane right                                          |
+| tmux            | prefix ctrl-z             | disconnect from tmux session                               |
+| tmux            | prefix + s                | search through current tmux sessions                       |
+|-----------------+---------------------------+------------------------------------------------------------|
+| tpm             | prefix + I                | install plugin packages                                    |
+|-----------------+---------------------------+------------------------------------------------------------|
+| tmux-continuum  | prefix ctrl-s             | save current tmux config                                   |
+| tmux-continuum  | prefix ctrl-r             | reload tmux config                                         |
+|-----------------+---------------------------+------------------------------------------------------------|
+| extracto        | prefix + tab              | extracto open prompt                                       |
+| extracto        | tab (from prompt)         | insert text to current pane                                |
+| extracto        | space (from prompt)       | copy text to clipboard                                     |
+|-----------------+---------------------------+------------------------------------------------------------|
+| tmux-which-key  | ctrl + space              | tmux which key root binding                                |
+| tmux-which-key  | prefix + space            | tmux which key default prefix                              |
+|-----------------+---------------------------+------------------------------------------------------------|
+| tmux-notify     | prefix + m                | Start monitoring pane                                      |
+| tmux-notify     | prefix + alt + m          | Start monitoring pane and return to it when it finishes    |
+| tmux-notify     | prefix + M                | stop monitoring pane                                       |
+|-----------------+---------------------------+------------------------------------------------------------|
+| tmux-yank       | prefix + y                | copies from command line to clipboard                      |
+| tmux-yank       | y(copy mode)              | copy selected text to clipboard                            |
+| tmux-yank       | Y(copy mode)              | put from keyboard onto the command line                    |
+|-----------------+---------------------------+------------------------------------------------------------|
+| tmux-copycat    | prefix + /                | regex search                                               |
+| tmux-copycat    | prefix + ctrl-f           | file search                                                |
+| tmux-copycat    | prefix + ctrl g           | jump over git status files                                 |
+| tmux-copycat    | prefix + alt-h            | jump over SHA hashes                                       |
+| tmux-copycat    | prefix + ctrl-u           | URL search                                                 |
+| tmux-copycat    | prefix + ctrl-d           | number search                                              |
+| tmux-copycat    | prefix + alt-i            | ip address search                                          |
+| tmux-copycat    | n (in copycat-mode)       | next match                                                 |
+| tmux-copycat    | N (in copycat-mode)       | previus match                                              |
+| tmux-copycat    | Enter (in copycat-mode)   | copy text                                                  |
+| tmux-copycat    | prefix + ] (default tmux) | paste text                                                 |
+|-----------------+---------------------------+------------------------------------------------------------|
+| tmux-sessionist | prefix + G                | go to session (I overrode this and typically don't use it) |
+| tmux-sessionist | prefix + S                | jump to previous session                                   |
+| tmux-sessionist | prefix + C                | create new session by name                                 |
+| tmux-sessionist | prefix + X                | kill current session without detaching                     |
+| tmux-sessionist | prefix + @                | make the current pane into a new session                   |
+|-----------------+---------------------------+------------------------------------------------------------|
+And that wraps up my guide on TMUX. Highly recommend the tool!
+#+begin_export html
+<br>
+<br>
+#+end_export
+
+
+#+begin_export html
+<center>
+<a href="https://www.gnu.org/software/emacs/"> <img src="/assets/images/made_with_emacs.png"></a>
+<a href="https://www.spacemacs.org/"> <img src="/assets/images/made_with_spacemacs.png"></a>
+<br>
+Contact: <a href = mailto: "Pat@PatrickCPE.com">Pat@PatrickCPE.com</a>
+<br>
+©PatrickCPE
+</center>
+#+end_export
+
+#  LocalWords:  Sessionist

@@ -14,7 +14,7 @@
 #+end_export
 
 * Blog Posts
-[[file:blog/site_updates_2025.org][Site Updates 2025]] - A complete remodel of the site, where I've been, and future plans
+[[file:blog/site_updates_2026.org][Site Updates 2026]] - A complete remodel of the site, where I've been, and future plans
 
 
 #+begin_export html

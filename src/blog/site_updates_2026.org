@@ -1,13 +1,13 @@
-#+title: Site Update 2025
+#+title: Site Update 2026
 #+description: Update on site changes, current, and future plans
 #+options: toc:t
 
 #+begin_export html
 <div class="topnav">
-<a class="active" href="/index.html">Home</a>
+<a href="/index.html">Home</a>
 <a href="/tutorials.html">Tutorials</a>
 <a href="/projects.html">Projects</a>
-<a href="/blogs.html">Blog</a>
+<a class="active" href="/blogs.html">Blog</a>
 <a href="/about_me.html">About Me</a>
 <a href="/links.html">Links</a>
 </div>
@@ -142,7 +142,7 @@ You will need to configure it to [[https://docs.github.com/en/pages/getting-star
 I think the design looks nice, and it's as simple as it can come.
 * Where I've Been
 I used to make posts back during Uni where I thought I had sooooo much work to do :)
-I've only been working for ~3.5 years since then but I've already worked on 5 chips somehow, gotta love crazy schedules.
+I've only been working for 4 years since then but I've already worked on 6 chips somehow, gotta love crazy schedules.
 
 Then I discovered work, and everything else in life. I've been coaching Wrestling, Jiu-Jitsu, and dealing with everything else in life.
 

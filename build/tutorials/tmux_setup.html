@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TMUX Setup</title>
+<meta name="generator" content="Org mode" />
+<meta name="description" content="TMUX installation, setup, package management, and usage"
+ />
+<link rel="stylesheet" href="/assets/css/worg.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">TMUX Setup</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org984535e">Overview</a></li>
+<li><a href="#orgdfe15f1">TMUX</a>
+<ul>
+<li><a href="#org0c6f4ab">Installation</a></li>
+<li><a href="#orged09e4e">Configuration</a></li>
+<li><a href="#org882b207">Usage</a>
+<ul>
+<li><a href="#org0bdd1cb">Workflow</a></li>
+<li><a href="#org246b16f">Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="topnav">
+<a href="/index.html">Home</a>
+<a class="active" href="/tutorials.html">Tutorials</a>
+<a href="/projects.html">Projects</a>
+<a href="/blogs.html">Blog</a>
+<a href="/about_me.html">About Me</a>
+<a href="/links.html">Links</a>
+</div>
+
+<div id="outline-container-org984535e" class="outline-2">
+<h2 id="org984535e">Overview</h2>
+<div class="outline-text-2" id="text-org984535e">
+<p>
+TMUX is a terminal multiplexer. It gives you quick access to multiple terminals that persists across shell sessions, and can remain open even if you disconnect via SSH.
+It allows you to split shells and open new windows akin to Terminator.
+</p>
+
+<p>
+I highly recommend all your shell sessions are run via TMUX.
+</p>
+</div>
+</div>
+<div id="outline-container-orgdfe15f1" class="outline-2">
+<h2 id="orgdfe15f1">TMUX</h2>
+<div class="outline-text-2" id="text-orgdfe15f1">
+</div>
+<div id="outline-container-org0c6f4ab" class="outline-3">
+<h3 id="org0c6f4ab">Installation</h3>
+<div class="outline-text-3" id="text-org0c6f4ab">
+<p>
+Installation of the base package is rather straightforward for most systems. On APT based systems:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">sudo apt install tmux
+</pre>
+</div>
+<p>
+This will install the base package for tmux. Note some of my plugins may not work on this version.
+</p>
+
+<p>
+I built the latest from source via:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git clone https://github.com/tmux/tmux.git
+<span style="font-weight: bold;">cd</span> tmux
+sh autogen.sh
+./configure
+make &amp;&amp; sudo make install
+</pre>
+</div>
+<p>
+This will ensure you have the latest stable version
+</p>
+
+<p>
+I also need the following package for one of my plugins
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">sudo snap install yq
+</pre>
+</div>
+<p>
+Without further ado onto TMUX plugins
+</p>
+</div>
+</div>
+<div id="outline-container-orged09e4e" class="outline-3">
+<h3 id="orged09e4e">Configuration</h3>
+<div class="outline-text-3" id="text-orged09e4e">
+<p>
+Let's configure the basic setup first. Add the following to ~/tmux.conf. This is based on <a href="https://github.com/justinwalz/dotfiles/blob/main/.tmux.conf">justinwalz's config</a>
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">reload config</span>
+bind-key r source-file ~/.tmux.conf <span style="font-style: italic;">\;</span> display <span style="font-style: italic;">"Reloaded config."</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">switch prefix to control-a, unmap b</span>
+<span style="font-weight: bold;">set</span> -g prefix C-a
+unbind C-b
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">allow multiple commands in sequence w/o pressing prefix again (default 500 millis)</span>
+<span style="font-weight: bold;">set</span> -g repeat-time 2000
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">remove delay</span>
+<span style="font-weight: bold;">set</span> -sg escape-time 1
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">number of lines in window history</span>
+<span style="font-weight: bold;">set</span> -g history-limit 20000
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Unbind default split keys</span>
+unbind-key <span style="font-style: italic;">'"'</span>
+unbind-key %
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Bind new keys for splitting</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">NOTE: If you're using tmux-sessionist you'll need to place this after it's loading or re-bind it</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">I like this keybind setup I have :)</span>
+bind-key g split-window -h -c <span style="font-style: italic;">"#{pane_current_path}"</span>
+bind-key v split-window -v -c <span style="font-style: italic;">"#{pane_current_path}"</span>
+
+
+<span style="font-weight: bold; font-style: italic;">## </span><span style="font-weight: bold; font-style: italic;">ENV ##</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Set default shell here</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">set-option -g default-shell /usr/bin/bash</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">set-option -g default-command /usr/bin/bash</span>
+
+<span style="font-weight: bold; font-style: italic;">## </span><span style="font-weight: bold; font-style: italic;">MOVEMENT ##</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">vim style movement (PRE [ then hjkl)</span>
+<span style="font-weight: bold;">set</span> -wg mode-keys vi
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">vim style through panes</span>
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">vim style through windows (PRE Control-H/L)</span>
+bind-key -r C-h select-window -t :-
+bind-key -r C-l select-window -t :+
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">vim style through resizing</span>
+bind-key -r H resize-pane -L 5
+bind-key -r J resize-pane -D 5
+bind-key -r K resize-pane -U 5
+bind-key -r L resize-pane -R 5
+</pre>
+</div>
+
+<p>
+Base TMUX offers very useful features, but I prefer to have a few more bells and whistles.
+</p>
+
+<p>
+For this I use <a href="https://github.com/tmux-plugins/tpm">tmux plugin manager</a>. It can be installed as follows:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+</pre>
+</div>
+<p>
+After cloning this workspace you'll need to update your tmux.conf
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">edit ~/tmux.conf</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">List of plugins</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'tmux-plugins/tpm'</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">The sensible plugin is a set of pretty good default settings</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'tmux-plugins/tmux-sensible'</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)</span>
+run <span style="font-style: italic;">'~/.tmux/plugins/tpm/tpm'</span>
+</pre>
+</div>
+<p>
+I install the following set of plugins for mine. You can view other plugins <a href="https://github.com/tmux-plugins/list">here</a>.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Pretty Theme</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'dracula/tmux'</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Pretty font</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'joshmedeski/tmux-nerd-font-window-name'</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Restore TMUX sessions after shutdown/reboot - backups occur every 15 minutes by default</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'tmux-plugins/tmux-resurrect'</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'tmux-plugins/tmux-continuum'</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Add's a systemd user-script to initialize tmux-server on startup</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">May need to edit the binary path if you installed it from source</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">edit here if needed: ${HOME}/.config/systemd/user/tmux.service</span>
+<span style="font-weight: bold;">set</span> -g @continuum-boot <span style="font-style: italic;">'on'</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Restore prior sessions on powerup</span>
+<span style="font-weight: bold;">set</span> -g @continuum-restore <span style="font-style: italic;">'on'</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Tool to do fuzzy text copy and paste from the screen above</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'laktak/extrakto'</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">More standard mouse functionallity</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'nhdaly/tmux-better-mouse-mode'</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">And enable mouse mode in the first place</span>
+set-option -g mouse on
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">An interactive tool to remind you of your TMUX commands</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'alexwforsythe/tmux-which-key'</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Notifies when a pane returns, useful when running long jobs</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'rickstaa/tmux-notify'</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Plugin for regex search for files/text/paths/etc.</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'tmux-plugins/tmux-copycat'</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Plugin for tmux copying and pasting, tmux has a copy mode that doesn't work great with clipboards by default!</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'tmux-plugins/tmux-yank'</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Useful for session management</span>
+<span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'tmux-plugins/tmux-sessionist'</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">I override their default binding of 'g' because that's my horizontal split!</span>
+</pre>
+</div>
+
+<p>
+To handle the sessionist conflict I just edit it out in the sessionist.tmux file and bind it to 'G' rather than 'g'.
+Your key selections are yours, be unique, have fun.
+</p>
+</div>
+</div>
+<div id="outline-container-org882b207" class="outline-3">
+<h3 id="org882b207">Usage</h3>
+<div class="outline-text-3" id="text-org882b207">
+</div>
+<div id="outline-container-org0bdd1cb" class="outline-4">
+<h4 id="org0bdd1cb">Workflow</h4>
+<div class="outline-text-4" id="text-org0bdd1cb">
+<p>
+Typically my workflow goes as follows:
+-create a new TMUX session for some specific, I typically name it with the date just so I can have them sorted. This is because at work I'll have multiple projects I work on and I may have sessions from a long time ago. Year is probably overkill :)
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">tmux new -s project_session_name_YYYY_MM_DD
+</pre>
+</div>
+<p>
+You can also use the sensible command if you're already in a session so you don't have to disconnect
+</p>
+
+<p>
+From here I'll initialize my windows and split them as I'd typically need for my task at hand. I keep a separate session for each unique task. Sessionist allows you to split up terminals as seems appropriate
+</p>
+</div>
+</div>
+<div id="outline-container-org246b16f" class="outline-4">
+<h4 id="org246b16f">Commands</h4>
+<div class="outline-text-4" id="text-org246b16f">
+<p>
+Here's my list of commands
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Plugins</th>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">ctrl + a</td>
+<td class="org-left">prefix commands</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + z</td>
+<td class="org-left">zoom in/out on pane</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + r</td>
+<td class="org-left">reload configuration</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + g</td>
+<td class="org-left">horizontal split</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + v</td>
+<td class="org-left">vertical split</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + h</td>
+<td class="org-left">jump left to pane</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + j</td>
+<td class="org-left">jump down to pane</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + k</td>
+<td class="org-left">jump up to pane</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + l</td>
+<td class="org-left">jump right to pane</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + H</td>
+<td class="org-left">resize pane left</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + J</td>
+<td class="org-left">resize pane down</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + K</td>
+<td class="org-left">resize pane up</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + L</td>
+<td class="org-left">resize pane right</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix ctrl-z</td>
+<td class="org-left">disconnect from tmux session</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux</td>
+<td class="org-left">prefix + s</td>
+<td class="org-left">search through current tmux sessions</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">tpm</td>
+<td class="org-left">prefix + I</td>
+<td class="org-left">install plugin packages</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">tmux-continuum</td>
+<td class="org-left">prefix ctrl-s</td>
+<td class="org-left">save current tmux config</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-continuum</td>
+<td class="org-left">prefix ctrl-r</td>
+<td class="org-left">reload tmux config</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">extracto</td>
+<td class="org-left">prefix + tab</td>
+<td class="org-left">extracto open prompt</td>
+</tr>
+
+<tr>
+<td class="org-left">extracto</td>
+<td class="org-left">tab (from prompt)</td>
+<td class="org-left">insert text to current pane</td>
+</tr>
+
+<tr>
+<td class="org-left">extracto</td>
+<td class="org-left">space (from prompt)</td>
+<td class="org-left">copy text to clipboard</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">tmux-which-key</td>
+<td class="org-left">ctrl + space</td>
+<td class="org-left">tmux which key root binding</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-which-key</td>
+<td class="org-left">prefix + space</td>
+<td class="org-left">tmux which key default prefix</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">tmux-notify</td>
+<td class="org-left">prefix + m</td>
+<td class="org-left">Start monitoring pane</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-notify</td>
+<td class="org-left">prefix + alt + m</td>
+<td class="org-left">Start monitoring pane and return to it when it finishes</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-notify</td>
+<td class="org-left">prefix + M</td>
+<td class="org-left">stop monitoring pane</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">tmux-yank</td>
+<td class="org-left">prefix + y</td>
+<td class="org-left">copies from command line to clipboard</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-yank</td>
+<td class="org-left">y(copy mode)</td>
+<td class="org-left">copy selected text to clipboard</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-yank</td>
+<td class="org-left">Y(copy mode)</td>
+<td class="org-left">put from keyboard onto the command line</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">tmux-copycat</td>
+<td class="org-left">prefix + /</td>
+<td class="org-left">regex search</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-copycat</td>
+<td class="org-left">prefix + ctrl-f</td>
+<td class="org-left">file search</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-copycat</td>
+<td class="org-left">prefix + ctrl g</td>
+<td class="org-left">jump over git status files</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-copycat</td>
+<td class="org-left">prefix + alt-h</td>
+<td class="org-left">jump over SHA hashes</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-copycat</td>
+<td class="org-left">prefix + ctrl-u</td>
+<td class="org-left">URL search</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-copycat</td>
+<td class="org-left">prefix + ctrl-d</td>
+<td class="org-left">number search</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-copycat</td>
+<td class="org-left">prefix + alt-i</td>
+<td class="org-left">ip address search</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-copycat</td>
+<td class="org-left">n (in copycat-mode)</td>
+<td class="org-left">next match</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-copycat</td>
+<td class="org-left">N (in copycat-mode)</td>
+<td class="org-left">previus match</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-copycat</td>
+<td class="org-left">Enter (in copycat-mode)</td>
+<td class="org-left">copy text</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-copycat</td>
+<td class="org-left">prefix + ] (default tmux)</td>
+<td class="org-left">paste text</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">tmux-sessionist</td>
+<td class="org-left">prefix + G</td>
+<td class="org-left">go to session (I overrode this and typically don't use it)</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-sessionist</td>
+<td class="org-left">prefix + S</td>
+<td class="org-left">jump to previous session</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-sessionist</td>
+<td class="org-left">prefix + C</td>
+<td class="org-left">create new session by name</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-sessionist</td>
+<td class="org-left">prefix + X</td>
+<td class="org-left">kill current session without detaching</td>
+</tr>
+
+<tr>
+<td class="org-left">tmux-sessionist</td>
+<td class="org-left">prefix + @</td>
+<td class="org-left">make the current pane into a new session</td>
+</tr>
+</tbody>
+</table>
+<p>
+And that wraps up my guide on TMUX. Highly recommend the tool!
+</p>
+<br>
+<br>
+
+
+<center>
+<a href="https://www.gnu.org/software/emacs/"> <img src="/assets/images/made_with_emacs.png"></a>
+<a href="https://www.spacemacs.org/"> <img src="/assets/images/made_with_spacemacs.png"></a>
+<br>
+Contact: <a href = mailto: "Pat@PatrickCPE.com">Pat@PatrickCPE.com</a>
+<br>
+©PatrickCPE
+</center>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

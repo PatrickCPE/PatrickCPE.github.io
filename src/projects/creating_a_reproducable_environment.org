@@ -1,0 +1,143 @@
+#+title: Creating a Reproducible Environment
+#+description: Details on me creating my reproducable environment for my workflow and personal usage
+#+options: toc:t
+
+#+begin_export html
+<div class="topnav">
+<a href="/index.html">Home</a>
+<a href="/tutorials.html">Tutorials</a>
+<a class="active" href="/projects.html">Projects</a>
+<a href="/blogs.html">Blog</a>
+<a href="/about_me.html">About Me</a>
+<a href="/links.html">Links</a>
+</div>
+#+end_export
+
+* Test
+# Test
+# 
+# Things I want to set up:
+# My usual directories
+# My shells
+# My tools
+# My programming languages that I use and the associated tools
+# My accounts for things like github etc
+# my notes directories
+# My personal finances
+# System level tools like curl, dust, htop, tree, neofetch, zsh, valgrind, wireshark, keepass
+# Stuff for editing videos and creating general things
+# Memery and games
+# Packages that I might need for general usecases, IDK on this one though
+# Connect my dotfiles up
+# Any scrips that I need to compile myself
+# dust
+# duf
+# neofetch
+# gtkwave
+# new waveform tool that came output
+# wavedrom
+# symbiyosys
+# mcy
+# fusesoc and fsva
+# rggen vs the other pirate one maybe corsaire
+# covered coverage tool
+# verible and verible formatting
+# svlint
+# cocotb and python uvm and occotb coverage
+# gnu radio
+# matlab and octave
+# opensta/opentimer and evaluaition
+# ngspice
+# gcc
+# clang
+# auto-tools
+# cmake
+# make
+# https://www.gnu.org/software/complexity/
+# gdb
+# valgrind
+# doxygen
+# spacemacs
+# possibly conan?
+# static analyzer tools maybe clangcheck or cppcheck
+# complexity tool for C
+# An Emacs Debuggerawesome
+# Org Roam
+# Tmux FZF
+# NVIM
+# YASSnippets
+# Magit
+# Emacs Verilog-ext and Verilog Tree Sitter - https://github.com/gmlarumbe/verilog-ext?tab=readme-ov-file#tree-sitter
+# Disk Encryption Setup
+# Data Backup tools (Maybe Borg? or rsync/rclone)
+# Maybe a self githost program?
+# Docker
+# KiCad
+# Some Image Drawing Tool (Maybe Drawing? or inkscape)
+# i3 config
+# asciinema
+# obs
+# kdenlive
+# ungoogled-chromium & extensions
+# yt-downloader
+# An RSS Reader
+# libreoffice
+# keepassxc
+# reverse engineering tools ghidra
+# gnupg and setup of encryption for my emacs files
+# obfuscatre image remover private info https://apps.gnome.org/app/com.belmoussaoui.Obfuscate/
+# openssh
+# maybe veracrypt?
+# Pick a terminal emulator to use
+# Possibly Spacevim
+# FFMPEG
+# VLC Player
+# https://github.com/sharkdp/bat
+# https://github.com/luong-komorebi/Awesome-Linux-Software?tab=readme-ov-file
+# Look into a VPN client like wireguard or OpenVPN
+# youtube-dl or youtube dlp
+# batch
+# ccat
+# cloc
+# duf
+# dust
+# fzf
+# maybe rip-grep
+# tldr-pages
+# tmux
+# tmux config and plugins
+# zoxide maybe
+# Maybe gitkraken?
+# Possibly oh-my-zsh and plugins
+# docker
+# gnucash
+# Possibly Flux or redshift
+# Mortar for ecnrypted disks
+# cutter reverse engineering platform or maybe ghidra
+# radare2 reverse engineering tool
+# clam-av antivirus
+# GNUPG
+# lynis system scripting tool
+# possibly fd tool
+# maybe lsd as a pretty ls tool
+# possibly alactrity for a better terminal
+# 
+# https://github.com/ben-marshall/awesome-open-hardware-verification#libreCores-ci
+
+#+begin_export html
+<br>
+<br>
+#+end_export
+
+
+#+begin_export html
+<center>
+<a href="https://www.gnu.org/software/emacs/"> <img src="/assets/images/made_with_emacs.png"></a>
+<a href="https://www.spacemacs.org/"> <img src="/assets/images/made_with_spacemacs.png"></a>
+<br>
+Contact: <a href = mailto: "Pat@PatrickCPE.com">Pat@PatrickCPE.com</a>
+<br>
+©PatrickCPE
+</center>
+#+end_export
+

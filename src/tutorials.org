@@ -14,6 +14,7 @@
 #+end_export
 
 * Tutorials
+[[file:tutorials/tmux_setup.org][TMUX Setup]] - Guide to setting up and TMUX usage. An amazing tool to increase your terminal experience :)
 
 #+begin_export html
 <center>
