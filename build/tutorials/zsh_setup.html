@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ZSH Setup</title>
+<meta name="generator" content="Org mode" />
+<meta name="description" content="ZSH installation, setup, package management, and usage"
+ />
+<link rel="stylesheet" href="/assets/css/worg.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">ZSH Setup</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge8f6bbe">Overview</a></li>
+<li><a href="#org2fce91f">ZSH</a>
+<ul>
+<li><a href="#org1873e3e">Installation</a></li>
+<li><a href="#org4225f83">Configuration</a></li>
+<li><a href="#org801951e">Plugins</a>
+<ul>
+<li><a href="#org25a613c">git</a></li>
+<li><a href="#org096c322">aliases</a></li>
+<li><a href="#org69e05f7">colored-man-pages</a></li>
+<li><a href="#org7fa8538">colorize</a></li>
+<li><a href="#org55414fd">extract</a></li>
+<li><a href="#org5e4c85b">history</a></li>
+<li><a href="#org14fe556">tmux</a></li>
+<li><a href="#orgdb3d0c7">vi-mode</a></li>
+<li><a href="#org1352b93">zoxide</a></li>
+<li><a href="#orgcc70fb1">virtualenv</a></li>
+<li><a href="#orgb495afe">universalarchive</a></li>
+<li><a href="#org7e6249d">rsync</a></li>
+<li><a href="#org713295f">ssh</a></li>
+<li><a href="#org881ef8b">you-should-use</a></li>
+<li><a href="#org2148ac7">zsh-syntax-highlighting</a></li>
+<li><a href="#orgc314286">zsh-autosuggestions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="topnav">
+<a href="/index.html">Home</a>
+<a class="active" href="/tutorials.html">Tutorials</a>
+<a href="/projects.html">Projects</a>
+<a href="/blogs.html">Blog</a>
+<a href="/about_me.html">About Me</a>
+<a href="/links.html">Links</a>
+</div>
+
+<div id="outline-container-orge8f6bbe" class="outline-2">
+<h2 id="orge8f6bbe">Overview</h2>
+<div class="outline-text-2" id="text-orge8f6bbe">
+<p>
+ZSH is a nearly POSIX compliant shell, but the ZSH environment for development is very nice. This guide goes over install, and how I set it up, alongside my typical workflow.
+</p>
+
+<p>
+I use the Oh-My-ZSH plugin manager to sort out my packages
+</p>
+</div>
+</div>
+<div id="outline-container-org2fce91f" class="outline-2">
+<h2 id="org2fce91f">ZSH</h2>
+<div class="outline-text-2" id="text-org2fce91f">
+</div>
+<div id="outline-container-org1873e3e" class="outline-3">
+<h3 id="org1873e3e">Installation</h3>
+<div class="outline-text-3" id="text-org1873e3e">
+<p>
+First lets install the ZSH package. This is how I do it on Ubuntu.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">sudo apt install zsh
+</pre>
+</div>
+<p>
+That handles the shell itself. Next up is our plugin manager.
+</p>
+
+<p>
+oh-my-zsh reccomends you blindly execute a shell script, which I'm never a fan of. Instead lets download it, check it, then run it.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh &gt;&gt; /tmp/install.sh
+less /tmp/install.sh
+</pre>
+</div>
+<p>
+From a read through of the script you can see it downloads a default oh-my-zsh setup, sets ZSH to the default shell, creates your configuration files, and configures any other tidbits.
+</p>
+
+<p>
+Let's go ahead and install it
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">sh /tmp/install.sh
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">and lets cleanup</span>
+rm /tmp/install.sh
+</pre>
+</div>
+<p>
+Make sure when installing we say yes to changing our default shell, and I recommend taking the oh-my-zsh template. Your old .zshrc will be backed up.
+</p>
+
+<p>
+In addition, if you don't already have fzf (fuzzy-find) installed lets add it as well for an amazing auto-completion tool
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+</pre>
+</div>
+<p>
+This will give you great command and path auto-completion. Make sure to allow it to update your .zshrc with the appropriate source command
+</p>
+
+<p>
+There's one last tool that well be using, and that's zoxide. Again they recommend blindly running shell scripts. Read it first :)
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh &gt;&gt; /tmp/install.sh
+</pre>
+</div>
+<p>
+You can see it downloads the appropriate binary for your system architecture and distribution, and install it and the appropriate man pages. It also sets up any shell sourcing that is needed
+</p>
+</div>
+</div>
+<div id="outline-container-org4225f83" class="outline-3">
+<h3 id="org4225f83">Configuration</h3>
+<div class="outline-text-3" id="text-org4225f83">
+<p>
+First off, lets set up our theme. I like powerlevel10k, because it's both pretty and I'm a die hard DBZ fan.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git clone --depth=1 https://github.com/romkatv/powerlevel10k.git <span style="font-style: italic;">"${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"</span>
+</pre>
+</div>
+<p>
+this will allow the theme to be loaded by oh-my-zsh, but we'll need to configure it first. First set the them in your .zshrc
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="font-weight: bold; font-style: italic;">ZSH_THEME</span>=<span style="font-style: italic;">"powerlevel10k/powerlevel10k"</span>
+</pre>
+</div>
+<p>
+First thing after setting the them is to install the fonts per these <a href="https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#meslo-nerd-font-patched-for-powerlevel10k">instructions</a>. I use alacritty, configure it for whatever terminal you use
+</p>
+
+<p>
+Then run the following:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">p10k configure
+</pre>
+</div>
+<p>
+select what you like here, and make sure the prompts about fonts show you have all of the fonts installed properly
+</p>
+
+<p>
+After that is all set, lets configure some plugins! We'll be using some from the base oh-my-zsh plugins and some custom. lets install the custom ones first
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${<span style="font-weight: bold; font-style: italic;">ZSH_CUSTOM</span>:-~/.oh-my-zsh/custom}/plugins/you-should-use
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${<span style="font-weight: bold; font-style: italic;">ZSH_CUSTOM</span>:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${<span style="font-weight: bold; font-style: italic;">ZSH_CUSTOM</span>:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+</pre>
+</div>
+<p>
+Now that caps of the custom plugins I install. Lets update our plugins setting in our ~/.zshrc
+</p>
+
+<p>
+Here's what I use:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="font-weight: bold; font-style: italic;">plugins</span>=(git aliases colored-man-pages colorize copyfile cp extract history tmux vi-mode zoxide virtualenv universalarchive rsync ssh
+you-should-use zsh-syntax-highlighting zsh-autosuggestions)
+</pre>
+</div>
+<p>
+Discussions on plugins will be below
+</p>
+</div>
+</div>
+<div id="outline-container-org801951e" class="outline-3">
+<h3 id="org801951e">Plugins</h3>
+<div class="outline-text-3" id="text-org801951e">
+</div>
+<div id="outline-container-org25a613c" class="outline-4">
+<h4 id="org25a613c">git</h4>
+<div class="outline-text-4" id="text-org25a613c">
+<p>
+Excellent shorthand aliases for git
+</p>
+</div>
+</div>
+<div id="outline-container-org096c322" class="outline-4">
+<h4 id="org096c322">aliases</h4>
+<div class="outline-text-4" id="text-org096c322">
+<p>
+Show aliases and allow searching for them
+</p>
+<pre class="example">
+als &lt;search term&gt;
+</pre>
+<p>
+Syntax above
+</p>
+</div>
+</div>
+<div id="outline-container-org69e05f7" class="outline-4">
+<h4 id="org69e05f7">colored-man-pages</h4>
+<div class="outline-text-4" id="text-org69e05f7">
+<p>
+Gives you access to colored man pages
+</p>
+</div>
+</div>
+<div id="outline-container-org7fa8538" class="outline-4">
+<h4 id="org7fa8538">colorize</h4>
+<div class="outline-text-4" id="text-org7fa8538">
+<p>
+Gives you colorized cat via ccat
+Lets you copy a whole file to clipboard via copyfile
+</p>
+</div>
+</div>
+<div id="outline-container-org55414fd" class="outline-4">
+<h4 id="org55414fd">extract</h4>
+<div class="outline-text-4" id="text-org55414fd">
+<p>
+Extract command to auto-extract any archive format
+</p>
+</div>
+</div>
+<div id="outline-container-org5e4c85b" class="outline-4">
+<h4 id="org5e4c85b">history</h4>
+<div class="outline-text-4" id="text-org5e4c85b">
+<p>
+Some aliases to search through history quicker
+</p>
+</div>
+</div>
+<div id="outline-container-org14fe556" class="outline-4">
+<h4 id="org14fe556">tmux</h4>
+<div class="outline-text-4" id="text-org14fe556">
+<p>
+Some useful aliases for tmux connections
+</p>
+</div>
+</div>
+<div id="outline-container-orgdb3d0c7" class="outline-4">
+<h4 id="orgdb3d0c7">vi-mode</h4>
+<div class="outline-text-4" id="text-orgdb3d0c7">
+<p>
+Give vim bindings when editing the shell session
+</p>
+</div>
+</div>
+<div id="outline-container-org1352b93" class="outline-4">
+<h4 id="org1352b93">zoxide</h4>
+<div class="outline-text-4" id="text-org1352b93">
+<p>
+Initializes zoxide for you and binds it to z
+</p>
+</div>
+</div>
+<div id="outline-container-orgcc70fb1" class="outline-4">
+<h4 id="orgcc70fb1">virtualenv</h4>
+<div class="outline-text-4" id="text-orgcc70fb1">
+<p>
+Shows details of the currently activated virtual environment
+</p>
+</div>
+</div>
+<div id="outline-container-orgb495afe" class="outline-4">
+<h4 id="orgb495afe">universalarchive</h4>
+<div class="outline-text-4" id="text-orgb495afe">
+<p>
+Command to store anything into any archive format
+</p>
+</div>
+</div>
+<div id="outline-container-org7e6249d" class="outline-4">
+<h4 id="org7e6249d">rsync</h4>
+<div class="outline-text-4" id="text-org7e6249d">
+<p>
+Some useful rsync aliases that automatically put sane defaults
+</p>
+</div>
+</div>
+<div id="outline-container-org713295f" class="outline-4">
+<h4 id="org713295f">ssh</h4>
+<div class="outline-text-4" id="text-org713295f">
+<p>
+allows auto-completion of host via ~/.ssh/config
+</p>
+</div>
+</div>
+<div id="outline-container-org881ef8b" class="outline-4">
+<h4 id="org881ef8b">you-should-use</h4>
+<div class="outline-text-4" id="text-org881ef8b">
+<p>
+Prompts you of any alias you could of used instead of the long form command
+</p>
+</div>
+</div>
+<div id="outline-container-org2148ac7" class="outline-4">
+<h4 id="org2148ac7">zsh-syntax-highlighting</h4>
+<div class="outline-text-4" id="text-org2148ac7">
+<p>
+Highlights syntax :)
+</p>
+</div>
+</div>
+<div id="outline-container-orgc314286" class="outline-4">
+<h4 id="orgc314286">zsh-autosuggestions</h4>
+<div class="outline-text-4" id="text-orgc314286">
+<p>
+Gives gray prompts of potential commands you could be typing akin to what fish does
+</p>
+
+<br>
+<br>
+
+
+<center>
+<a href="https://www.gnu.org/software/emacs/"> <img src="/assets/images/made_with_emacs.png"></a>
+<a href="https://www.spacemacs.org/"> <img src="/assets/images/made_with_spacemacs.png"></a>
+<br>
+Contact: <a href = mailto: "Pat@PatrickCPE.com">Pat@PatrickCPE.com</a>
+<br>
+©PatrickCPE
+</center>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2026:01:11</p>
+</div>
+</body>
+</html>

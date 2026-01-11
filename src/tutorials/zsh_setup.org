@@ -1,0 +1,143 @@
+#+title: ZSH Setup
+#+description: ZSH installation, setup, package management, and usage
+#+date: 2026:01:11
+#+options: toc:t
+
+#+begin_export html
+<div class="topnav">
+<a href="/index.html">Home</a>
+<a class="active" href="/tutorials.html">Tutorials</a>
+<a href="/projects.html">Projects</a>
+<a href="/blogs.html">Blog</a>
+<a href="/about_me.html">About Me</a>
+<a href="/links.html">Links</a>
+</div>
+#+end_export
+
+* Overview
+ZSH is a nearly POSIX compliant shell, but the ZSH environment for development is very nice. This guide goes over install, and how I set it up, alongside my typical workflow.
+
+I use the Oh-My-ZSH plugin manager to sort out my packages
+* ZSH
+** Installation
+First lets install the ZSH package. This is how I do it on Ubuntu.
+#+begin_src shell
+sudo apt install zsh
+#+end_src
+That handles the shell itself. Next up is our plugin manager.
+
+oh-my-zsh reccomends you blindly execute a shell script, which I'm never a fan of. Instead lets download it, check it, then run it.
+#+begin_src shell
+curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh >> /tmp/install.sh
+less /tmp/install.sh
+#+end_src
+From a read through of the script you can see it downloads a default oh-my-zsh setup, sets ZSH to the default shell, creates your configuration files, and configures any other tidbits.
+
+Let's go ahead and install it
+#+begin_src shell
+sh /tmp/install.sh
+# and lets cleanup
+rm /tmp/install.sh
+#+end_src
+Make sure when installing we say yes to changing our default shell, and I recommend taking the oh-my-zsh template. Your old .zshrc will be backed up.
+
+In addition, if you don't already have fzf (fuzzy-find) installed lets add it as well for an amazing auto-completion tool
+#+begin_src shell
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+#+end_src
+This will give you great command and path auto-completion. Make sure to allow it to update your .zshrc with the appropriate source command
+
+There's one last tool that well be using, and that's zoxide. Again they recommend blindly running shell scripts. Read it first :)
+#+begin_src shell
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh >> /tmp/install.sh
+#+end_src
+You can see it downloads the appropriate binary for your system architecture and distribution, and install it and the appropriate man pages. It also sets up any shell sourcing that is needed
+** Configuration
+First off, lets set up our theme. I like powerlevel10k, because it's both pretty and I'm a die hard DBZ fan.
+#+begin_src shell
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+#+end_src
+this will allow the theme to be loaded by oh-my-zsh, but we'll need to configure it first. First set the them in your .zshrc
+#+begin_src shell
+ZSH_THEME="powerlevel10k/powerlevel10k"
+#+end_src
+First thing after setting the them is to install the fonts per these [[https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#meslo-nerd-font-patched-for-powerlevel10k][instructions]]. I use alacritty, configure it for whatever terminal you use
+
+Then run the following:
+#+begin_src shell
+p10k configure
+#+end_src
+select what you like here, and make sure the prompts about fonts show you have all of the fonts installed properly
+
+After that is all set, lets configure some plugins! We'll be using some from the base oh-my-zsh plugins and some custom. lets install the custom ones first
+#+begin_src shell
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#+end_src
+Now that caps of the custom plugins I install. Lets update our plugins setting in our ~/.zshrc
+
+Here's what I use:
+#+begin_src shell
+plugins=(git aliases colored-man-pages colorize copyfile cp extract history tmux vi-mode zoxide virtualenv universalarchive rsync ssh
+you-should-use zsh-syntax-highlighting zsh-autosuggestions)
+#+end_src
+Discussions on plugins will be below
+** Plugins
+*** git
+Excellent shorthand aliases for git
+*** aliases
+Show aliases and allow searching for them
+#+begin_src 
+als <search term>
+#+end_src
+Syntax above
+*** colored-man-pages
+Gives you access to colored man pages
+*** colorize
+Gives you colorized cat via ccat
+Lets you copy a whole file to clipboard via copyfile
+*** extract
+Extract command to auto-extract any archive format
+*** history
+Some aliases to search through history quicker
+*** tmux
+Some useful aliases for tmux connections
+*** vi-mode
+Give vim bindings when editing the shell session
+*** zoxide
+Initializes zoxide for you and binds it to z
+*** virtualenv
+Shows details of the currently activated virtual environment
+*** universalarchive
+Command to store anything into any archive format
+*** rsync
+Some useful rsync aliases that automatically put sane defaults
+*** ssh
+allows auto-completion of host via ~/.ssh/config
+*** you-should-use
+Prompts you of any alias you could of used instead of the long form command
+*** zsh-syntax-highlighting
+Highlights syntax :)
+*** zsh-autosuggestions
+Gives gray prompts of potential commands you could be typing akin to what fish does
+
+#+begin_export html
+<br>
+<br>
+#+end_export
+
+
+#+begin_export html
+<center>
+<a href="https://www.gnu.org/software/emacs/"> <img src="/assets/images/made_with_emacs.png"></a>
+<a href="https://www.spacemacs.org/"> <img src="/assets/images/made_with_spacemacs.png"></a>
+<br>
+Contact: <a href = mailto: "Pat@PatrickCPE.com">Pat@PatrickCPE.com</a>
+<br>
+©PatrickCPE
+</center>
+#+end_export
+
+#  LocalWords:  Sessionist ccat

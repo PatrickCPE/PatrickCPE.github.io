@@ -1,5 +1,6 @@
 #+title: TMUX Setup
 #+description: TMUX installation, setup, package management, and usage
+#+date: 2026:01:10
 #+options: toc:t
 
 #+begin_export html
