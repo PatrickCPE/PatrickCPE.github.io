@@ -40,6 +40,13 @@ I also need the following package for one of my plugins
 #+begin_src shell
 sudo snap install yq
 #+end_src
+This will be used for some yaml parsing by some plugins
+
+The final package we will need is fzf. I install it from source via:
+#+begin_src shell
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+#+end_src
 Without further ado onto TMUX plugins
 ** Configuration
 Let's configure the basic setup first. Add the following to ~/tmux.conf. This is based on [[https://github.com/justinwalz/dotfiles/blob/main/.tmux.conf][justinwalz's config]]
@@ -136,6 +143,8 @@ set -g @continuum-boot 'on'
 set -g @continuum-restore 'on'
 
 # Tool to do fuzzy text copy and paste from the screen above
+# NOTE: This will need to be updated if you installed from source!
+set -g @extrakto_fzf_tool "/home/patrick/.fzf/bin/fzf"
 set -g @plugin 'laktak/extrakto'
 
 # More standard mouse functionallity

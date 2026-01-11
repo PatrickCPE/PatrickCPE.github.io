@@ -18,15 +18,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org984535e">Overview</a></li>
-<li><a href="#orgdfe15f1">TMUX</a>
+<li><a href="#orgc0c2c6a">Overview</a></li>
+<li><a href="#orgb02e8d9">TMUX</a>
 <ul>
-<li><a href="#org0c6f4ab">Installation</a></li>
-<li><a href="#orged09e4e">Configuration</a></li>
-<li><a href="#org882b207">Usage</a>
+<li><a href="#org1b0b3b8">Installation</a></li>
+<li><a href="#orge1e9dd8">Configuration</a></li>
+<li><a href="#orgb10a45d">Usage</a>
 <ul>
-<li><a href="#org0bdd1cb">Workflow</a></li>
-<li><a href="#org246b16f">Commands</a></li>
+<li><a href="#orga7e896a">Workflow</a></li>
+<li><a href="#org83de34a">Commands</a></li>
 </ul>
 </li>
 </ul>
@@ -43,9 +43,9 @@
 <a href="/links.html">Links</a>
 </div>
 
-<div id="outline-container-org984535e" class="outline-2">
-<h2 id="org984535e">Overview</h2>
-<div class="outline-text-2" id="text-org984535e">
+<div id="outline-container-orgc0c2c6a" class="outline-2">
+<h2 id="orgc0c2c6a">Overview</h2>
+<div class="outline-text-2" id="text-orgc0c2c6a">
 <p>
 TMUX is a terminal multiplexer. It gives you quick access to multiple terminals that persists across shell sessions, and can remain open even if you disconnect via SSH.
 It allows you to split shells and open new windows akin to Terminator.
@@ -56,13 +56,13 @@ I highly recommend all your shell sessions are run via TMUX.
 </p>
 </div>
 </div>
-<div id="outline-container-orgdfe15f1" class="outline-2">
-<h2 id="orgdfe15f1">TMUX</h2>
-<div class="outline-text-2" id="text-orgdfe15f1">
+<div id="outline-container-orgb02e8d9" class="outline-2">
+<h2 id="orgb02e8d9">TMUX</h2>
+<div class="outline-text-2" id="text-orgb02e8d9">
 </div>
-<div id="outline-container-org0c6f4ab" class="outline-3">
-<h3 id="org0c6f4ab">Installation</h3>
-<div class="outline-text-3" id="text-org0c6f4ab">
+<div id="outline-container-org1b0b3b8" class="outline-3">
+<h3 id="org1b0b3b8">Installation</h3>
+<div class="outline-text-3" id="text-org1b0b3b8">
 <p>
 Installation of the base package is rather straightforward for most systems. On APT based systems:
 </p>
@@ -97,13 +97,25 @@ I also need the following package for one of my plugins
 </pre>
 </div>
 <p>
+This will be used for some yaml parsing by some plugins
+</p>
+
+<p>
+The final package we will need is fzf. I install it from source via:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+</pre>
+</div>
+<p>
 Without further ado onto TMUX plugins
 </p>
 </div>
 </div>
-<div id="outline-container-orged09e4e" class="outline-3">
-<h3 id="orged09e4e">Configuration</h3>
-<div class="outline-text-3" id="text-orged09e4e">
+<div id="outline-container-orge1e9dd8" class="outline-3">
+<h3 id="orge1e9dd8">Configuration</h3>
+<div class="outline-text-3" id="text-orge1e9dd8">
 <p>
 Let's configure the basic setup first. Add the following to ~/tmux.conf. This is based on <a href="https://github.com/justinwalz/dotfiles/blob/main/.tmux.conf">justinwalz's config</a>
 </p>
@@ -211,6 +223,8 @@ I install the following set of plugins for mine. You can view other plugins <a h
 <span style="font-weight: bold;">set</span> -g @continuum-restore <span style="font-style: italic;">'on'</span>
 
 <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Tool to do fuzzy text copy and paste from the screen above</span>
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">NOTE: This will need to be updated if you installed from source!</span>
+<span style="font-weight: bold;">set</span> -g @extrakto_fzf_tool <span style="font-style: italic;">"/home/patrick/.fzf/bin/fzf"</span>
 <span style="font-weight: bold;">set</span> -g @plugin <span style="font-style: italic;">'laktak/extrakto'</span>
 
 <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">More standard mouse functionallity</span>
@@ -242,13 +256,13 @@ Your key selections are yours, be unique, have fun.
 </p>
 </div>
 </div>
-<div id="outline-container-org882b207" class="outline-3">
-<h3 id="org882b207">Usage</h3>
-<div class="outline-text-3" id="text-org882b207">
+<div id="outline-container-orgb10a45d" class="outline-3">
+<h3 id="orgb10a45d">Usage</h3>
+<div class="outline-text-3" id="text-orgb10a45d">
 </div>
-<div id="outline-container-org0bdd1cb" class="outline-4">
-<h4 id="org0bdd1cb">Workflow</h4>
-<div class="outline-text-4" id="text-org0bdd1cb">
+<div id="outline-container-orga7e896a" class="outline-4">
+<h4 id="orga7e896a">Workflow</h4>
+<div class="outline-text-4" id="text-orga7e896a">
 <p>
 Typically my workflow goes as follows:
 -create a new TMUX session for some specific, I typically name it with the date just so I can have them sorted. This is because at work I'll have multiple projects I work on and I may have sessions from a long time ago. Year is probably overkill :)
@@ -266,9 +280,9 @@ From here I'll initialize my windows and split them as I'd typically need for my
 </p>
 </div>
 </div>
-<div id="outline-container-org246b16f" class="outline-4">
-<h4 id="org246b16f">Commands</h4>
-<div class="outline-text-4" id="text-org246b16f">
+<div id="outline-container-org83de34a" class="outline-4">
+<h4 id="org83de34a">Commands</h4>
+<div class="outline-text-4" id="text-org83de34a">
 <p>
 Here's my list of commands
 </p>
