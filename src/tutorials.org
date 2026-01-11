@@ -15,9 +15,8 @@
 
 * Tutorials
 [[file:tutorials/zsh_setup.org][ZSH Setup]]- Guide to setting up ZSH and plugins via oh-my-zsh
-[[file:tutorials/tmux_setup.org][TMUX Setup]] - Guide to setting up and TMUX usage. An amazing tool to increase your terminal experience :)
 
-/home/patrick/ws/patrickcpe/src/tutorials/zsh_setup.org
+[[file:tutorials/tmux_setup.org][TMUX Setup]] - Guide to setting up and TMUX usage. An amazing tool to increase your terminal experience :)
 
 #+begin_export html
 <center>
