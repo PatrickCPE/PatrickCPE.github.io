@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Learning Zig</title>
+<meta name="generator" content="Org mode" />
+<meta name="description" content="Notes and thoughs on the Zig programming language, a spiritual successor to C"
+ />
+<link rel="stylesheet" href="/assets/css/worg.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Learning Zig</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org07ea1f5">Overview</a></li>
+<li><a href="#orgb61967d">Installation</a>
+<ul>
+<li><a href="#orge2c888d">Zig</a></li>
+<li><a href="#org54477be">Zig Language Server</a></li>
+<li><a href="#orgb68effa">Emacs Configuration</a></li>
+</ul>
+</li>
+<li><a href="#org51c617e">Code Samples</a></li>
+<li><a href="#orgab3481f">Starter Project</a></li>
+<li><a href="#org1e3892d">Closing Thoughts</a></li>
+</ul>
+</div>
+</div>
+<div class="topnav">
+<a href="/index.html">Home</a>
+<a href="/tutorials.html">Tutorials</a>
+<a href="/projects.html">Projects</a>
+<a class="active" href="/blogs.html">Blog</a>
+<a href="/about_me.html">About Me</a>
+<a href="/links.html">Links</a>
+</div>
+
+<div id="outline-container-org07ea1f5" class="outline-2">
+<h2 id="org07ea1f5">Overview</h2>
+</div>
+<div id="outline-container-orgb61967d" class="outline-2">
+<h2 id="orgb61967d">Installation</h2>
+<div class="outline-text-2" id="text-orgb61967d">
+</div>
+<div id="outline-container-orge2c888d" class="outline-3">
+<h3 id="orge2c888d">Zig</h3>
+<div class="outline-text-3" id="text-orge2c888d">
+<p>
+Run the following to get the latest version
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git clone https://codeberg.org/ziglang/zig.git
+mkdir build
+<span style="font-weight: bold;">cd</span> build
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">NOTE: This was different for me personally! I had to use LLVM's apt repo itself and customize some stuff</span>
+cmake .. <span style="font-style: italic;">\</span>
+  -DLLVM_CONFIG_EXECUTABLE=/usr/bin/llvm-config-21 <span style="font-style: italic;">\</span>
+  -DCLANG_INCLUDE_DIRS=/usr/lib/llvm-21/include <span style="font-style: italic;">\</span>
+  -DLLD_INCLUDE_DIRS=/usr/lib/llvm-21/include <span style="font-style: italic;">\</span>
+  -DLLD_LIBRARIES=/usr/lib/llvm-21/lib
+
+make install
+</pre>
+</div>
+<p>
+You'll need a modern version of LLVM which can be found <a href="https://github.com/llvm/llvm-project/releases/tag/llvmorg-21.1.0">here</a>.
+</p>
+
+<p>
+If you're on an outdated libc like I am you may need to use the LLVM apt repo:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh
+sudo ./llvm.sh 21
+</pre>
+</div>
+<p>
+This resovled my issues
+</p>
+</div>
+</div>
+<div id="outline-container-org54477be" class="outline-3">
+<h3 id="org54477be">Zig Language Server</h3>
+<div class="outline-text-3" id="text-org54477be">
+<p>
+Language servers are useful for development here
+</p>
+<div class="org-src-container">
+<pre class="src src-zig">git clone https://github.com/zigtools/zls
+cd zls
+zig build -Doptimize=ReleaseSafe
+</pre>
+</div>
+<p>
+Make sure to add this to path
+</p>
+</div>
+</div>
+<div id="outline-container-orgb68effa" class="outline-3">
+<h3 id="orgb68effa">Emacs Configuration</h3>
+</div>
+</div>
+<div id="outline-container-org51c617e" class="outline-2">
+<h2 id="org51c617e">Code Samples</h2>
+</div>
+<div id="outline-container-orgab3481f" class="outline-2">
+<h2 id="orgab3481f">Starter Project</h2>
+</div>
+<div id="outline-container-org1e3892d" class="outline-2">
+<h2 id="org1e3892d">Closing Thoughts</h2>
+<div class="outline-text-2" id="text-org1e3892d">
+<p>
+test
+</p>
+<br>
+<br>
+
+
+<center>
+<a href="https://www.gnu.org/software/emacs/"> <img src="/assets/images/made_with_emacs.png"></a>
+<a href="https://www.spacemacs.org/"> <img src="/assets/images/made_with_spacemacs.png"></a>
+<br>
+Contact: <a href = mailto: "Pat@PatrickCPE.com">Pat@PatrickCPE.com</a>
+<br>
+©PatrickCPE
+</center>
+</div>
+</div>
+</div>
+</body>
+</html>

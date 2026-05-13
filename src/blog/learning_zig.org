@@ -1,0 +1,72 @@
+#+title: Learning Zig
+#+description: Notes and thoughs on the Zig programming language, a spiritual successor to C
+#+options: toc:t
+
+#+begin_export html
+<div class="topnav">
+<a href="/index.html">Home</a>
+<a href="/tutorials.html">Tutorials</a>
+<a href="/projects.html">Projects</a>
+<a class="active" href="/blogs.html">Blog</a>
+<a href="/about_me.html">About Me</a>
+<a href="/links.html">Links</a>
+</div>
+#+end_export
+
+* Overview
+* Installation
+** Zig
+Run the following to get the latest version
+#+begin_src shell
+git clone https://codeberg.org/ziglang/zig.git
+mkdir build
+cd build
+# NOTE: This was different for me personally! I had to use LLVM's apt repo itself and customize some stuff
+cmake .. \
+  -DLLVM_CONFIG_EXECUTABLE=/usr/bin/llvm-config-21 \
+  -DCLANG_INCLUDE_DIRS=/usr/lib/llvm-21/include \
+  -DLLD_INCLUDE_DIRS=/usr/lib/llvm-21/include \
+  -DLLD_LIBRARIES=/usr/lib/llvm-21/lib
+
+make install
+#+end_src
+You'll need a modern version of LLVM which can be found [[https://github.com/llvm/llvm-project/releases/tag/llvmorg-21.1.0][here]].
+
+If you're on an outdated libc like I am you may need to use the LLVM apt repo:
+#+begin_src shell
+wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh
+sudo ./llvm.sh 21
+#+end_src
+This resovled my issues
+** Zig Language Server
+Language servers are useful for development here
+#+begin_src zig
+git clone https://github.com/zigtools/zls
+cd zls
+zig build -Doptimize=ReleaseSafe
+#+end_src
+Make sure to add this to path
+** Emacs Configuration
+* Code Samples
+* Starter Project
+* Closing Thoughts
+
+TODO WIP!
+#+begin_export html
+<br>
+<br>
+#+end_export
+
+
+#+begin_export html
+<center>
+<a href="https://www.gnu.org/software/emacs/"> <img src="/assets/images/made_with_emacs.png"></a>
+<a href="https://www.spacemacs.org/"> <img src="/assets/images/made_with_spacemacs.png"></a>
+<br>
+Contact: <a href = mailto: "Pat@PatrickCPE.com">Pat@PatrickCPE.com</a>
+<br>
+©PatrickCPE
+</center>
+#+end_export
+

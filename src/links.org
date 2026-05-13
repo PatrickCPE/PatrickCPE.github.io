@@ -47,10 +47,9 @@ This is how the internet was meant to be used before search engines gave up the 
 - [[https://orgmode.org/][Org Mode]] - The life changing Emacs feature. This website was made in org mode. All my notes are in org mode. I schedule and track all my work and notes in here. Trust me. Check it out
 - [[https://pages.cs.wisc.edu/~remzi/OSTEP/][Operating Systems: Three Easy Pieces]] - A free OS textbook hosted online. Fairly comprehensive and a good reference
 - [[https://notes.shichao.io/][Shichao's Notes]] - A great reference for Unix info and TCP info
-- [[https://www.unixsheikh.com][Unix Sheikh]] - Some more systemd hatred. Some Linux/BSD post, rants, and some good reading
 - [[https://sanctum.geek.nz/][Tom Ryder]] - Some interesting software takes here
 * Security
-- [[https://spyware.neocities.org/][Spyware Watchdog]] - A great report on what software is glowing bright as the sun. Also lots of (justified) hatred for cloud flare and the fact it's probably a service for the Glowies and Technocrats
+- [[https://spyware.neocities.org/][Spyware Watchdog]] - A great report on what software is glowing bright as the sun. Also lots of (justified) hatred for cloud flare
 - [[https://www.usenix.org/system/files/sec20-ender.pdf][Xilinx 7 Series Encryption Crack]] - Because breaking stuff is fun :)
 * Math
 - [[http://ciphersbyritter.com/][Ciphers By Ritter]] - Awesome resource on encryption, ciphers, and strangely audio amps too
@@ -71,7 +70,7 @@ This is how the internet was meant to be used before search engines gave up the 
 - [[https://www.over-yonder.net/~fullermd/][Matt Fuller]] - A blog that captures how the internet should be. BSD, Windows Hatred <3, software, and everything you loved about the internet in the 90's (before I was born)
 ** Misc
 - [[https://lukesmith.xyz/][Luke Smith]] - Weird techno-boomer rants, Linux, and religious stuff. Gotta love it
-- [[https://www.youtube.com/@MentalOutlaw][Mental Outlaw]] - Kenny has IT and security, Linux (Gentoo Giga-Chad), and apparently now homesteading stuff. 95% chance he's Luke Smith's deep fake according to Fed sources
+- [[https://www.youtube.com/@MentalOutlaw][Mental Outlaw]] - Kenny has IT and security, Linux, and apparently now homesteading stuff. 95% chance he's Luke Smith's deep fake
 * Random
 - [[https://hackaday.io/project/178826-pineapple-one/details#header][Pineapple One]] - A custom RISC-V CPU made from discreet logic chips and a bunch of stacked PCBs. Tis' a thing of beauty
 - [[https://kdenlive.org/en/][Kden Live]] - An open source video editor tool that's straightforward and powerful
